@@ -1,0 +1,345 @@
+@charset "UTF-8"
+
+
+// animate.css -http://daneden.me/animate
+// Version - 3.6.0
+// Licensed under the MIT license - http://opensource.org/licenses/MIT
+//
+//  Copyright (c) 2018 Daniel Eden
+
+
+=animate($name: fadeIn, $duration: 1s, $delay: 0.2s, $timing: initial,  $count: 1, $mode: both, $backface: visible)
+ -webkit-animation-name: $name
+ animation-name: $name
+ -webkit-animation-duration: $duration
+ animation-duration: $duration
+ -webkit-animation-delay: $delay
+ animation-delay: $delay
+ -webkit-animation-timing-function: $timing
+ animation-timing-function:  $timing
+ -webkit-animation-iteration-count: $count //1~infinite
+ animation-iteration-count: $count //1~infinite
+ -webkit-animation-fill-mode: $mode
+ animation-fill-mode: $mode
+ -webkit-backface-visibility: $backface !important
+ backface-visibility: $backface !important
+
+
+/*↓↓↓The below add you wanted animate↓↓↓*/
+@-webkit-keyframes rotateSquare
+ from
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(0deg)
+  transform: rotateZ(0deg) 
+
+ to
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(360deg)
+  transform: rotateZ(360deg)
+  
+@keyframes rotateSquare
+ from
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(0, 0, 0)
+  transform: rotateZ(0, 0, 0) 
+
+ to
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(360deg)
+  transform: rotateZ(360deg)
+
+
+
+@-webkit-keyframes rotateCircle
+ from
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(0deg) scale(1,1)
+  transform: rotateZ(0deg) scale(1,1)
+ 25%
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(0deg) scale(1.1,1.1)
+  transform: rotateZ(0deg) scale(1.1,1.1)
+ 50%
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(-360deg) scale(0.9,0.9)
+  transform: rotateZ(-360deg) scale(0.9,0.9)
+ 75%
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: scale(0.9, 0.9)
+  transform: scale(0.9,0.9)
+ to
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: scale(1,1)
+
+@keyframes rotateCircle
+ from
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(0deg) scale(1,1)
+  transform: rotateZ(0deg) scale(1,1)
+ 25%
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(0deg) scale(1.1,1.1)
+  transform: rotateZ(0deg) scale(1.1,1.1)
+ 50%
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(-360deg) scale(0.9,0.9)
+  transform: rotateZ(-360deg) scale(0.9,0.9)
+ 75%
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: scale(0.9,0.9)
+  transform: scale(0.9,0.9)
+ to
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: scale(1,1)
+  transform: scale(1,1)
+
+
+
+@-webkit-keyframes rotateStar
+ from
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(0deg)
+  transform: rotateZ(0deg) 
+
+ to
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(-360deg)
+  transform: rotateZ(-360deg)
+
+@keyframes rotateStar
+ from
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(0, 0, 0)
+  transform: rotateZ(0, 0, 0) 
+
+ to
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: rotateZ(-360deg)
+  transform: rotateZ(-360deg)
+
+
+
+@-webkit-keyframes rotateStar-full
+ from
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: scale(1,1)
+  transform: scale(1,1) 
+
+ to
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: scale(10)
+  transform: scale(10)
+
+@keyframes rotateStar-full
+ from
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: scale(1,1)
+  transform: scale(1,1) 
+
+ to
+  -webkit-transform-origin: center
+  transform-origin: center
+  -webkit-transform: scale(10)
+  transform: scale(10)
+
+
+
+@-webkit-keyframes rotateClockwise
+ from
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  -webkit-transform: rotateZ(0deg)
+  transform: rotateZ(0deg) 
+ to
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  -webkit-transform: rotateZ(360deg)
+  transform: rotateZ(360deg)
+
+@keyframes rotateClockwise
+ from
+  -webkit-transform-origin: center center
+  transform-origin: center
+  -webkit-transform: rotateZ(0deg)
+  transform: rotateZ(0deg)   
+ to
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  -webkit-transform: rotateZ(360deg)
+  transform: rotateZ(360deg)
+
+@-webkit-keyframes rotateCounterclockwise
+ from
+  -webkit-transform-origin: center center
+  transform-origin: center
+  -webkit-transform: rotateZ(0deg)
+  transform: rotateZ(0deg) 
+ to
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  -webkit-transform: rotateZ(-360deg)
+  transform: rotateZ(-360deg)
+
+@keyframes rotateCounterclockwise
+ from
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  -webkit-transform: rotateZ(0deg)
+  transform: rotateZ(0deg) 
+ to
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  -webkit-transform: rotateZ(-360deg)
+  transform: rotateZ(-360deg)
+
+@-webkit-keyframes floating0
+ from
+  -webkit-transform-origin: center center
+  transform-origin: center center
+ 50%
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  bottom: -89px
+  right: -52px
+ to
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  
+
+@keyframes floating0
+ from
+  -webkit-transform-origin: center
+  transform-origin: center  
+ 50%
+  -webkit-transform-origin: center
+  transform-origin: center
+  bottom: -89px
+  right: -52px
+ to
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  
+@-webkit-keyframes floating1
+ from
+  -webkit-transform-origin: center center
+  transform-origin: center center
+ 25%
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  bottom: 160px
+  right: 100px
+ 75%
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  bottom: 145px
+  right: 100px
+ to
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  
+
+@keyframes floating1
+ from
+  -webkit-transform-origin: center
+  transform-origin: center  
+ 25%
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  bottom: 160px
+  right: 100px
+ 75%
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  bottom: 145px
+  right: 100px
+ to
+  -webkit-transform-origin: center center
+  transform-origin: center center
+
+@-webkit-keyframes floating2
+ from
+  -webkit-transform-origin: center center
+  transform-origin: center center
+ 25%
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  bottom: 474px
+  right: -101px
+ 75%
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  bottom: 494px
+  right: -81px
+ to
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  
+
+@keyframes floating2
+ from
+  -webkit-transform-origin: center center
+  transform-origin: center center
+ 25%
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  bottom: 474px
+  right: -101px
+ 75%
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  bottom: 494px
+  right: -81px
+ to
+  -webkit-transform-origin: center center
+  transform-origin: center center
+
+@-webkit-keyframes fadeIn
+ from
+  opacity: 0
+
+ to
+  opacity: 1
+
+@keyframes fadeIn
+ from
+  opacity: 0
+
+ to
+  opacity: 1
+
+
+
+@-webkit-keyframes fadeOut
+ from
+  opacity: 1
+
+ to
+  opacity: 0
+
+@keyframes fadeOut
+ from
+  opacity: 1
+
+ to
+  opacity: 0

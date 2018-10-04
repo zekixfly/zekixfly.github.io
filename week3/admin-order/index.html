@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta http-equiv="Access-Control-Allow-Origin" content="*" /> -->
+	<title>admin order</title>	
+	<link rel="stylesheet" href="./css/admin-order.css?v0.1">
+	<link rel="stylesheet" href="./css/ZekiCore.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</head>
+<body>
+
+<loading></loading>
+
+<header></header>
+<article>
+	<home-content>
+
+		<section class="title">
+			<h3>OVERVIEW</h3>
+			<span class="date">
+				<span>2018/6/6</span>
+				<i class="fas fa-caret-right"></i>
+				<span>2018/6/13</span>
+				<span class="select-name">Weekly<i class="fas fa-sort-down"></i>
+					<ul class="list">
+						<li>Daily</li>
+						<li>Weekly</li>
+						<li>Monthly</li>
+						<li>Yearly</li>
+						<li>Custom</li>
+					</ul>
+				</span>
+
+			</span>
+		</section>
+
+		<section class="overview">
+			<span class="show-number-box"><h5><i class="fas fa-hand-holding-usd"></i>TOTAL REVENUE</h5><i id = "total-revenue"></i></span>
+			<span class="show-number-box"><h5><i class="fas fa-boxes"></i>TOTAL COST</h5><i id = "total-cost"></i></span>
+			<span class="show-number-box"><h5><i class="fas fa-money-bill"></i>NET INCOME</h5><i id = "net-income"></i></span>
+		</section>
+		<section class="bar-chart">
+			<div class="activity-title">Activity</div>
+			<canvas id="ZekiCanvas" width="940" height="406"></canvas>
+		</section>
+		<section class="home-info">
+
+			<article id="transaction-website">
+					<h3>Transaction Website</h3>
+					<section>
+						<i class="fab fa-facebook"></i><a href="https://facebook.com" target="_blank">Facebook.com</a>
+						<span class="percentage-up"><i class = "trading-volume">45,836</i><!-- 
+				--><span class="rate"><i class="fas fa-arrow-up"></i><i>20%</i>
+							<div class="tip">
+								<span class="increase">INCREASE <b>20</b> VIEWS</span><!--
+					--><span class="last-week">last week: 45,816</span>
+							</div>
+						</span>
+					</span>
+					</section>
+					<section>
+						<i class="fab fa-google"></i><a href="https://google.com" target="_blank">google.com</a>
+						<span class="percentage-up"><i class = "trading-volume">23,582</i><!-- 
+				--><span class="rate"><i class="fas fa-arrow-up"></i><i>12%</i>
+							<div class="tip">
+								<span class="increase">INCREASE <b>12</b> VIEWS</span><!--
+					--><span class="last-week">last week: 23570</span>
+							</div>
+						</span>
+					</span>
+					</section>
+					<section>
+						<i class="fa-shopify"></i><a href="https://shopify.com" target="_blank">Shopify.com</a>
+						<span class="percentage-down"><i class = "trading-volume">2,489</i><!-- 
+				--><span class="rate"><i class="fas fa-arrow-down"></i><i>15%</i>
+							<div class="tip">
+								<span class="reduce">REDUCE <b>15</b> VIEWS</span><!--
+					--><span class="last-week">last week: 2504</span>
+							</div>
+						</span></span>
+					</section>
+					<section><i class="fab fa-wordpress-simple"></i><a href="https://wordpress.com" target="_blank">Wordpress.com</a>
+						<span class="percentage-down"><i class = "trading-volume">1,057</i><!-- 
+				--><span class="rate"><i class="fas fa-arrow-down"></i><i>30%</i>
+							<div class="tip">
+								<span class="reduce">REDUCE <b>30</b> VIEWS</span><!--
+					--><span class="last-week">last week: 1087</span>
+							</div>
+						</span></span>
+					</section>
+			</article>
+
+			<article id="latest-orders">
+				<h3>Latest Orders</h3>
+			<!-- lastest orders  -->
+			</article>
+		</section>
+		
+
+	</home-content>
+
+	<orders-content>
+		
+		<section>
+			<label for="orders-checkbox" class="checkbox-container no_selection">
+				<input type="checkbox" id="orders-checkbox">
+				<span class="checkmark"></span>
+				<i class="fas fa-sort-down"></i>
+			</label>
+			<span class="edit-section">EDIT SECTION<i class="fas fa-sort-down"></i></span>
+		</section>		
+
+	</orders-content>
+
+	<product-content>
+
+		<section id="main">
+			<label for="product-checkbox" class="checkbox-container no_selection">
+				<input type="checkbox" id="product-checkbox">
+				<span class="checkmark"></span>
+				<i class="fas fa-sort-down"></i>
+			</label>
+			<span class="add-newproduct">ADD NEW PRODUCT<i class="fas fa-plus"></i></span>
+		</section>		
+		
+		<section id="item-list">
+			<table class="product-list">
+				<thead>				
+					<tr class="title">
+						<th width="230">Product</th>
+						<th width="80">Original</th>
+						<th width="80">Discount</th>
+						<th width="52">Size</th>
+						<th width="30">Color</th>
+						<th width="70">Inventory</th>
+						<th width="70">Status</th>
+					</tr>
+				</thead>
+				<!-- The below as add tbody's part -->
+		</table>
+	</section>
+
+
+
+
+
+
+	</product-content>	
+</article>
+
+	
+</body>
+
+<script id="ZekiCore" type="text/javascript" src="./scripts/ZekiCore.js" import="main"></script>
+
+</html>

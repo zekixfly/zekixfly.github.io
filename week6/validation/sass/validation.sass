@@ -1,0 +1,578 @@
+@import animate.min
+@import compass
+@import compass/reset
+
+$color-invalid: #F5A623
+$color-valid: green
+
+@mixin field-border($color) 
+	position: relative
+	border:  3px solid $color !important
+	border-radius: 8px
+	box-sizing: border-box
+
+
+@mixin left-arrow
+	position: absolute
+	top: 50%
+	margin-top: -5px
+	left: -10px
+	content: ""
+	width: 0px
+	height: 0px
+	border: 5px solid #F5A623
+	border-color: transparent #F5A623 transparent transparent
+
+@mixin tip-invalid($message) 
+	color: #FFFFFF
+	content: $message
+
+.tip-invalid
+	width: 97px
+	height: 26px
+	margin-top: -13px
+	line-height: 26px
+	&::before
+		+left-arrow
+	&::after
+		+tip-invalid(attr(text))
+
+@mixin tip-valid
+	&::after
+		position: absolute
+		top: 0
+		right: 20px
+		font-size: 20px
+		line-height: 52px
+		font-weight: bold
+		content: "L"
+		color: green
+		transform: rotate(225deg) scale(1, -1)
+		text-align: center
+
+.tip-valid
+	top: 0px !important
+	margin-left: 0px !important
+	+tip-valid
+
+
+.tip
+	position: absolute
+	top: 50%
+	left: 100%
+	margin-left: 14px
+	font-size: 14px
+	text-align: center
+	background: #F5A623
+	border-radius: 4px
+
+
+
+.text-field
+	position: relative
+	&:focus:required:valid:not([name="comfirm-password"])
+		+field-border($color-valid)
+	&:focus:required:invalid 
+		+field-border($color-invalid)
+
+    
+.confirm-password-valid	
+	+field-border($color-valid)	
+	
+.confirm-password-invalid
+	+field-border($color-invalid)	
+
+input[type=number]::-webkit-inner-spin-button 
+	-webkit-appearance: none
+
+button
+	cursor: pointer
+	// font-family: Roboto-Regular
+	font-size: 20px
+	font-weight: bold
+	color: #FFFFFF
+	text-align: center
+	background-color: #BEE1FF
+	border: 2px solid #BEE1FF
+	border-radius: 8px
+	transition: all 0.3s
+	padding: 0px !important
+	&:hover
+		transition: all 0.3s
+		background-color: #0275D8
+		border: 2px solid #0275D8
+
+@mixin clearfix
+	*zoom: 1 //For IE 6&7 only
+	&:before, &:after 
+		content: ""
+		display: table
+	&:after 
+		clear: both
+
+.clearfix
+	+clearfix
+	clear: both
+
+.ellipsis
+	overflow: hidden
+	white-space: nowrap
+	text-overflow: ellipsis
+
+.no_selection 
+	-webkit-user-select: none // webkit (safari, chrome) browsers
+	-moz-user-select: none // mozilla browsers 
+	-khtml-user-select: none // webkit (konqueror) browsers 
+	-ms-user-select: none // IE10+
+	user-select: none
+
+loading
+	display: block
+	position: fixed
+	z-index: 1000
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	background: url(../img/Ripple-1s-200px.svg) center center no-repeat
+	background-color: rgba(0,0,0,0.6)
+	width: 100%
+	height: 100%
+	max-width: initial
+
+
+.table-style
+	display: table !important
+
+.grid-style
+	display: grid !important
+
+.block-style
+	display: block !important
+
+.none-style	
+	display: none !important
+
+
+.cursor-pointer
+	cursor: pointer
+
+.cursor-default
+	cursor: default
+			
+
+a[href*="updog"] 
+	display: none !important	
+
+html, body
+	width: 100%
+	height: 100%
+
+
+body
+	background: #FFFFFF
+	font-family: 'Roboto' ,fantasy ,monospace
+	// font-weight: bold
+	max-width: 460px
+	min-width: 460px
+	margin: 0px auto
+
+
+header	
+	height: 3px
+	background-color: #0275D8
+	
+#progressbar
+	width: 260px
+	height: 106px
+	// background-color: rgba(0,0,0,0.5)
+	margin: 0 auto
+	display: flex
+	justify-content: space-around
+	
+	li
+		align-self: center
+		position: relative
+		display: flex		
+		width: 14px
+		height: 14px
+		line-height: 14px
+		background-color: #FFFFFF
+		border: 2px solid #BEE1FF
+		border-radius: 14px
+		&:first-child::after
+			content: none
+		&::after
+			position: absolute			
+			top: 50%			
+			margin-top: -1px
+			right: 100%
+			z-index: -1
+			content: ''
+			width: 50px
+			height: 2px
+			background: #BEE1FF
+
+
+
+	.active
+		transition: all 0.5s
+		border: 2px solid #0275D8		
+		&::after
+			transition: all 0.5s
+			background: #0275D8			
+		&::before
+			position: absolute
+			z-index: 2
+			top: 50%
+			margin-top: -4px
+			left: 50%
+			margin-left: -4px
+			content: ''
+			display: block
+			width: 8px
+			height: 8px
+			background-color: #0275D8
+			border-radius: 8px
+	.checked
+		background-color: #0275D8
+		&::before
+			top: 0
+			left: 0
+			margin: 0
+			width: 100%
+			height: 100%
+			content: "L"
+			color: #FFFFFF
+			transform: rotate(225deg) scale(1, -1)
+			text-align: center
+			
+
+fieldset:not(:first-of-type)
+	display: none
+
+fieldset 
+	h1
+		font-size: 48px
+		text-align: center
+	h2
+		font-size: 24px
+		text-align: center
+	input:not([type="button"]), select, .upload-photo
+		// font-family: Roboto-Regular
+		background-color: #FFFFFF
+		border: 2px solid #000000		
+		border-radius: 8px
+		outline: none
+		box-sizing: border-box
+		&::-webkit-input-placeholder
+			color: rgba(0,0,0,0.3)
+		&:-moz-placeholder
+			color: rgba(0,0,0,0.3)
+		&::-moz-placeholder 
+			color: rgba(0,0,0,0.3)
+		&:-ms-input-placeholder 
+			/* IE10+ */
+			color: rgba(0,0,0,0.3)
+
+
+fieldset:nth-of-type(1)
+	div
+		position: relative
+		margin: 56px auto
+		&::before
+			position: absolute			
+			top: -28px
+			left: 0px
+			display: block
+			content: attr(title)
+			// font-family: Roboto-Regular
+			font-size: 20px
+			font-weight: bold
+			line-height: 20px
+			letter-spacing: 0
+		&[title="Account"] input:focus:required:valid + .tip, 
+		&[title="Password"] input:focus:required:valid + .tip		
+			top: 0px
+			margin-left: 0px
+			+tip-valid
+		&[title="Account"] input:focus:required:invalid + .tip, 
+		&[title="Password"] input:focus:required:invalid + .tip, 
+		&[title="Comfirm Password"] input:focus:required:invalid + .tip
+			width: 113px
+			height: 26px
+			margin-top: -13px
+			line-height: 26px
+			&::before
+				+left-arrow
+			&::after
+				+tip-invalid(attr(text))
+		&[title="Password"] input:focus:required:invalid + .tip
+			width: 183px
+		&[title="Comfirm Password"] input:focus:required:invalid + .tip
+			width: 97px
+		input			
+			width: 460px
+			height: 52px
+			font-size: 20px
+			padding-left: 20px
+
+		button
+			width: 460px
+			height: 52px	
+
+
+fieldset:nth-of-type(2)
+	div
+		position: relative
+		margin: 56px auto
+		display: flex
+		justify-content: space-between
+		// letter-spacing: 0
+		&::before
+			position: absolute			
+			top: -28px
+			left: 0px
+			display: block
+			content: attr(title)
+			// font-family: Roboto-Regular
+			font-size: 20px
+			font-weight: bold
+			line-height: 20px
+		&.birth-date::after
+			position: absolute			
+			top: -25px
+			left: 88px
+			display: block
+			content: attr(sub-title)				
+			font-size: 16px
+			line-height: 16px				
+			letter-spacing: 0
+		&.address
+			margin: 56px auto 24px
+		&.address-detal 
+			margin: 0px auto 40px
+			input			
+				width: 460px
+				height: 52px
+			
+
+
+		span
+			position: relative
+			&::before
+				position: absolute			
+				top: -28px
+				left: 0px
+				display: block
+				content: attr(title)
+				// font-family: Roboto-Regular
+				font-size: 20px
+				font-weight: bold
+				line-height: 20px
+			&.name::after
+				position: absolute			
+				top: -25px
+				left: 55px
+				display: block
+				content: attr(sub-title)				
+				font-size: 16px
+				line-height: 16px				
+				letter-spacing: 0
+				
+		input, #city, #dist
+			width: 220px
+			height: 52px
+			font-size: 20px
+			padding-left: 20px
+		select			
+			color: rgba(0,0,0,0.3)
+			width: 140px
+			height: 52px
+			font-size: 20px
+			padding-left: 20px
+			appearance: none
+			-moz-appearance: none // Firefox
+			-webkit-appearance: none // Safari and Chrome
+		label
+			position: relative			
+			&::before
+				position: absolute
+				z-index: 0
+				right: 10px
+				top: 50%
+				margin-top: -12px
+				content: ''
+				width: 0
+				height: 0
+				border: 5px solid #000000
+				border-color: transparent transparent #000000 transparent
+			&::after
+				position: absolute
+				z-index: 0
+				right: 10px
+				bottom: 50%
+				margin-bottom: -12px
+				content: ''
+				width: 0
+				height: 0
+				border: 5px solid #000000
+				border-color: #000000 transparent transparent transparent
+			option				
+				color: #000000
+		button
+			width: 220px
+			height: 52px	
+
+fieldset:nth-of-type(3)
+	div
+		position: relative
+		margin: 56px auto
+		display: flex
+		justify-content: space-between
+		&.upload-photo
+			width: 460px
+			height: 140px
+			transition: all 0.3s
+			&:hover
+				transition: all 0.3s
+				border: 2px solid #4A90E2
+				label i
+					transition: all 0.3s
+					color: #0275D8
+			label
+				cursor: pointer
+				width: inherit
+				height: inherit
+				text-align: center
+				i
+					font-weight: bold
+					transition: all 0.3s
+				.fa-images
+					font-size: 45px
+					color: #9B9B9B					
+					line-height: 140px
+				.description
+					color: #9B9B9B
+					display: inline-block
+					text-align: left
+					margin-left: 20px
+					h5
+						font-size: 20px
+						line-height: 20px
+					h6
+						font-size: 16px
+						line-height: 16px
+				input[type="file"]
+					display: none
+					&::-webkit-inner-spin-button, &::-webkit-outer-spin-button
+						appearance: none
+						-moz-appearance: none // Firefox
+						-webkit-appearance: none // Safari and Chrome
+		button
+			width: 220px
+			height: 52px
+
+
+fieldset:nth-of-type(4)
+	div
+		position: relative
+		margin: 56px auto
+		display: flex
+		justify-content: space-between
+		span
+			position: relative
+			&::before
+				position: absolute			
+				top: -28px
+				left: 0px
+				display: block
+				content: attr(title)
+				// font-family: Roboto-Regular
+				font-size: 20px
+				font-weight: bold
+				line-height: 20px
+			&.card-number 
+				input
+					width: 460px
+					height: 52px
+					font-size: 20px
+					padding-left: 20px
+				.fa-cc-visa
+					position: absolute
+					right: 20px
+					top: 50%
+					margin-top: -10px
+					color: #9B9B9B
+					font-size: 20px
+			&.name input
+				width: 220px
+				height: 52px
+				font-size: 20px
+				padding-left: 20px
+			&.ccv input
+				width: 140px
+				height: 52px
+				font-size: 20px
+				padding-left: 20px
+			label
+				position: relative			
+				&::before
+					position: absolute
+					z-index: 0
+					right: 10px
+					top: 50%
+					margin-top: -12px
+					content: ''
+					width: 0
+					height: 0
+					border: 5px solid #000000
+					border-color: transparent transparent #000000 transparent
+				&::after
+					position: absolute
+					z-index: 0
+					right: 10px
+					bottom: 50%
+					margin-bottom: -12px
+					content: ''
+					width: 0
+					height: 0
+					border: 5px solid #000000
+					border-color: #000000 transparent transparent transparent
+				select			
+					color: rgba(0,0,0,0.3)
+					width: 140px
+					height: 52px
+					font-size: 20px
+					padding-left: 20px
+					appearance: none
+					-moz-appearance: none // Firefox
+					-webkit-appearance: none // Safari and Chrome
+					option				
+						color: #000000
+		button
+			width: 220px
+			height: 52px
+			&.submit
+				background-color: rgba(255,0,0,0.5)
+				border: 2px solid transparent
+				&:hover					
+					background-color: rgba(255,0,0,1)
+					border: 2px solid rgba(255,0,0,1)
+
+fieldset:nth-of-type(5)
+	text-align: center
+	.fas		
+		width: 100%
+		margin: 24px auto 40px
+	.fa-smile
+		&::before
+			width: 230px
+			font-size: 230px
+			color: #BEE1FF
+	.description
+		font-style: italic
+		font-weight: bold
+		font-size: 20px
+		color: #0275D8		
+		line-height: 25px

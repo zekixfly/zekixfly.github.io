@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>F2E SignUp Search</title>
+	<link rel="stylesheet" href="./css/SignUp.css?v0.3">
+	<link rel="stylesheet" href="./css/ZekiCore.css">
+
+</head>
+<body>
+<div class="webtitle">The F2E - 前端修練精神時光屋</div>
+
+<div class="flip-container">
+	<div class="flipper">
+			<div id='verification-zone'>
+				<section>
+					<div id="f2eCountDate">
+						<signUpF2ELoad></signUpF2ELoad>
+					</div>	
+				</section>	
+				<section>
+					<span class="title">報名人數：</span>
+					<span class="signup-total" z-text="data.total">
+						<signUpF2ELoad></signUpF2ELoad>
+					</span>
+				</section>	
+				<section>
+					<span class="title">報名查詢：</span>
+					<input id="email" type="text" placeholder="Please, input your mail."/>
+					<input id="mail-send" type="button" value="查詢" />		
+				</section>
+				<section>
+					<h6>還沒報名嗎?　快來<a href="https://docs.google.com/forms/d/e/1FAIpQLSfgYklAoiTyJjHrmPfY0CHKRGwZgjN3rhKB0JtTRXCS7KH5Ew/viewform" target="_blank">這裡</a>報名唷!</h6>
+				</section>
+			</div>
+			<div id='verification-zone-info'>
+				<section id="singUpInfo"></section>
+				<section id="challenge-weeks"></section>
+				<h6>PS: 點選已投稿的區塊可以看見自己的作品唷!<span id="back-search">→ 點這裡返回查詢 ←</span></h6>
+			</div>
+
+	</div>
+
+</div>
+
+<div class="challenge-container">
+	
+</div>
+
+</body>
+
+<script id="ZekiCore" type="text/javascript" src="./scripts/ZekiCore.js" import="main"></script>
+
+</html>

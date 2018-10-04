@@ -1,0 +1,330 @@
+@import animate.min
+@import compass
+@import compass/reset
+
+a[href*="updog"] 
+	display: none !important	
+
+html, body
+	width: 100%
+	height: 100%
+
+h3
+	font-family: Roboto-Bold, monospace, fantasy
+	font-size: 20px
+	font-weight: bold
+	color: #000000
+
+body
+	background: #F2F2F2
+
+header
+	position: relative
+	height: 92px
+	background: #7828B4
+	a.logo
+		margin-left: 78px
+		line-height: 92px
+		font-family: Optima-ExtraBlack, fantasy, monospace
+		font-size: 36px
+		color: #FFFFFF
+		text-decoration: none
+	input#FunSearch
+		position: absolute
+		top: 50%
+		margin-top: -15px
+		padding-left: 40px
+		left: 380.5px
+		min-width: 388px
+		height: 30px		
+		font-family: Roboto-Italic
+		font-style: italic
+		font-size: 20px
+		color: rgba(255,255,255,0.5)
+		background-color: transparent
+		outline: none
+		border: 0px
+		border-bottom: 1px solid #FFFFFF
+	.fun-search-icon
+		position: absolute
+		left: 384px
+		top: 50%
+		width: 20px
+		height: 20px
+		margin-top: -10px
+		color: #FFFFFF
+
+//Layout 1
+aside
+	position: absolute
+	top: 92px
+	left: 38px
+	width: 300px
+	height: 539px
+	background: #EBEBEB
+	box-sizing: border-box
+	//Layout 2
+	section
+		padding: 24px 40px
+		border-bottom: 1px solid #D7D7D7
+		box-sizing: border-box
+	.location
+		height: 127px
+	.date
+		height: 187px
+	.categories
+		height: 225px
+		box-sizing: border-box
+		border-bottom: none
+
+	//Layout 3
+	.date input
+		float: right
+		width: 169px
+		height: 40px
+		border-radius: 2px
+		border: 0px
+		padding: 10px
+		box-sizing: border-box
+	.date label
+		line-height: 40px
+	.date h3, .categories h3
+		margin-bottom: 24px
+	.your-location
+		margin-top: 15px
+		width: 220px
+		height: 40px
+		font-family: Roboto-Regular
+		font-size: 16px
+		color: #000000
+
+		
+			
+
+//Layout 1
+article
+	margin-left: 380px
+	margin-right: 270px
+	// height: 100%
+	nav
+		margin-top: 24px
+	nav>h2		
+		font-family: Roboto-Regular
+		font-size: 24px
+		color: #000000
+	#results-total
+		font-family: Roboto-Bold
+		font-size: 24px
+		color: #9013FE
+		font-weight: bold
+		line-height: 28px
+	nav tag
+		display: block
+		margin-top: 8px		
+		height: 35px
+
+	tag span
+		font-family: Roboto-Italic
+		font-size: 16px
+		line-height: 35px
+		width: fit-content
+		color: #9013FE
+		padding: 8px 16px
+		border: 1px solid #9013FE
+		border-radius: 100px
+		margin-left: 8px
+		&:hover
+			+transition(all 0.3s)
+			background-color: #9013FE
+			color: #FFFFFF
+		&:nth-child(1)
+			margin-left: 0px
+	tag i
+		font-size: 14px
+		margin-left: 8px
+.travel-container
+	position: relative
+	cursor: pointer
+	margin: 24px 0px
+	width: 770px
+	height: 220px
+	box-shadow: 0 1px 1px gray
+	overflow: hidden
+	&:hover
+		+transition(all 0.2s)
+		box-shadow: 0 1px 10px gray
+
+		//Layout 3
+	.location-pic
+		width: 220px
+		height: 220px
+		// display: inline-block
+		overflow: hidden
+		float: left
+		background-color: transparent
+		img
+			// width: inherit
+			height: inherit
+			// margin-left: -25%
+
+	.location-container
+		width: 550px
+		height: inherit		
+		float: left
+		background-color: #FFFFFF
+		padding: 24px 20px
+		box-sizing: border-box
+		&>h2
+			font-family: Roboto-Bold
+			font-size: 24px
+			color: #9013FE
+			line-height: 36px
+
+		//Layout 4
+		.description
+			margin: 16px 0px
+			font-family: Roboto-Regular, Microsoft JhengHei, monospace
+			font-size: 16px
+			color: #000000
+			line-height: 24px
+
+		.organizer span
+			margin-right: 20px
+			font-family: Roboto-Bold, Microsoft JhengHei, monospace
+			font-size: 16px
+			color: #000000
+			
+		.address
+			margin-top: 15px
+
+
+		//Layout 5
+		.classTag
+			font-family: Roboto-Italic, Microsoft JhengHei, monospace
+			font-size: 16px
+			color: #FFFFFF
+			text-align: center
+			width: 131px
+			height: 24px
+			line-height: 24px
+			padding: 3px 16px
+			background: #D7D7D7
+			border-radius: 100px
+			box-sizing: border-box
+
+footer
+	float: right
+	margin: 24px 40px
+	height: 42px
+	margin-right: 270px
+	.page-style
+		font-family: HelveticaNeue, Microsoft JhengHei, monospace
+		width: 41px
+		height: 42px
+		line-height: 42px
+		text-align: center
+		display: inline-block
+		background: #FFFFFF
+		border: 1px solid #ECEEEF
+		&:hover
+			background: #9013FE
+			border: 1px solid #9013FE
+			font-size: 16px
+			color: #FFFFFF
+
+.page-btn-focus
+	color: #FFFFFF !important
+	background: #9013FE !important
+	border: 1px solid #9013FE !important
+
+
+.clearfix:before, .clearfix:after 
+	content: ""
+	display: table
+
+.clearfix:after 
+	clear: both
+
+.clearfix 
+	*zoom: 1 //For IE 6&7 only
+
+
+.ellipsis
+	overflow: hidden
+	white-space: nowrap
+	text-overflow: ellipsis
+
+.no_selection 
+	-webkit-user-select: none // webkit (safari, chrome) browsers
+	-moz-user-select: none // mozilla browsers 
+	-khtml-user-select: none // webkit (konqueror) browsers 
+	-ms-user-select: none // IE10+
+	user-select: none
+
+.mt8
+	margin-top: 8px
+
+.mr7
+	margin-right: 7px
+
+.ml20
+	margin-left: 20px
+
+.nodata-style
+	margin-top: 10px
+	color: brown
+	padding: 10px
+	background-color: rgba(0,0,0,0.1)
+
+loading
+	display: block
+	position: fixed
+	z-index: 1000
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	background: url(../img/Ripple-1s-200px.svg) center center no-repeat
+	background-color: rgba(0,0,0,0.6)
+	width: 100%
+	height: 100%
+
+.block-style
+	display: block !important
+
+.none-style
+	display: none !important
+
+.height-auto-style
+	+transition(all 0.3s)
+	height: auto !important
+	width: inherit !important
+	background-color: #DADBDD
+
+.open-up
+	+transition(all 0.1s)
+	width: inherit	!important
+	height: 352px !important
+
+.img-open-up
+	width: inherit	!important
+	height: auto !important
+	// margin-left: -10%
+	// margin-top: -10%
+	
+.return-article-btn
+	position: absolute
+	top: 10px
+	left: 10px
+	font-size: 40px
+	color: #FFFFFF
+	text-shadow: 0px 0px 10px black
+	&:hover
+		color: #9013FE
+		// boder: 1px solid #9013FE
+
+.cursor-pointer
+	cursor: pointer
+
+.cursor-default
+	cursor: default

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta http-equiv="Access-Control-Allow-Origin" content="*" /> -->
+	<title>Validation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+	<link rel="stylesheet" href="./css/validation.css?v0.1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="./css/ZekiCore.css"> -->
+</head>
+<body>
+
+
+<loading></loading>
+
+
+<form id="hexschoolForm" onsubmit="return false">
+
+	<header></header>
+
+	<ul id="progressbar">
+		<li class="active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+
+	</ul>
+	
+	<!-- step1 -->
+	<fieldset>
+		<h1>Create Account</h1>
+		<h2>Glad to see you here!</h2>
+		<div title="Account"><input type="email" name="account" placeholder="example@email.com" required class="text-field"><span class="tip" text="INVALID EMAIL"></span></div>
+		<div title="Password"><input type="password" name="password" placeholder="●●●●●●●●" required class="text-field" minlength="8"><span class="tip" text="MINIMUM 8 CHARACTERS"></span></div>
+		<div title="Comfirm Password"><input type="password" name="comfirm-password" placeholder="●●●●●●●●" required class="text-field" minlength="8"><span class="tip" text="NOT MATCH"></span></div>
+		<div>
+		<!-- <input type="button" value="Next" class="next"> -->
+			<button class="next">Next</button>
+		</div>
+
+	</fieldset>
+
+	<!-- step2 -->
+	<fieldset>
+		<h1>General Information</h1>
+		<h2>Tell us sho you are!</h2>
+		<div>
+			<span class="name" title="Name" sub-title="(optional)"><input type="text" placeholder="Example Name"></span>
+			<span class="phone" title="Phone*"><input type="number" placeholder="0989 561 210"></span>		
+		</div>
+
+		<div class="birth-date" title="Birth Date" sub-title="(optional)">
+			<label for="year">
+			<select id="year">				
+				<option class="select" value="" disabled selected style="display:none;">YYYY</option>
+				<option value="1987">1987</option>
+			</select>
+			</label>
+
+			<label for="month">
+			<select id="month">
+				<option class="select" value="" disabled selected style="display: none;">MM</option>
+				<option value="12">12</option>
+			</select>
+			</label>
+
+			<label for="day">
+			<select id="day">
+				<option class="select" value="" disabled selected style="display: none;">DD</option>
+				<option value="10">10</option>
+			</select>
+			</label>
+			
+		</div>
+		<div class="address" title="Address*">
+			<label for="city">
+				<select id="city">
+					<option value="" disabled selected style="display:none;">City</option>
+					<!-- <option value="pingtung">屏東縣</option> -->
+				</select>
+			</label>
+			<label for="dist">
+				<select id="dist">
+					<option value="" disabled selected style="display: none;">Dist</option>
+					<!-- <option value="911">竹田鄉</option> -->
+				</select>
+			</label>
+		</div>
+		<div class="address-detal"><input type="text" placeholder="Address Detail"></div>
+		<div>
+<!-- 			<input type="button" value="Previous" class="previous">
+			<input type="button" value="Next" class="next">	 -->
+			<button class="previous">Previous</button>
+			<button class="next">Next</button>
+		</div>
+		
+	</fieldset>
+	
+	<!-- step3 -->
+	<fieldset>
+		<h1>Update Profile Picture</h1>
+		<h2>We wanna know you more!</h2>
+		<div class="upload-photo">
+			<label>			
+				<i class="fas fa-images"></i>
+				<i class="description">
+					<h5>UPLOAD UP TO 3 PHOTOSMAX </h5>
+					<h6>SIZE: 150*150px</h6>
+				</i>
+
+				<input type="file">
+			</label>
+		</div>
+		<div>
+<!-- 			<input type="button" value="Previous" class="previous">
+			<input type="button" value="Next" class="next">	 -->
+			<button class="previous">Previous</button>
+			<button class="next">Next</button>
+		</div>
+	</fieldset>
+	
+	<!-- step4 -->
+	<fieldset>
+		<h1>Payment Method</h1>
+		<h2>Add your credit card infomation!</h2>
+
+		<div>
+			<span class="card-number" title="Card Number"><input type="number" placeholder="1234 5678 9012 3456"><i class="fab fa-cc-visa"></i></span>		
+		</div>
+		<div>
+			<span class="name" title="Cardholder Name"><input type="text" placeholder="EXAMPLE NAME"></span>
+			<span class="name" title="Bank Name"><input type="text" placeholder="EXAMPLE BANK"></span>	
+		</div>
+
+		<div>
+			<span class="ccv" title="CCV">
+				<input type="text" placeholder="123">
+			</span>
+			
+			<span title="Expire Date">
+				<label for="expire-month">
+					<select id="expire-month">
+						<option class="select" value="" disabled selected style="display: none;">MM</option>
+						<option value="12">12</option>
+					</select>
+				</label>
+			</span>
+			<span>
+				<label for="expire-day">
+					<select id="expire-day">
+						<option class="select" value="" disabled selected style="display: none;">DD</option>
+						<option value="10">10</option>
+					</select>
+				</label>
+			</span>
+		</div>
+
+		<div>
+			<button class="previous">Previous</button>
+			<button class="next submit">Submit</button>
+		</div>
+	</fieldset>
+	
+	<!-- Finish -->
+	<fieldset>
+		<h1>Congratulations</h1>
+		<h2>Now you’re one of us!</h2>
+		<i class="fas fa-smile"></i>
+		<i class="description">Redirected to homepage after 5 seconds…</i>
+	</fieldset>
+	
+</form>
+
+
+
+
+
+
+
+</body>
+
+<script id="ZekiCore" type="text/javascript" src="./scripts/ZekiCore.js" import="main"></script>
+
+</html>
