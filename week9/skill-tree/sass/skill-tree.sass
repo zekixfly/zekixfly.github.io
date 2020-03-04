@@ -1,0 +1,272 @@
+@import animate.min
+@import compass
+@import compass/reset
+
+
+
+@mixin clearfix
+	*zoom: 1 //For IE 6&7 only
+	&:before, &:after 
+		content: ""
+		display: table
+	&:after 
+		clear: both
+
+.none-style
+	display: none !important
+
+.clearfix
+	+clearfix
+	clear: both
+
+.ellipsis
+	overflow: hidden
+	white-space: nowrap
+	text-overflow: ellipsis
+
+.no_selection 
+	-webkit-user-select: none // webkit (safari, chrome) browsers
+	-moz-user-select: none // mozilla browsers 
+	-khtml-user-select: none // webkit (konqueror) browsers 
+	-ms-user-select: none // IE10+
+	user-select: none
+
+loading
+	display: block
+	position: fixed
+	z-index: 1000
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	background: url(../img/Ripple-1s-200px.svg) center center no-repeat
+	background-color: rgba(0,0,0,0.6)
+	width: 100%
+	height: 100%
+	max-width: initial
+
+.arrow
+	// opacity: 0
+	position: relative
+	display: inline-block
+	z-index: -1
+	bottom: 15px
+	width: 36px
+	background-color: #35006A
+	&::before
+		position: absolute
+		bottom: -15px
+		left: 18px
+		margin-left: -32px
+		width: 0px
+		height: 0px
+		content: ""
+		display: block
+		border-width: 15px 32px 0px
+		border-style: solid
+		border-color: #35006A transparent transparent
+.arrow-height1
+	height: 19px
+.arrow-height2
+	height: 130px
+.arrow-height3
+	height: 128px
+
+ul.step li:not(:first-of-type) 
+	img
+		// opacity: 0.1
+
+
+.icon-settings, .icon-filter_tilt_shift
+	font-size: 13px
+
+
+a[href*="updog"] 
+	display: none !important	
+
+html, body
+	width: 100%
+	height: 100%	
+	overflow: hidden
+
+body
+	background-color: #250060
+	background: linear-gradient(90deg, #250060, #070011, #250060)
+	font-family: 'Roboto' ,fantasy ,monospace
+	overflow: auto
+
+h1		
+	font-size: 48px	
+	font-style: italic
+	line-height: 54px
+	text-align: left
+h2
+	font-size: 36px	
+	font-weight: bold
+h3
+	font-size: 16px	
+	font-weight: bold	
+p
+	font-size: 16px
+remark
+	font-size: 14px
+
+mark
+	background-color: transparent
+	color: #FF0093
+
+.wrap
+	min-width: 930px
+	max-width: 930px
+	min-height: 690px
+	max-height: 690px
+	margin: 35px auto 43px
+	article
+		float: left
+	#left
+		width: 300px
+		h1
+			width: 265px
+			height: 111px
+			color: #FF0093
+		p
+			margin-top: 24px
+			text-align: center
+			width: 148px
+			height: 27px
+			line-height: 27px
+			color: #250060
+			background-color: #8000FF
+		h2
+			margin-top: 8px
+			color: white
+			line-height: 48px
+			text-decoration: underline
+			text-decoration-color: #8000FF
+		.airframe
+			img
+				margin-top: 25px
+				width: 265px
+				height: 212px
+		.dialog
+			position: relative
+			img
+				margin-top: 12.23px
+				width: 300px
+				height: 181.77px
+			p
+				position: absolute
+				color: white
+				top: 20px
+				width: 300px
+				padding: 24px
+				text-align: left
+				background-color: transparent
+				box-sizing: border-box
+	#middle
+		width: calc(100% - 600px)
+		padding-left: 20px
+		box-sizing: border-box
+		ul		
+			float: left	
+			width: 100px
+			height: 688px
+		.level-pic			
+			width: 100px
+			height: auto
+			text-align: center
+			img
+				width: 100px
+				height: 100px
+		section:not(:first-of-type)
+			+clearfix			
+			margin-top: 29px
+			// opacity: 0.1
+		section
+			float: left
+			+clearfix
+			width: calc(100% - 100px)
+			.skill-icon
+				float: left
+				margin-left: 4px			
+				width: 60px
+				height: 100px			
+				.components
+					cursor: pointer
+					width: inherit
+					height: 60px
+					line-height: 60px
+					font-size: 33px
+					text-align: center
+					color: white
+					transition: all 0.3s
+					background-color: rgba(105, 0, 209, 0.2)
+					&:hover
+						transition: all 0.3s
+						background-color: #6900D1
+				.active
+					background-color: #6900D1
+				.points					
+					color: white
+					text-align: center
+					i
+						margin-top: 5px
+						width: 60px
+						display: block
+						letter-spacing: 2px
+	#right
+		width: 300px
+		height: 688px
+		text-align: center
+		.skill-board
+			padding-top: 37px
+			// width: inherit
+			// padding: 37px 68px
+			height: 306px
+			color: #FFFFFF
+			background-color: #8000FF
+			box-sizing: border-box
+			i
+				font-size: 133px
+		
+			// h2				
+			// 	width: 166px
+			// 	margin: 21px auto 0px
+				
+		.learn-board
+			width: inherit
+			height: 382px
+
+			background-color: #6900D1
+			.learn-skill
+				padding-top: 24px
+				width: 196px
+				height: auto
+				margin: 0 auto
+				color: #FFFFFF
+				i
+					font-size: 33px
+					c
+				h3
+					margin-top: 7px
+					margin-bottom: 16px
+				button:not(:first-of-type)
+					margin-top: 5px
+				button
+					cursor: pointer
+					font-size: 16px
+					width: 196px
+					height: 35px
+					outline: 0px
+					color: #FFFFFF
+					border: 2px solid #FFFFFF
+					background-color: transparent
+					box-sizing: border-box
+					transition: all 0.3s
+					&:hover
+						transition: all 0.3s
+						border: 2px solid #FF0093
+						background-color: #FF0093
+				.active
+					border: 2px solid #FF0093
+					background-color: #FF0093

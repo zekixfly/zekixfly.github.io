@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta http-equiv="Access-Control-Allow-Origin" content="*" /> -->
+	<title>Comic Veiwer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="./css/comic-viewer.css?v0.1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="./css/ZekiCore.css"> -->
+</head>
+<body>
+
+
+<loading></loading>
+
+<div id="blur-box"></div>
+
+
+
+<header>
+	<span><a href="./">Comicomic</a></span>
+</header>
+
+<div class="ad-container">
+	<div class="close-text"><i id="close-ad-btn" class="far fa-times-circle"></i></div>
+	<div id="ad-content"></div>
+</div>
+
+<article id="comic-main">
+	<section class="comic-info">
+		<div class="cover-img">
+			<img src="./img/comic-pic/comic cover.png" alt="">
+		</div>
+		<div class="detail">
+			<h1 class="title">MY HEXSCHOOL</h1>
+			<div class="sub-container">
+				<sapn class="sub-title">Genres</sapn>
+				<span class="sub-detail">Fusce/vehicula/dolor</span>
+			</div>
+			<div class="sub-container">
+				<sapn class="sub-title">Author</sapn>
+				<span class="sub-detail">Namae Shiranai</span>
+			</div>
+			<div class="sub-container">
+				<sapn class="sub-title">Status</sapn>
+				<span class="sub-detail">Ongoing</span>
+			</div>
+			<div class="sub-container">
+				<sapn class="sub-title">Rate</sapn>
+				<span class="sub-detail">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="far fa-star"></i>
+				</span>
+			</div>
+			<div class="sub-container summary">
+				<sapn class="sub-title">Summary</sapn>
+				<span class="sub-detail">If your banker breaks, you snap; if your apothecary by mistake sends you poison in your pills, you die.<br /><br />Therefore, I say, I saw that this situation of mine was the precise situation of every mortal that has this Siamese connexion with a plurality of other mortals. </span>
+			</div>
+		</div>
+	</section>
+
+	<section class="all-chapters" data-title="All Chapters">
+		<ul>
+			<li onclick="comicChapter(0)"><span>Chapter 1: The F2E Challenge Start!</span></li>
+			<li onclick="comicChapter(1)"><span data-state="NEW">Chapter 2: Todo List is Going Crazy!</span></li>
+		</ul>
+	</section>
+</article>
+
+<artice id="comic-container">
+	<section class="control">
+		<span class="title"><a href="./">My Hexschool</a></span>
+		<i class="fa fa-caret-right"></i>
+		
+		<div class="chapter-container">
+			<input id="chapter" type="button" value="Selection Chapter">
+			<div class="chapter-selection">
+				<i class="fas fa-caret-up"></i>
+				<i class="fas fa-caret-down"></i>	
+			</div>
+			<div id="chapter-box"></div>
+		</div><!--
+		--><div class="page-container">
+			<input id="page" type="button" value="Page 1">
+			<div class="page-selection">
+				<i class="fas fa-caret-up"></i>
+				<i class="fas fa-caret-down"></i>	
+			</div>
+			<div id="page-box"></div>
+		</div>
+		
+		<span class="dark-light-switch">
+			<i class="fas fa-sun"></i>
+			<span class="switch-btn">
+				<span class="black-btn" onclick="switchBG(this)"></span>
+			</span>
+			<i class="far fa-moon"></i>
+		</span>
+	</section>
+
+	<section class="pic">
+		<span id="previous-page-btn"><i class="fas fa-angle-left"></i></span>
+		<span id="comic-img"></span>
+		<span id="next-page-btn"><i class="fas fa-angle-right"></i></span>
+		
+	</section>
+
+	<section class="selection-container">
+
+		<!-- thumbnail -->
+	</section>
+</artice>
+
+
+</body>
+
+<script id="ZekiCore" type="text/javascript" src="./scripts/ZekiCore.js" import="main"></script>
+
+</html>

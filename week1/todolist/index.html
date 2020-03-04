@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>todolist</title>	
+	<link rel="stylesheet" href="./css/todolist.css?v0.1">
+	<link rel="stylesheet" href="./css/ZekiCore.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</head>
+<body>
+
+<nav>
+	<section class="bg_navbar">
+		<button id="all-task" class="nav_btn" onclick="navBtn(this,'all')">My Tasks</button>
+		<button id="in-progress" class="nav_btn" onclick="navBtn(this, 'inProgress')">In Progress</button>
+		<button id="completed" class="nav_btn" onclick="navBtn(this, 'completed')">Completed</button>
+	</section>
+</nav>
+
+<editTask>	
+		<div id="edit_btn" onclick="createTask(this, event)">+ Add Task</div>
+		<div class="edit_task"></div>
+</editTask>
+
+<article id="add_task">
+		<div class="task_wrap">
+			<div class="top_task"></div>
+			<div class="normal_task"></div>
+			<total></total>
+		</div>
+		
+</article>
+
+
+
+	
+</body>
+
+<script id="ZekiCore" type="text/javascript" src="./scripts/ZekiCore.js" import="main"></script>
+
+</html>

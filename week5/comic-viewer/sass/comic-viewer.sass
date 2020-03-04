@@ -1,0 +1,563 @@
+@import animate.min
+@import compass
+@import compass/reset
+
+
+// $grid-width: 120px
+// $grid-height: 100px
+// $average-column: (100%/8)
+// $average-row: (100%/20)
+
+@mixin clearfix
+	*zoom: 1 //For IE 6&7 only
+	&:before, &:after 
+		content: ""
+		display: table
+	&:after 
+		clear: both
+
+.clearfix
+	+clearfix
+	clear: both
+
+.ellipsis
+	overflow: hidden
+	white-space: nowrap
+	text-overflow: ellipsis
+
+.no_selection 
+	-webkit-user-select: none // webkit (safari, chrome) browsers
+	-moz-user-select: none // mozilla browsers 
+	-khtml-user-select: none // webkit (konqueror) browsers 
+	-ms-user-select: none // IE10+
+	user-select: none
+
+loading
+	display: block
+	position: fixed
+	z-index: 1000
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	background: url(../img/Ripple-1s-200px.svg) center center no-repeat
+	background-color: rgba(0,0,0,0.6)
+	width: 100%
+	height: 100%
+	max-width: initial
+
+#blur-box
+	display: none
+	position: fixed
+	z-index: 0
+	top: 0px
+	left: 0px
+	width: 100%
+	height: 100%
+	background-color: transparent
+
+.table-style
+	display: table !important
+
+.grid-style
+	display: grid !important
+
+.block-style
+	display: block !important
+
+.none-style	
+	display: none !important
+
+
+.cursor-pointer
+	cursor: pointer
+
+.cursor-default
+	cursor: default
+
+
+.ad-container
+	position: relative
+	width: 620px
+	height: 120px
+	margin: 0px auto
+	margin-top: 24px
+
+	.close-text
+		position: absolute
+		z-index: 1
+		top: 5px
+		right: 5px
+		font-size: 20px
+		color: #FFFFFF
+		i
+			margin-left: 10px
+			font-size: 30px
+			color: rgba(255, 0, 0, 0.5)
+			vertical-align: middle
+		.fa-times-circle
+			cursor: pointer
+	#ad-content
+		img
+			+animate(flipInX, 1s)
+			width: 100%
+			display: block
+			
+
+a[href*="updog"] 
+	display: none !important	
+
+html, body
+	width: 100%
+	height: 100%
+
+
+body
+	background-color: #F2F2F2
+	font-family: 'Roboto' ,fantasy ,monospace
+	// font-weight: bold
+.body-off
+	background-color: #000000
+
+
+header
+	height: 74px
+	line-height: 74px
+	background-color: #000000
+	text-align: center
+	span
+		font-size: 36px
+		font-weight: bold
+		font-style: italic		
+		a
+			color: #50FF44
+			text-decoration: none
+
+.header-off
+	background-color: #50FF44
+	a
+		color: #000000
+		text-decoration: none
+
+#comic-main
+	// display: none
+	+animate(fadeIn, 0.3s)
+	width: 620px
+	margin: 24px auto	
+	.comic-info		
+		height: 446px
+		.cover-img
+			float: left
+			width: 300px
+			height: inherit
+			border: 4px solid #000000
+			box-sizing: border-box
+			img
+				width: 100%
+				height: 100%
+		.detail
+			float: left
+			width: 317px
+			height: 52px
+			background-color: #000000
+			.title				
+				font-size: 36px
+				font-weight: bold
+				text-align: center
+				color: #FFFFFF
+				line-height: 52px
+			.sub-container
+				margin: 8px 0px 8px 20px
+				line-height: 24px
+				&:nth-child(2)
+					margin-top: 16px
+					// color: cyan
+				.sub-title
+					display: inline-block
+					width: 52px
+					margin-right: 20px
+					font-size: 16px
+					font-weight: bold
+				.sub-detail
+					font-size: 16px
+			.summary					
+				margin-top: 16px
+				.sub-title, .sub-detail
+					display: block
+				.sub-detail
+					margin-top: 8px
+					line-height: 24px
+
+	.all-chapters
+		display: table
+		position: relative
+		margin-top: 68px
+		width: 100%
+		height: 106px
+		border: 4px solid #000000
+		box-sizing: border-box
+		&::before
+			position: absolute
+			left: -4px
+			top: -44px
+			content: attr(data-title)
+			font-size: 24px
+			text-align: center		
+			width: 181px
+			height: 44px
+			line-height: 44px
+			color: #FFFFFF
+			background-color: #000000
+		ul
+			// height: 102px
+			// line-height: 102px
+			display: table-cell
+			width: 100%
+			height: 100%
+			vertical-align: middle
+
+			li
+				cursor: pointer
+				height: 42px
+				line-height: 42px
+				color: #000000
+				&:nth-child(2)					
+					span::after
+						content: attr(data-state)
+						margin-left: 16px
+						display: inline-block
+						width: 55px
+						height: 18px
+						line-height: 18px
+						font-size: 14px												
+						text-align: center
+						color: #000000
+						background-color: #50FF44
+				&:hover
+					color: #FFFFFF
+					background-color: #000000
+				span
+					margin-left: 20px
+					font-size: 16px
+					font-weight: bold
+
+
+#comic-container
+	display: none
+	+animate(fadeIn, 0.3s)
+	width: 620px
+	height: auto
+	margin: 0 auto	
+	.control
+		margin: 24px 0px
+		height: 35px
+		.title
+			font-size: 20px
+			font-weight: bold			
+			a
+				color: #000000
+				text-decoration: none
+		.title-off
+			a
+				color: #FFFFFF
+		.fa-caret-right
+			margin: 0px 8px
+		.fa-caret-right-off
+			color: #FFFFFF
+
+
+
+		.chapter-container, .page-container
+			position: relative
+			display: inline-block
+			// height: 35px
+			input
+				cursor: pointer
+				width: 127px
+				height: 35px
+				padding-left: 14px
+				text-align: left
+				font-size: 16px
+				font-weight: bold
+				color: #000000
+				background-color: #FFFFFF
+				border: 2px solid #000000
+				box-sizing: border-box
+				&#chapter, &#page
+					&::before
+						content: ''
+				&#page
+					margin-left: -2px
+			.chapter-selection, .page-selection				
+				position: absolute
+				top: 50%
+				margin-top: -6.5px
+				right: 14px
+				height: 13px
+				.fa-caret-up, .fa-caret-down
+					line-height: 5px
+					display: block
+				.fa-caret-down
+					margin-top: 3px
+			#chapter-box
+				display: none
+				position: absolute
+				z-index: 2
+				margin-top: 4px
+				width: 127px
+				height: 81px
+				background-color: #FFFFFF
+				border: 2px solid #000000
+				box-sizing: border-box
+				ul
+					display: table-cell
+					width: 100%
+					height: 100%
+					vertical-align: middle
+					li
+						font-size: 16px
+						font-weight: bold
+						text-align: center						
+						cursor: pointer
+						height: 35px
+						line-height: 35px
+						color: #000000
+						&:hover
+							color: #50FF44
+							background-color: #000000
+			#page-box
+				display: none
+				position: absolute
+				z-index: 2
+				margin-top: 4px
+				margin-left: -2px
+				width: 127px
+				height: auto
+				padding: 2px 0px
+				background-color: #FFFFFF
+				border: 2px solid #000000
+				box-sizing: border-box
+				ul
+					display: table-cell
+					width: 100%
+					height: 100%
+					vertical-align: middle
+					li
+						font-size: 16px
+						font-weight: bold
+						text-align: center						
+						cursor: pointer
+						height: 35px
+						line-height: 35px
+						color: #000000
+						&:hover
+							color: #50FF44
+							background-color: #000000
+
+		.dark-light-switch
+			float: right
+			height: 35px
+			line-height: 35px
+			.fa-sun, .fa-moon
+				vertical-align: middle
+			.fa-sun
+				font-size: 20px
+			.fa-moon
+				font-size: 17px
+			.icon-off
+				color: #FFFFFF
+			.switch-btn
+				transition: all 0.3s
+				display: inline-block
+				margin: 0px 8px
+				width: 48px
+				height: 24px
+				border: 2px solid #000000
+				box-sizing: border-box
+				vertical-align: middle
+				background-color: #FFFFFF
+				.black-btn
+					display: block
+					transition: all 0.3s
+					cursor: pointer
+					width: 22px
+					height: 20px
+					background-color: #000000
+			.switch-off
+				transition: all 0.3s
+				padding-left: 22px
+				border: 2px solid #FFFFFF
+				background-color: #000000
+				.black-btn					
+					background-color: #FFFFFF
+	.pic
+		position: relative
+		width: 620px
+		height: 930px
+		#comic-img			
+			img
+				+animate(fadeIn, 0.5s)
+				width: 100%
+				height: 100%
+		#previous-page-btn, #next-page-btn
+			cursor: pointer
+			transition: all 0.3s
+			position: absolute
+			top: 0px			
+			width: 80px
+			height: 100%
+			&#previous-page-btn
+				left: -80px
+			&#next-page-btn
+				right: -80px
+			&:hover
+				transition: all 0.3s
+				color: #50FF44
+				background-color: #000000
+			.fa-angle-left, .fa-angle-right
+				position: absolute
+				top: 50%
+				margin-top: -21.5px
+				left: 50%
+				margin-left: -13px
+				width: 26px
+				height: 43px
+				font-size: 43px
+				line-height: 43px
+			.fa-angle-right
+				left: unset
+				right: 50%
+				margin-left: 0px
+				margin-right: -13px
+		.first-last-page, .first-last-page-dark
+			cursor: default !important
+			background-color: transparent !important
+			color: rgba(0, 0, 0, 0.10) !important
+			&:hover				
+				background-color: transparent !important
+		.first-last-page-dark				
+			color: rgba(255, 255, 255, 0.20) !important
+				
+
+
+		.btn-off
+			// background-color: rgba(255,255,255,0.20)
+			color: #FFFFFF
+			&:hover
+				color: #000000 !important
+				background-color: #50FF44 !important
+	.selection-container		
+		margin-bottom: 24px
+		width: 100%
+		height: 182px
+		overflow: auto
+		white-space: nowrap //不斷行
+		&::-webkit-scrollbar			
+			height: 20px
+		&::-webkit-scrollbar-track
+			border: 4px solid #000000
+		// &::-webkit-scrollbar-button
+		// 	width: 50px
+		// 	background-color: #000000
+		&::-webkit-scrollbar-thumb			
+			background-color: #000000
+
+		&::-webkit-scrollbar-button:horizontal:decrement
+			background-image: url(../img/caret-left-solid-white.svg)
+			background-repeat: no-repeat
+			background-position: 50% 50%
+			width: 50px			
+			background-color: #000000
+
+		&::-webkit-scrollbar-button:horizontal:increment
+			background-image: url(../img/caret-right-solid-white.svg)
+			background-repeat: no-repeat
+			background-position: 50% 50%
+			width: 50px
+			background-color: #000000
+
+		#comic-thumbnail
+			width: 100%
+			li
+				position: relative
+				cursor: pointer
+				display: inline-block		
+				margin: 0px 8px
+				margin-top: 26px
+				width: 80px
+				height: 120px
+				border: 4px solid transparent
+				box-sizing: border-box
+				img
+					width: 100%
+					height: 100%
+				&::before
+					position: absolute
+					top: -14px
+					left: 50%
+					margin-left: -7px
+					content: attr(num)
+					font-size: 14px					
+					font-weight: bold
+					color: #000000
+				&:hover
+					border: 4px solid #000000
+					&::before
+						content: ""
+					&::after
+						position: absolute
+						top: -24px
+						left: 50%
+						margin-left: -10px
+						content: ""
+						width: 0px
+						height: 0px
+						border: 10px solid #000000
+						border-color: transparent transparent #000000 transparent
+			.thumbnail-fucus, .thumbnail-fucus-dark
+				border: 4px solid #000000
+				&::before
+					content: ""
+				&::after
+					position: absolute
+					top: -24px
+					left: 50%
+					margin-left: -10px
+					content: ""
+					width: 0px
+					height: 0px
+					border: 10px solid #000000
+					border-color: transparent transparent #000000 transparent
+			.thumbnail-dark
+				&::before
+					color: #FFFFFF
+				&:hover
+					border: 4px solid #50FF44
+					&::after
+						border: 10px solid #50FF44
+						border-color: transparent transparent #50FF44 transparent
+			.thumbnail-fucus-dark
+				border: 4px solid #50FF44
+				&::before
+					color: #FFFFFF
+				&::after
+					border: 10px solid #50FF44
+					border-color: transparent transparent #50FF44 transparent
+				&:hover
+					border: 4px solid #50FF44
+					&::after
+						border: 10px solid #50FF44
+						border-color: transparent transparent #50FF44 transparent
+
+	
+	.scroll-off		
+		&::-webkit-scrollbar-track
+			border: 4px solid #FFFFFF
+		&::-webkit-scrollbar-thumb			
+			background-color: #FFFFFF
+		&::-webkit-scrollbar-button:horizontal:decrement
+			background-image: url(../img/caret-left-solid-black.svg)
+			background-color: #FFFFFF
+		&::-webkit-scrollbar-button:horizontal:increment
+			background-image: url(../img/caret-right-solid-black.svg)
+			background-color: #FFFFFF

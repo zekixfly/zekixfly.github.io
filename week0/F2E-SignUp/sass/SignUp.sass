@@ -1,0 +1,301 @@
+@import compass/css3
+@import animate.min
+
+a[href*="updog"] 
+	display: none !important	
+
+a
+	color: cyan
+
+h6
+	color: red
+	font-size: 15px
+	font-weight: bold
+	letter-spacing: 3px
+
+body
+	text-align: center
+	background: url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+	background-size: cover
+	font: 1rem / 1.516 'Montserrat', Arial, sans-serif
+	text-align: center
+	&::after
+		content: url(../img/fb-loading.gif)
+		display: none
+.webtitle
+	font-size: 50px
+	font-style: italic
+	font-weight: bold
+	color: darkorange
+
+signUpF2ELoad
+	background: url(../img/fb-loading.gif)
+	width: 30px
+	height: 30px
+	display: block
+
+#f2eCountDate
+	padding: 0px 0px 15px	
+	text-align: center
+	background-color: rgba(0,0,0,0.3)
+	.content
+		display: inline-block
+		color: #fff		
+			
+
+.countdown
+	margin: auto
+	display: table
+	font-size: 28px
+	font-weight: 500
+	> div
+		float: left
+		min-width: 80px
+		span
+			position: relative
+			display: block
+			font-size: 16px
+			text-align: center
+			&::before
+				content: ""
+				position: absolute
+				top: -2px
+				right: 0
+				left: 0
+				margin-right: auto
+				margin-left: auto
+				width: 20px
+				height: 1px
+				background: #ffff00
+
+.signup-total
+	font-family: fantasy
+	margin: 5px
+	padding: 0px 5px
+	line-height: 30px
+	text-align: center
+	color: black
+	float: left
+	letter-spacing: 3px
+
+#verification-zone, #verification-zone-info
+	position: absolute
+	left: 0px
+	width: 400px
+	height: 160px
+	padding: 10px
+	background-color: rgba(255, 255, 255, 0.3)
+	display: inline-block
+	box-sizing: border-box
+	// +animate(flipInX, 0.5s)
+	section
+		overflow: auto
+	input#email, input#mail-send, .title
+		margin: 5px
+		line-height: 30px
+		background-color: lightcyan
+		border: 2px solid #655547
+		box-shadow: 0px 0px 2px #000
+		border-radius: 10px
+		// display: inline-block
+		text-align: center		
+		color: black		
+		float: left
+	input#mail-send
+		border-radius: 0px		
+		background-color: #fff
+		&:active
+			background-color: #5555FF !important
+			color: #fff
+	.title
+		font-family: monospace
+		font-size: 16px
+		font-weight: bold
+		border-radius: 0px
+		background-color: transparent !important
+		border: 2px solid transparent !important
+		box-shadow: 0px 0px 2px transparent !important
+#verification-zone-info .content
+	padding: 0px 30px 15px	
+	text-align: center
+	color: #FFFFFF
+	font-weight: bold	
+	letter-spacing: 3px
+	background-color: rgba(0,0,0,0.3)
+
+
+
+
+.verification-zone-transition			
+	transition: all 0.5s !important
+	height: 270px !important
+
+.singUpSucces
+	border-bottom: 1px dashed lightcyan
+	// color: cornflowerblue
+	display: block
+	padding: 5px 0
+
+.upsideDown
+	+transform(scaleY(-1) !important)	
+	-webkit-backface-visibility: hidden !important //Chrome, Safari, Opera
+	// backface-visibility: hidden !important
+	background-color: rgba(0,0,0,0)
+
+.opacity0
+	+transition(all 0.3s)
+	opacity: 0 !important
+
+.opacity1
+	+transition(all 0.3s)
+	opacity: 1 !important
+
+.block-style
+	display: block !important
+
+.none-style
+	display: none !important
+
+
+
+/* entire container, keeps perspective */
+.flip-container 
+	perspective: 1000px
+	position: absolute
+	top: 50%
+	margin-top: -135px
+	left: 50%
+	margin-left: -200px
+
+	/* flip the pane when hovered */
+// .flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper
+.flipper-click
+	transform: rotateY(180deg)
+	
+
+	
+
+.flip-container, #verification-zone, #verification-zone-info 
+	width: 400px  !important
+	// height: 270px
+
+
+/* flip speed goes here */
+.flipper 
+	transition: 0.6s
+	transform-style: preserve-3d
+
+	position: relative
+
+
+/* hide back of pane during swap */
+#verification-zone, #verification-zone-info 
+	backface-visibility: hidden
+	// position: absolute
+	// top: 0
+	// left: 0
+
+
+/* front pane, placed above back */
+#verification-zone 
+	transform: translateZ(50px)
+	z-index: 2
+
+
+/* back, initially hidden pane */
+#verification-zone-info
+	transform: rotateY(180deg) translateZ(50px)
+	height: 270px
+
+.challenge-weeks
+	display: table
+	width: 100%
+	height: 85px
+	padding: 0px 5px
+	margin: 10px 0px
+	background-color: rgba(0,0,0,0.3)
+	table-layout: fixed //平均欄位寬
+	box-sizing: border-box
+.this-week
+	position: relative
+	display: table-cell
+	padding-top: 10px
+	color: oldlace
+
+.this-week::before
+	position: absolute
+	z-index: -1 
+	content: ""	
+	top: 50%
+	left: 50%
+	display: block
+	padding: 0px 5px
+	height: 60px
+	margin-top: -30px
+	width: 35px
+	margin-left: -17.5px
+	background-color: rgba(230, 230, 255, 0.5)
+	border-radius: 20%
+	box-sizing: border-box
+
+
+
+.pass::before
+	background-color: rgba(0, 255, 0, 0.5) !important
+
+
+
+.works-logged-in
+	position: absolute
+	cursor: pointer
+	top: 30px
+	left: 0px
+	writing-mode: vertical-lr
+	color: cyan
+	font-size: 10px
+	line-height: 40px
+	height: 40px
+	font-weight: bold
+
+#Zeki-Frame
+	position: absolute
+	z-index: 300
+	top: 0px
+	left: 0px
+	width: 100%
+	height: 100%	
+	&>ul
+		background-color: rgba(255,255,255,0.9)
+		list-style: none
+		display: block
+		margin: 0
+		padding: 10px
+.full-iframe
+	width: 100%
+	height: 100%
+	// background-color: rgba(0,0,0,0.5)
+
+#ZekiCloseFrame
+	position: absolute
+	cursor: pointer
+	width: 30px
+	height: 30px
+	line-height: 30px
+	text-align: center
+	top: 10px
+	right: 10px
+	background-color: #FF0000
+	color: #FFFFFF
+
+.z-index100
+	z-index: 100 !important
+
+.loading-frame
+	background: url(../img/Ripple-1s-200px.svg) center center no-repeat
+	width: 100%
+	height: 100%
+
+#back-search
+	cursor: pointer
+	color: aliceblue
+	display: block

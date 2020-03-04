@@ -1,0 +1,157 @@
+﻿function productList() {
+ return [
+			{
+				"productPhoto": "./img/mydress/NS01.jpg",
+				"productName": "nissen 羅紋編落肩毛衣 (日本女裝)",
+				"description": "",
+				"orderTime": "2018/6/13 13:42",
+				"priceOriginal": 359.00,
+				"priceDiscount": 269.25,		
+				"Specification": [
+					{"size":"L","color":"Khaki","inventory":15},
+					{"size":"L","color":"Black","inventory":20},
+					{"size":"M","color":"Khaki","inventory":15},
+					{"size":"M","color":"Black","inventory":20},
+					{"size":"S","color":"Khaki","inventory":15},
+					{"size":"S","color":"Black","inventory":20},
+				],
+				"url": "http://www.mydress.com/nissen-ns820901022",
+				"customerNickname": ["山田 早紀"],
+				"status": "PUBLISHED"
+			},
+			{
+				"productPhoto": "./img/mydress/NS02.jpg",
+				"productName": "nissen 鬆軟蓬鬆剪裁高領毛衣 (日本女裝)",
+				"description": "",
+				"orderTime": "2018/6/13 10:45",
+				"priceOriginal": 349.00,
+				"priceDiscount": 261.75,		
+				"Specification": [
+					{"size":"L","color":"Gray","inventory":15},
+					{"size":"L","color":"Black","inventory":20},
+					{"size":"M","color":"Gray","inventory":15},
+					{"size":"M","color":"Black","inventory":20},
+					{"size":"S","color":"Gray","inventory":15},
+					{"size":"S","color":"Black","inventory":20},
+				],
+				"url": "http://www.mydress.com/nissen-ns828200921",
+				"customerNickname": ["山桜 竹田"],
+				"status": "PUBLISHED"
+			},
+			{
+				"productPhoto": "./img/mydress/NS03.jpg",
+				"productName": "nissen 可水洗羅紋編織隱色條紋V字領毛衣 (日本女裝)",
+				"description": "",
+				"orderTime": "2018/6/13 08:26",
+				"priceOriginal": 329.00,
+				"priceDiscount": 246.75,		
+				"Specification": [
+					{"size":"L","color":"Gray","inventory":15},
+					{"size":"L","color":"Pink","inventory":20},
+					{"size":"M","color":"Gray","inventory":15},
+					{"size":"M","color":"Pink","inventory":20},
+					{"size":"S","color":"Gray","inventory":15},
+					{"size":"S","color":"Pink","inventory":20},
+				],
+				"url": "http://www.mydress.com/nissen-ns915544421",
+				"customerNickname": ["彩香 小百合"],
+				"status": "PUBLISHED"
+			},
+			{
+				"productPhoto": "./img/mydress/NS04.jpg",
+				"productName": "nissen 套頭衫風無袖連身裙 (日本女裝)",
+				"description": "",
+				"orderTime": "2018/6/13 13:42",
+				"priceOriginal": 439.00,
+				"priceDiscount": 373.15,		
+				"Specification": [
+					{"size":"L","color":"Black","inventory":15},
+					{"size":"L","color":"White","inventory":20},
+					{"size":"M","color":"Black","inventory":15},
+					{"size":"M","color":"White","inventory":20},
+					{"size":"S","color":"Black","inventory":15},
+					{"size":"S","color":"White","inventory":20},
+				],
+				"url": "http://www.mydress.com/nissen-nscih0118b0075",
+				"customerNickname": ["広末 涼子"],
+				"status": "PUBLISHED"
+			},
+			{
+				"productPhoto": "./img/mydress/NS05.jpg",
+				"productName":"nissen 寬鬆7分袖襯衫 (日本女裝)",
+				"description":"",
+				"orderTime": "2018/6/13 13:42",
+				"priceOriginal": 329.00,
+				"priceDiscount": 279.65,		
+				"Specification": [
+					{"size":"L","color":"Black","inventory":15},
+					{"size":"L","color":"White","inventory":20},
+					{"size":"M","color":"Black","inventory":15},
+					{"size":"M","color":"White","inventory":20},
+					{"size":"S","color":"Black","inventory":15},
+					{"size":"S","color":"White","inventory":20},
+				],
+				"url": "http://www.mydress.com/nissen-nsbnc0118b0004",
+				"customerNickname": ["竹内 結子"],
+				"status": "PUBLISHED"
+			},
+			{
+				"productPhoto": "./img/mydress/NS06.jpg",
+				"productName":"nissen 100%純棉V領短袖Tee3件組 (日本女裝)",
+				"description":"",
+				"orderTime": "2018/6/13 13:42",
+				"priceOriginal": 339.00,
+				"priceDiscount": 254.25,		
+				"Specification": [
+					{"size":"XL","color":"Black","inventory":15},
+					{"size":"XL","color":"colorful","inventory":20},
+					{"size":"L","color":"Black","inventory":15},
+					{"size":"L","color":"colorful","inventory":20},
+					{"size":"M","color":"Black","inventory":15},
+					{"size":"M","color":"colorful","inventory":20},
+				],
+				"url": "http://www.mydress.com/nissen-ns815901727",
+				"customerNickname": ["仲間 由紀恵"],
+				"status": "PUBLISHED"
+			},
+			{
+				"productPhoto": "./img/mydress/NS07.jpg",
+				"productName":"nissen 相異材質疊穿配色上衣 (日本女裝)",
+				"description":"",
+				"orderTime": "2018/6/13 13:42",
+				"priceOriginal": 179.00,
+				"priceDiscount": 134.25,		
+				"Specification": [
+					{"size":"XL","color":"Green","inventory":15},
+					{"size":"XL","color":"Blue","inventory":20},
+					{"size":"L","color":"Green","inventory":15},
+					{"size":"L","color":"Blue","inventory":20},
+					{"size":"M","color":"Green","inventory":15},
+					{"size":"M","color":"Blue","inventory":20},
+				],
+				"url": "http://www.mydress.com/nissen-nsbio0118u0001",
+				"customerNickname": ["天海 祐希"],
+				"status": "PUBLISHED"
+			},
+			{
+				"productPhoto": "./img/mydress/NS08.jpg",
+				"productName":"nissen 不對稱下擺彩色裙子 (日本女裝)",
+				"description":"",
+				"orderTime": "2018/6/13 13:42",			
+				"priceOriginal": 329.00,
+				"priceDiscount": 279.65,		
+				"Specification": [
+					{"size":"L","color":"Green","inventory":15},
+					{"size":"L","color":"Yellow","inventory":20},
+					{"size":"M","color":"Green","inventory":15},
+					{"size":"M","color":"Yellow","inventory":20},
+					{"size":"S","color":"Green","inventory":15},
+					{"size":"S","color":"Yellow","inventory":20},
+				],
+				"url": "http://www.mydress.com/nissen-nscih0118b0048",
+				"customerNickname": ["柴咲コウ"],
+				"status": "PUBLISHED"
+			}
+	];
+
+} 	

@@ -1,0 +1,384 @@
+@import animate.min
+@import compass
+@import compass/reset
+
+$q1-bgc: #1469FF
+$q2-bgc: #0027C8
+$q3-bgc: #FF3C82
+
+@mixin clearfix
+	*zoom: 1 //For IE 6&7 only
+	&:before, &:after 
+		content: ""
+		display: table
+	&:after 
+		clear: both
+
+.clearfix
+	+clearfix
+	clear: both
+
+.ellipsis
+	overflow: hidden
+	white-space: nowrap
+	text-overflow: ellipsis
+
+.no_selection 
+	-webkit-user-select: none // webkit (safari, chrome) browsers
+	-moz-user-select: none // mozilla browsers 
+	-khtml-user-select: none // webkit (konqueror) browsers 
+	-ms-user-select: none // IE10+
+	user-select: none
+
+loading
+	display: none
+	position: fixed
+	z-index: 1000
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	background: url(../img/Ripple-1s-200px.svg) center center no-repeat
+	background-color: rgba(0,0,0,0.6)
+	width: 100%
+	height: 100%
+	max-width: initial
+
+.fadeIn
+	+animate(fadeIn, 0.5s, 1s)
+	display: block !important
+
+.fadeOut
+	+animate(fadeOut, 0.5s, 0.5s) 
+	display: none !important
+
+
+.cursor-pointer
+	cursor: pointer
+
+.cursor-default
+	cursor: default
+			
+.opening-fadeOut
+	+animate(fadeOut, 0.5s, 0.5s)
+	position: absolute
+	z-index: -1
+
+.rotateClockwise-loop
+	+animate(rotateClockwise, 3s, 0s, linear, infinite)
+
+.rotateCounterclockwise-loop
+	+animate(rotateCounterclockwise, 3s, 0s, linear, infinite)
+
+.floating0-loop
+	+animate(floating0, 3s, 0s, linear, infinite)
+
+.floating1-loop
+	+animate(floating1, 3s, 0s, linear, infinite)
+
+.floating2-loop
+	+animate(floating2, 3s, 0s, linear, infinite)
+
+
+.full-screen
+	transition: all 0.5s 0.5s !important
+	width: 100% !important
+	height: 100% !important
+
+a[href*="updog"] 
+	display: none !important	
+
+html, body
+	width: 100%
+	height: 100%	
+	overflow: hidden
+
+body
+	background: $q1-bgc
+	font-family: 'Roboto' ,fantasy ,monospace
+	// font-weight: bold
+
+h1		
+	font-size: 64px
+	font-weight: bold
+h2
+	font-size: 36px
+	line-height: 48px
+	font-weight: bold
+p
+	font-size: 24px
+
+		
+button
+	cursor: pointer
+	height: 56px
+	width: 100%
+	font-size: 20px	
+	border: 2px solid #FFFFFF
+	border-radius: 30.5px
+	outline: 0px
+	background-color: transparent
+	margin-bottom: 16px
+	transition: all 0.5s
+	p
+		color: #FFFFFF !important
+		margin: 0 !important
+		transition: all 0.5s
+	&:hover
+		transition: all 0.5s
+		background-color: #FFFFFF				
+#que-0 button:hover p
+	color: $q1-bgc !important
+#que-1 button:hover p
+	color: $q2-bgc !important
+#que-2 button:hover p
+	color: $q3-bgc !important
+
+// section
+// 	position: relative
+
+section:not(:first-of-type), fieldset:not(:first-of-type)
+	display: none
+
+#opening	
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	width: 100%
+	height: 100%
+	.square
+		position: absolute
+		z-index: 2
+		width: 435px
+		height: 435px		
+		background-color: #000000
+		+animate(rotateSquare, 4s)
+	.square-full
+		transition: all 0.3s linear 0s
+		width: 100% !important
+		height: 100% !important
+	.circle
+		position: absolute
+		z-index: 3
+		width: 535px
+		height: 535px
+		border-radius: 50%
+		background-color: #0027C8
+		+animate(rotateCircle, 4s)
+	.circle-full
+		transition: all 0.3s linear 0.3s
+		border-radius: initial
+		width: 100% !important
+		height: 100% !important
+	.star
+		position: absolute
+		z-index: 4
+		height: 370px
+		width: 365px
+		+animate(rotateStar, 4s)
+		&::before
+			position: absolute
+			bottom: 57px
+			left: 50%
+			content: ''
+			width: 0
+			height: 0
+			margin-left: -182px
+			border-width: 0 182.5px 313px 
+			border-style: solid
+			border-color: transparent transparent #FF3C82
+		&::after
+			position: absolute
+			top: 57px
+			left: 50%
+			content: ''
+			width: 0
+			height: 0			
+			margin-left: -182px
+			border-width: 313px 182.5px 0
+			border-style: solid
+			border-color: #FF3C82 transparent transparent
+	.star-full
+		+animate(rotateStar-full, 0.3s, 0.6s)
+	.title
+		display: flex
+		flex-direction: column						
+		align-items: center
+		z-index: 5
+		color: #FFFFFF
+		text-align: center
+
+
+
+#question
+	position: relative
+	height: 100%	
+
+	.question-left
+		position: absolute
+		top: 77px
+		left: 122px
+		bottom: 77px
+		max-width: 602px
+		// margin: 77px 122px
+		+animate(fadeIn, 0.5s)
+		h1
+			color: #FF3C82
+			margin-bottom: 10px
+		h2
+			color: #FFFFFF
+			margin-bottom: 16px
+		p
+			color: #0027C8
+			margin-bottom: 40px
+	#que-2 
+		h1
+			color: #FFFFFF !important
+		h2
+			color: #000000 !important	
+		.question-left>p
+			color: #000000 !important
+	.question-left-to-right
+		left: initial
+		right: 122px
+	.animate-right, .animate-left
+		position: absolute
+		top: 0
+		right: -442px
+		width: 442px
+		height: 100%
+		
+		.square-q0, .square-q1, .square-q2
+			position: absolute
+			// bottom: 481px
+			bottom: -179px
+			left: 69px			
+			width: 179px
+			height: 179px
+			background-color: #FF3C82
+		.square-q0-up
+			transition: all 2s
+			bottom: 481px
+		.square-q1
+			bottom: -539px
+			left: -239.25px
+			width: 450px
+			height: 450px
+			transform: rotate(54deg)
+			background-color: #1469FF
+		.square-q1-up
+			transition: all 2s
+			bottom: 91.9px
+		.square-q2
+			bottom: -539px
+			right: 30px
+			width: 320px
+			height: 320px
+			transform: rotate(92deg)
+			background-color: #0027C8
+		.square-q2-up
+			transition: all 2s
+			bottom: 328.5px
+
+
+
+		.triangle-q0, .triangle-q1, .triangle-q2
+			position: absolute
+			// bottom: 320.7px
+			bottom: -127.3px
+			right: -16px			
+			width: 0px
+			height: 0px
+			border-width: 0 73.5px 127.3px 
+			border-style: solid
+			border-color: transparent transparent #FFFFFF
+		.triangle-q0-up
+			transition: all 2s
+			bottom: 320.7px
+		.triangle-q1
+			bottom: -302px
+			right: 63.1px			
+			border-width: 0 133px 250px
+			transform-origin: center center
+			transform: rotate(148deg)
+		.triangle-q1-up
+			transition: all 2s
+			bottom: 600px
+		.triangle-q2
+			bottom: -302px
+			right: 63.1px			
+			border-width: 0 110px 192px
+			transform-origin: center center
+			transform: rotate(-150deg)
+			border-color: transparent transparent #000000
+		.triangle-q2-up
+			transition: all 2s
+			bottom: 53px
+			
+
+		.circle-q0, .circle-q1, .circle-q2
+			position: absolute
+			right: -62px
+			// bottom: -130px
+			bottom: -402px
+			width: 402px
+			height: 402px
+			border-radius: 50%
+			background-color: #000000
+		.circle-q0-up
+			transition: all 2s
+			bottom: -130px
+		.circle-q1
+			bottom: -191px
+			right: 115px
+			width: 191px
+			height: 191px
+		.circle-q1-up
+			transition: all 2s
+			bottom: 153px
+		.circle-q2
+			bottom: -312px
+			right: -91px
+			width: 312px
+			height: 312px
+			background-color: #FFFFFF
+		.circle-q2-up
+			transition: all 2s
+			bottom: 484px
+	.animate-left
+		right: unset
+		left: -442px
+	.animate-right-open
+		transition: all 1.3s 1s
+		right: 0px
+	.openZeroSecond
+		transition: all 1s
+	.animate-left-open
+		transition: all 1s		
+		left: 0px
+	.bgc-lightBlue
+		background-color: $q1-bgc
+	.bgc-blue
+		background-color: $q2-bgc
+	.bgc-pink
+		background-color: $q3-bgc
+
+#finish	
+	position: absolute
+	top: 0px
+	left: 0px
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	width: 100%
+	height: 100%
+	.title
+		display: flex
+		flex-direction: column						
+		align-items: center
+		z-index: 5
+		color: #FFFFFF
+		text-align: center
+.finish-fadeIn
+	display: flex !important
