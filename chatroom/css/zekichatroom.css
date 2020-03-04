@@ -405,7 +405,7 @@ h2 {
     position: absolute;
     bottom: -16px;
     right: 5px;
-    color: gray;
+    color: darkcyan;
 }
 
 #chat-list>ul>li:nth-child(2)::before {
