@@ -1,0 +1,342 @@
+@mixin menustyle($img,$img-hover)
+	+animate(fadeInDown, 3s)
+	position: relative
+	min-width: 113px
+	min-height: 105px				
+	background: #E3B7A6 image-url(#{$img}) no-repeat center 25px
+	font-size: 13px
+	font-weight: bold
+	color: #33211F
+	cursor: pointer
+	span
+		text-align: center
+		width: 113px
+		position: absolute
+		bottom: 22px
+	&:hover
+		+transition(all 1s)
+		background: #33211F image-url(#{$img-hover}) no-repeat center 25px
+		color: #ffe3cc
+
+
+@mixin socialstyle($img,$img-hover)
+	+animate(fadeInDown, 5s)
+	height: 30px
+	background: image-url(#{$img}) no-repeat center center
+	padding: 19px 0px
+	cursor: pointer
+	&:hover
+		+transition(all 1s)
+		background: #33211F image-url(#{$img-hover}) no-repeat center center
+
+a[href*="updog"] 
+	display: none !important 
+
+body
+	background-color: #FFE3CC
+	margin: 0
+	padding: 0
+img
+	width: 100%
+	height: 100%
+.wrap
+	padding: 0px 21px
+	max-width: 1576
+	max-height: 1488px
+	.header
+		min-height: 98px
+		//background-color: #fff
+		display: block		
+		.bloglogo
+			margin-top: 27px
+			float: left	
+			img
+				max-width: 161px
+				max-height: 49px
+		.blogsearch
+			margin-top: 27px
+			float: right
+			.search
+				float: left
+				max-width: 421px
+				max-height: 40px
+				font-size: 18pt
+				color: #b8b7b7
+				background-color: #F2F3F7
+				border: 1px solid #F0C3B8
+				padding: 10px
+				+box-sizing(border-box)
+			.btn
+				background: image-url('search-btn.png')
+				min-width: image-width('search-btn.png')
+				min-height: image-height('search-btn.png')
+				border: none
+				&:hover
+					background: image-url('search-btn-hover.png')
+					min-width: image-width('search-btn.png')
+					min-height: image-height('search-btn.png')
+	.content		
+		.menu-side
+			float: left
+
+			.m1				
+				+menustyle('recipes-btn.png','recipes-btn-hover.png')
+			.m2
+				margin-top: 10px
+				+menustyle('mealtype-btn.png','mealtype-btn-hover.png')			
+			.m3
+				margin-top: 10px
+				+menustyle('ingredients-btn.png','ingredients-btn-hover.png')			
+			.m4
+				margin-top: 10px
+				+menustyle('tags-btn.png','tags-btn-hover.png')
+			.m5
+				+animate(fadeInDown, 5s)
+				margin-top: 10px
+				padding: 20px 0px
+				+box-sizing(border-box)
+				min-width: 113px
+				min-height: 930px
+				background-color: #E3B7A6 
+				.ig
+					+socialstyle('ig-btn.png','ig-btn-hover.png')
+				.fb
+					+socialstyle('fb-btn.png','fb-btn-hover.png')
+				.tw
+					+socialstyle('tw-btn.png','tw-btn-hover.png')
+				.vk
+					+socialstyle('vk-btn.png','vk-btn-hover.png')
+				.zk
+					height: 36px
+					padding: 19px 0px
+					color: #000
+					font-size: 12px	
+					text-align: center
+					em
+						color: #039BE5
+					&:hover
+						+transition(all 1s)
+						color: #ffe3cc
+						background-color: #33211F
+
+		.recipes-side
+			//max-width: 1422px
+			//float: left
+			margin-left: 123px
+			.rsrow1, .rsrow2, .rsrow3
+				.fd-l
+					+animate(rotateInDownLeft, 3s)
+					float: left
+					margin: 0px 0px 10px 10px
+					.recipes_content
+						float: left
+						.icon
+							width: 20.86%
+							height: 21.81%
+							position: absolute
+							top: 10px
+							left: 10px
+
+				.fd-r
+					+animate(rotateInDownLeft, 3s)
+					float: left
+					margin: 0px 0px 10px 10px
+					.recipes_content
+						float: right
+						.icon
+							width: 20.86%
+							height: 21.81%
+							position: absolute
+							top: 10px
+							right: 10px
+			
+				.recipes_content
+					position: relative
+					width: 230px
+					height: 220px
+					//display: block
+					background-color: #FFF
+					+box-sizing(border-box)
+					&:hover
+						border: 1px solid #33211F
+						+box-sizing(border-box)
+					.article
+						margin: 20px 20px
+						.date					
+							font-size: 15px							
+							font-style: italic
+							color: #737373
+							margin-bottom: 10px
+						.narrative
+							font-size: 18px							
+							color: #3d3d3d
+							//vertical-align: top
+					.foodtype-salad
+						position: absolute
+						bottom: 0
+						height: 30px
+						width: 100%
+						line-height: 30px
+						color: #fff
+						font-size: 13px
+						font-weight: bold
+						text-align: right
+						padding-right: 19px
+						+box-sizing(border-box)
+						background-color: #8FC209
+					.foodtype-soup
+						position: absolute
+						bottom: 0
+						height: 30px
+						width: 100%
+						line-height: 30px
+						color: #fff
+						font-size: 13px
+						font-weight: bold
+						text-align: right
+						padding-right: 19px
+						+box-sizing(border-box)
+						background-color: #6EC2EB
+					.foodtype-breakfast
+						position: absolute
+						bottom: 0
+						height: 30px
+						width: 100%
+						line-height: 30px
+						color: #fff
+						font-size: 13px
+						font-weight: bold
+						text-align: right
+						padding-right: 19px
+						+box-sizing(border-box)
+						background-color: #FE9A09
+					.foodtype-main
+						position: absolute
+						bottom: 0
+						height: 30px
+						width: 100%
+						line-height: 30px
+						color: #fff
+						font-size: 13px
+						font-weight: bold
+						text-align: right
+						padding-right: 19px
+						+box-sizing(border-box)
+						background-color: #994800
+					.foodtype-starter
+						position: absolute
+						bottom: 0
+						height: 30px
+						width: 100%
+						line-height: 30px
+						color: #fff
+						font-size: 13px
+						font-weight: bold
+						text-align: right
+						padding-right: 19px
+						+box-sizing(border-box)
+						background-color: #47C3B9
+					.foodtype-dessert
+						position: absolute
+						bottom: 0
+						height: 30px
+						width: 100%
+						line-height: 30px
+						color: #fff
+						font-size: 13px
+						font-weight: bold
+						text-align: right
+						padding-right: 19px
+						+box-sizing(border-box)
+						background-color: #FC4783
+				.fd-detail
+					+animate(rotateInDownLeft, 3s)
+					float: left
+					min-width: 460px
+					max-width: 930px
+					max-height: 910px
+					margin: 0px 0px 10px 10px
+					background-color: #FFF
+					display: block
+					.detail-header
+						//min-width: 460px
+						//max-width: 930px						
+						min-height: 60px
+						background-color: #FC4783
+						color: #fff
+						font-weight: bold
+						line-height: 60px
+						padding: 0px 19px
+						+box-sizing(border-box)
+						.title
+							float: left
+							font-size: 23.81px
+						.foodtype-dessert-detail
+							float: right
+							font-size: 13px
+					.content
+						height: 850px
+						overflow: auto
+						.left-side
+							width: 50%
+							height: auto
+							padding: 0px 20px
+							+box-sizing(border-box)
+							.state
+								height: 60px
+								border-bottom: solid
+								border-color: #d19a8c
+								border-width: 1px
+								line-height: 60px													
+								.statemsg
+									margin-right: 22px
+									img
+										width: 20px
+										height: 20px
+										vertical-align: text-bottom	
+									.text
+										font-style: italic
+										font-size: 11px
+										color: #63413d
+										margin-left: 10px
+										vertical-align: middle
+
+							.article
+								h1
+									font-size: 18px
+									color: #63413d
+									font-style: italic
+								.text
+									font-size: 16px
+									color: #1c1717
+						.right-side
+							width: 50%
+							height: auto
+							.detail-pic								
+								max-width: 459px
+								max-height: 442px
+							.materials
+								max-width: 459px
+								max-height: 408px
+			.rsrow1
+				float: left
+			.rsrow2
+				float: left
+				.left-side
+					float: left									
+				.right-side
+					float: left						
+
+			.rsrow3
+				float: left
+
+
+.right
+	float: right
+	margin: 0
+.clear
+	clear: both
+.disnone
+	display: none
+.disblock
+	display: block

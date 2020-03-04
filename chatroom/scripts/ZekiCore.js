@@ -27,7 +27,7 @@
 
 
 window.importJS = function(arr) {
-    var gameEngineScript = document.getElementsByTagName('gameEngineScript')[0];
+    var webScript = document.getElementsByTagName('webScript')[0];
     var scriptTag;
     var script = arr;
 
@@ -36,7 +36,7 @@ window.importJS = function(arr) {
         scriptTag.async = false;
         scriptTag.type = 'text/javascript';
         scriptTag.src = script[i];
-        gameEngineScript.appendChild(scriptTag);
+        webScript.appendChild(scriptTag);
     }
 }
 
@@ -56,6 +56,12 @@ window.msgTip = function(txt) {
     document.getElementsByTagName("body")[0].removeChild(tipBox);
   }
 }
+
+
+
+// window.socialMediaLogin = function() {
+  
+// }
 
 
 var alertTitle = 'Message Box',
@@ -120,7 +126,9 @@ window.confirm = function(i,determin,txt) {
   }
 }
 
-//get one id element
+
+
+//get multiple class element
 window.getClasses = function(styles) {  
   return document.getElementsByClassName(styles);
 }
@@ -147,12 +155,27 @@ Document.prototype.getElementsById = function(arr) {
   return a;
 
 }
+
+
+
+
 // body append Child
 HTMLBodyElement.prototype.addSeed = function(element) {  
   this.appendChild(element);
   return element;
 
 };
+
+//get attribute
+Element.prototype.getAttr = function(attr) {
+  return this.getAttribute(attr);
+};
+
+//set attribute
+Element.prototype.setAttr = function(key,val) {
+  return this.setAttribute(key,val);
+};
+
 // append Childs
 Element.prototype.addSeeds = function(arrElement) {
   var self = this;
@@ -305,4 +328,4 @@ Element.prototype.siblings = function() {
 
 
 
-importJS(['./pets-js/CharacterData/heroData.js','./pets-js/CharacterData/monsterData.js','./pets-js/gameEngine.js']);
+importJS(['https://www.gstatic.com/firebasejs/4.13.0/firebase.js','./scripts/ChatEngine.js']);
