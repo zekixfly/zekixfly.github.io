@@ -1,0 +1,37 @@
+@charset "UTF-8";
+.bg-text,.title{left:50%;position:absolute}
+.List1,.List2{line-height:2vw}
+*{border:0 solid #eee;margin:0;padding:0;list-style:none;font-family:Arial,monospace}
+a[href*=updog]{display:none!important}
+body{width:auto;height:100%}
+.bg-text{font-size:15vw;color:#ede0df;margin-left:-30vw;top:50%;margin-top:-10vw}
+.title{display:block;background:url(../img/NavHome.png);width:117px;height:51px;top:47px;margin-left:-58.5px}
+.v-line-l{position:absolute;border:.5px solid #000;height:154px;top:50%}
+.v-line-ig,.v-line-tr{position:absolute;top:50%;left:60px}
+.v-line-ig{background:url(../img/instagram.png);width:12px;height:47px;margin-top:193px}
+.v-line-tr{background:url(../img/twitter.png);width:12px;height:32px;margin-top:282px}
+.h-line-lb,.h-line-lt,.h-line-rb,.h-line-rt{position:absolute;border:.5px solid #F2F2F2;width:267px}
+.h-line-lb,.h-line-lt,.v-line-l{left:66px}
+.h-line-rb,.h-line-rt{right:60px}
+.h-line-lt,.h-line-rt{top:47px}
+.h-line-lb,.h-line-rb{bottom:65px}
+.ArchLines,.NatureLines,.PointLines,.RightLines{background:url(../img/RightLines01.png);background-size:12vw 18vw;width:12vw;height:18vw;position:absolute;bottom:50%;margin-bottom:10px;left:200px}
+.ArchLines::before,.NatureLines::before,.PointLines::before,.RightLines::before{content:"Right Line";font-size:20px;position:absolute;bottom:10px;left:-45px}
+.ArchLines::after,.NatureLines::after,.PointLines::after,.RightLines::after{content:"→";color:gray;font-size:20px;position:absolute;bottom:-20px;left:-45px}
+.ArchLines>span,.NatureLines>span,.PointLines>span,.RightLines>span{position:absolute;left:-45px;-webkit-writing-mode:vertical-rl;writing-mode:vertical-rl;color:#A4A4A4}
+.NatureLines{background:url(../img/NatureLines02.png);background-size:12vw 18vw;left:calc(200px + 20vw)}
+.NatureLines::before{content:"Nature Line"}
+.ArchLines,.PointLines{background:url(../img/ArchLines14.png);background-size:12vw 18vw;top:50%;margin-top:10px;left:auto;bottom:auto;right:calc(200px + 20vw)}
+.ArchLines::before,.PointLines::before{content:"Arch Line"}
+.PointLines{background:url(../img/PointLines15.png);background-size:12vw 18vw;right:200px}
+.PointLines::before{content:"Point Line"}
+.List1{position:absolute;right:calc(200px + 20vw);margin-right:-50px;bottom:50%;height:18vw;margin-bottom:10px;counter-reset:section+2}
+.List1 li{position:relative;color:#000}
+.List1 li:nth-child(1n)::before{counter-increment:section;content:"Coll. N°" counter(section);color:#A4A4A4;margin-right:50px}
+.List1 li:nth-child(1n)::after{position:absolute;right:-100px;content:"→";color:#A4A4A4}
+.List2{position:absolute;display:table;left:200px;top:50%;height:18vw;margin-top:10px;counter-reset:section+8}
+.List2 div{display:table-cell;vertical-align:bottom}
+.List2 div li{position:relative;color:#000}
+.List2 div li:nth-child(1n)::before{counter-increment:section;content:"Coll. N°" counter(section);color:#A4A4A4;margin-right:50px}
+.List2 div li:nth-child(1n)::after{position:absolute;right:-100px;content:"→";color:#A4A4A4}
+.List2 div li:nth-child(1)::before{margin-right:60px}
