@@ -1,0 +1,680 @@
+@charset "UTF-8";
+/*↓↓↓The below add you wanted animate↓↓↓ */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-webkit-keyframes flipInX {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0; }
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in; }
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1; }
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg); }
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px); } }
+@keyframes flipInX {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0; }
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in; }
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1; }
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg); }
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px); } }
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); }
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05); }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); } }
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); }
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05); }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); } }
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+.clearfix {
+  *zoom: 1;
+  clear: both; }
+  .clearfix:before, .clearfix:after {
+    content: "";
+    display: table; }
+  .clearfix:after {
+    clear: both; }
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.no_selection {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+loading {
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(../img/Ripple-1s-200px.svg) center center no-repeat;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  max-width: initial; }
+
+#blur-box {
+  display: none;
+  position: fixed;
+  z-index: 0;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: transparent; }
+
+.table-style {
+  display: table !important; }
+
+.grid-style {
+  display: grid !important; }
+
+.block-style {
+  display: block !important; }
+
+.none-style {
+  display: none !important; }
+
+.cursor-pointer {
+  cursor: pointer; }
+
+.cursor-default {
+  cursor: default; }
+
+.ad-container {
+  position: relative;
+  width: 620px;
+  height: 120px;
+  margin: 0px auto;
+  margin-top: 24px; }
+  .ad-container .close-text {
+    position: absolute;
+    z-index: 1;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    color: #FFFFFF; }
+    .ad-container .close-text i {
+      margin-left: 10px;
+      font-size: 30px;
+      color: rgba(255, 0, 0, 0.5);
+      vertical-align: middle; }
+    .ad-container .close-text .fa-times-circle {
+      cursor: pointer; }
+  .ad-container #ad-content img {
+    -webkit-animation-name: flipInX;
+    animation-name: flipInX;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    width: 100%;
+    display: block; }
+
+a[href*="updog"] {
+  display: none !important; }
+
+html, body {
+  width: 100%;
+  height: 100%; }
+
+body {
+  background-color: #F2F2F2;
+  font-family: "Roboto", fantasy, monospace; }
+
+.body-off {
+  background-color: #000000; }
+
+header {
+  height: 74px;
+  line-height: 74px;
+  background-color: #000000;
+  text-align: center; }
+  header span {
+    font-size: 36px;
+    font-weight: bold;
+    font-style: italic; }
+    header span a {
+      color: #50FF44;
+      text-decoration: none; }
+
+.header-off {
+  background-color: #50FF44; }
+  .header-off a {
+    color: #000000;
+    text-decoration: none; }
+
+#comic-main {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  width: 620px;
+  margin: 24px auto; }
+  #comic-main .comic-info {
+    height: 446px; }
+    #comic-main .comic-info .cover-img {
+      float: left;
+      width: 300px;
+      height: inherit;
+      border: 4px solid #000000;
+      box-sizing: border-box; }
+      #comic-main .comic-info .cover-img img {
+        width: 100%;
+        height: 100%; }
+    #comic-main .comic-info .detail {
+      float: left;
+      width: 317px;
+      height: 52px;
+      background-color: #000000; }
+      #comic-main .comic-info .detail .title {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        color: #FFFFFF;
+        line-height: 52px; }
+      #comic-main .comic-info .detail .sub-container {
+        margin: 8px 0px 8px 20px;
+        line-height: 24px; }
+        #comic-main .comic-info .detail .sub-container:nth-child(2) {
+          margin-top: 16px; }
+        #comic-main .comic-info .detail .sub-container .sub-title {
+          display: inline-block;
+          width: 52px;
+          margin-right: 20px;
+          font-size: 16px;
+          font-weight: bold; }
+        #comic-main .comic-info .detail .sub-container .sub-detail {
+          font-size: 16px; }
+      #comic-main .comic-info .detail .summary {
+        margin-top: 16px; }
+        #comic-main .comic-info .detail .summary .sub-title, #comic-main .comic-info .detail .summary .sub-detail {
+          display: block; }
+        #comic-main .comic-info .detail .summary .sub-detail {
+          margin-top: 8px;
+          line-height: 24px; }
+  #comic-main .all-chapters {
+    display: table;
+    position: relative;
+    margin-top: 68px;
+    width: 100%;
+    height: 106px;
+    border: 4px solid #000000;
+    box-sizing: border-box; }
+    #comic-main .all-chapters::before {
+      position: absolute;
+      left: -4px;
+      top: -44px;
+      content: attr(data-title);
+      font-size: 24px;
+      text-align: center;
+      width: 181px;
+      height: 44px;
+      line-height: 44px;
+      color: #FFFFFF;
+      background-color: #000000; }
+    #comic-main .all-chapters ul {
+      display: table-cell;
+      width: 100%;
+      height: 100%;
+      vertical-align: middle; }
+      #comic-main .all-chapters ul li {
+        cursor: pointer;
+        height: 42px;
+        line-height: 42px;
+        color: #000000; }
+        #comic-main .all-chapters ul li:nth-child(2) span::after {
+          content: attr(data-state);
+          margin-left: 16px;
+          display: inline-block;
+          width: 55px;
+          height: 18px;
+          line-height: 18px;
+          font-size: 14px;
+          text-align: center;
+          color: #000000;
+          background-color: #50FF44; }
+        #comic-main .all-chapters ul li:hover {
+          color: #FFFFFF;
+          background-color: #000000; }
+        #comic-main .all-chapters ul li span {
+          margin-left: 20px;
+          font-size: 16px;
+          font-weight: bold; }
+
+#comic-container {
+  display: none;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  width: 620px;
+  height: auto;
+  margin: 0 auto; }
+  #comic-container .control {
+    margin: 24px 0px;
+    height: 35px; }
+    #comic-container .control .title {
+      font-size: 20px;
+      font-weight: bold; }
+      #comic-container .control .title a {
+        color: #000000;
+        text-decoration: none; }
+    #comic-container .control .title-off a {
+      color: #FFFFFF; }
+    #comic-container .control .fa-caret-right {
+      margin: 0px 8px; }
+    #comic-container .control .fa-caret-right-off {
+      color: #FFFFFF; }
+    #comic-container .control .chapter-container, #comic-container .control .page-container {
+      position: relative;
+      display: inline-block; }
+      #comic-container .control .chapter-container input, #comic-container .control .page-container input {
+        cursor: pointer;
+        width: 127px;
+        height: 35px;
+        padding-left: 14px;
+        text-align: left;
+        font-size: 16px;
+        font-weight: bold;
+        color: #000000;
+        background-color: #FFFFFF;
+        border: 2px solid #000000;
+        box-sizing: border-box; }
+        #comic-container .control .chapter-container input#chapter::before, #comic-container .control .chapter-container input#page::before, #comic-container .control .page-container input#chapter::before, #comic-container .control .page-container input#page::before {
+          content: ""; }
+        #comic-container .control .chapter-container input#page, #comic-container .control .page-container input#page {
+          margin-left: -2px; }
+      #comic-container .control .chapter-container .chapter-selection, #comic-container .control .chapter-container .page-selection, #comic-container .control .page-container .chapter-selection, #comic-container .control .page-container .page-selection {
+        position: absolute;
+        top: 50%;
+        margin-top: -6.5px;
+        right: 14px;
+        height: 13px; }
+        #comic-container .control .chapter-container .chapter-selection .fa-caret-up, #comic-container .control .chapter-container .chapter-selection .fa-caret-down, #comic-container .control .chapter-container .page-selection .fa-caret-up, #comic-container .control .chapter-container .page-selection .fa-caret-down, #comic-container .control .page-container .chapter-selection .fa-caret-up, #comic-container .control .page-container .chapter-selection .fa-caret-down, #comic-container .control .page-container .page-selection .fa-caret-up, #comic-container .control .page-container .page-selection .fa-caret-down {
+          line-height: 5px;
+          display: block; }
+        #comic-container .control .chapter-container .chapter-selection .fa-caret-down, #comic-container .control .chapter-container .page-selection .fa-caret-down, #comic-container .control .page-container .chapter-selection .fa-caret-down, #comic-container .control .page-container .page-selection .fa-caret-down {
+          margin-top: 3px; }
+      #comic-container .control .chapter-container #chapter-box, #comic-container .control .page-container #chapter-box {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        margin-top: 4px;
+        width: 127px;
+        height: 81px;
+        background-color: #FFFFFF;
+        border: 2px solid #000000;
+        box-sizing: border-box; }
+        #comic-container .control .chapter-container #chapter-box ul, #comic-container .control .page-container #chapter-box ul {
+          display: table-cell;
+          width: 100%;
+          height: 100%;
+          vertical-align: middle; }
+          #comic-container .control .chapter-container #chapter-box ul li, #comic-container .control .page-container #chapter-box ul li {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            height: 35px;
+            line-height: 35px;
+            color: #000000; }
+            #comic-container .control .chapter-container #chapter-box ul li:hover, #comic-container .control .page-container #chapter-box ul li:hover {
+              color: #50FF44;
+              background-color: #000000; }
+      #comic-container .control .chapter-container #page-box, #comic-container .control .page-container #page-box {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        margin-top: 4px;
+        margin-left: -2px;
+        width: 127px;
+        height: auto;
+        padding: 2px 0px;
+        background-color: #FFFFFF;
+        border: 2px solid #000000;
+        box-sizing: border-box; }
+        #comic-container .control .chapter-container #page-box ul, #comic-container .control .page-container #page-box ul {
+          display: table-cell;
+          width: 100%;
+          height: 100%;
+          vertical-align: middle; }
+          #comic-container .control .chapter-container #page-box ul li, #comic-container .control .page-container #page-box ul li {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            height: 35px;
+            line-height: 35px;
+            color: #000000; }
+            #comic-container .control .chapter-container #page-box ul li:hover, #comic-container .control .page-container #page-box ul li:hover {
+              color: #50FF44;
+              background-color: #000000; }
+    #comic-container .control .dark-light-switch {
+      float: right;
+      height: 35px;
+      line-height: 35px; }
+      #comic-container .control .dark-light-switch .fa-sun, #comic-container .control .dark-light-switch .fa-moon {
+        vertical-align: middle; }
+      #comic-container .control .dark-light-switch .fa-sun {
+        font-size: 20px; }
+      #comic-container .control .dark-light-switch .fa-moon {
+        font-size: 17px; }
+      #comic-container .control .dark-light-switch .icon-off {
+        color: #FFFFFF; }
+      #comic-container .control .dark-light-switch .switch-btn {
+        transition: all 0.3s;
+        display: inline-block;
+        margin: 0px 8px;
+        width: 48px;
+        height: 24px;
+        border: 2px solid #000000;
+        box-sizing: border-box;
+        vertical-align: middle;
+        background-color: #FFFFFF; }
+        #comic-container .control .dark-light-switch .switch-btn .black-btn {
+          display: block;
+          transition: all 0.3s;
+          cursor: pointer;
+          width: 22px;
+          height: 20px;
+          background-color: #000000; }
+      #comic-container .control .dark-light-switch .switch-off {
+        transition: all 0.3s;
+        padding-left: 22px;
+        border: 2px solid #FFFFFF;
+        background-color: #000000; }
+        #comic-container .control .dark-light-switch .switch-off .black-btn {
+          background-color: #FFFFFF; }
+  #comic-container .pic {
+    position: relative;
+    width: 620px;
+    height: 930px; }
+    #comic-container .pic #comic-img img {
+      -webkit-animation-name: fadeIn;
+      animation-name: fadeIn;
+      -webkit-animation-duration: 0.5s;
+      animation-duration: 0.5s;
+      -webkit-animation-delay: 0.2s;
+      animation-delay: 0.2s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation-iteration-count: 1;
+      animation-iteration-count: 1;
+      -webkit-backface-visibility: visible !important;
+      backface-visibility: visible !important;
+      width: 100%;
+      height: 100%; }
+    #comic-container .pic #previous-page-btn, #comic-container .pic #next-page-btn {
+      cursor: pointer;
+      transition: all 0.3s;
+      position: absolute;
+      top: 0px;
+      width: 80px;
+      height: 100%; }
+      #comic-container .pic #previous-page-btn#previous-page-btn, #comic-container .pic #next-page-btn#previous-page-btn {
+        left: -80px; }
+      #comic-container .pic #previous-page-btn#next-page-btn, #comic-container .pic #next-page-btn#next-page-btn {
+        right: -80px; }
+      #comic-container .pic #previous-page-btn:hover, #comic-container .pic #next-page-btn:hover {
+        transition: all 0.3s;
+        color: #50FF44;
+        background-color: #000000; }
+      #comic-container .pic #previous-page-btn .fa-angle-left, #comic-container .pic #previous-page-btn .fa-angle-right, #comic-container .pic #next-page-btn .fa-angle-left, #comic-container .pic #next-page-btn .fa-angle-right {
+        position: absolute;
+        top: 50%;
+        margin-top: -21.5px;
+        left: 50%;
+        margin-left: -13px;
+        width: 26px;
+        height: 43px;
+        font-size: 43px;
+        line-height: 43px; }
+      #comic-container .pic #previous-page-btn .fa-angle-right, #comic-container .pic #next-page-btn .fa-angle-right {
+        left: unset;
+        right: 50%;
+        margin-left: 0px;
+        margin-right: -13px; }
+    #comic-container .pic .first-last-page, #comic-container .pic .first-last-page-dark {
+      cursor: default !important;
+      background-color: transparent !important;
+      color: rgba(0, 0, 0, 0.1) !important; }
+      #comic-container .pic .first-last-page:hover, #comic-container .pic .first-last-page-dark:hover {
+        background-color: transparent !important; }
+    #comic-container .pic .first-last-page-dark {
+      color: rgba(255, 255, 255, 0.2) !important; }
+    #comic-container .pic .btn-off {
+      color: #FFFFFF; }
+      #comic-container .pic .btn-off:hover {
+        color: #000000 !important;
+        background-color: #50FF44 !important; }
+  #comic-container .selection-container {
+    margin-bottom: 24px;
+    width: 100%;
+    height: 182px;
+    overflow: auto;
+    white-space: nowrap; }
+    #comic-container .selection-container::-webkit-scrollbar {
+      height: 20px; }
+    #comic-container .selection-container::-webkit-scrollbar-track {
+      border: 4px solid #000000; }
+    #comic-container .selection-container::-webkit-scrollbar-thumb {
+      background-color: #000000; }
+    #comic-container .selection-container::-webkit-scrollbar-button:horizontal:decrement {
+      background-image: url(../img/caret-left-solid-white.svg);
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      width: 50px;
+      background-color: #000000; }
+    #comic-container .selection-container::-webkit-scrollbar-button:horizontal:increment {
+      background-image: url(../img/caret-right-solid-white.svg);
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      width: 50px;
+      background-color: #000000; }
+    #comic-container .selection-container #comic-thumbnail {
+      width: 100%; }
+      #comic-container .selection-container #comic-thumbnail li {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        margin: 0px 8px;
+        margin-top: 26px;
+        width: 80px;
+        height: 120px;
+        border: 4px solid transparent;
+        box-sizing: border-box; }
+        #comic-container .selection-container #comic-thumbnail li img {
+          width: 100%;
+          height: 100%; }
+        #comic-container .selection-container #comic-thumbnail li::before {
+          position: absolute;
+          top: -14px;
+          left: 50%;
+          margin-left: -7px;
+          content: attr(num);
+          font-size: 14px;
+          font-weight: bold;
+          color: #000000; }
+        #comic-container .selection-container #comic-thumbnail li:hover {
+          border: 4px solid #000000; }
+          #comic-container .selection-container #comic-thumbnail li:hover::before {
+            content: ""; }
+          #comic-container .selection-container #comic-thumbnail li:hover::after {
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            margin-left: -10px;
+            content: "";
+            width: 0px;
+            height: 0px;
+            border: 10px solid #000000;
+            border-color: transparent transparent #000000 transparent; }
+      #comic-container .selection-container #comic-thumbnail .thumbnail-fucus, #comic-container .selection-container #comic-thumbnail .thumbnail-fucus-dark {
+        border: 4px solid #000000; }
+        #comic-container .selection-container #comic-thumbnail .thumbnail-fucus::before, #comic-container .selection-container #comic-thumbnail .thumbnail-fucus-dark::before {
+          content: ""; }
+        #comic-container .selection-container #comic-thumbnail .thumbnail-fucus::after, #comic-container .selection-container #comic-thumbnail .thumbnail-fucus-dark::after {
+          position: absolute;
+          top: -24px;
+          left: 50%;
+          margin-left: -10px;
+          content: "";
+          width: 0px;
+          height: 0px;
+          border: 10px solid #000000;
+          border-color: transparent transparent #000000 transparent; }
+      #comic-container .selection-container #comic-thumbnail .thumbnail-dark::before {
+        color: #FFFFFF; }
+      #comic-container .selection-container #comic-thumbnail .thumbnail-dark:hover {
+        border: 4px solid #50FF44; }
+        #comic-container .selection-container #comic-thumbnail .thumbnail-dark:hover::after {
+          border: 10px solid #50FF44;
+          border-color: transparent transparent #50FF44 transparent; }
+      #comic-container .selection-container #comic-thumbnail .thumbnail-fucus-dark {
+        border: 4px solid #50FF44; }
+        #comic-container .selection-container #comic-thumbnail .thumbnail-fucus-dark::before {
+          color: #FFFFFF; }
+        #comic-container .selection-container #comic-thumbnail .thumbnail-fucus-dark::after {
+          border: 10px solid #50FF44;
+          border-color: transparent transparent #50FF44 transparent; }
+        #comic-container .selection-container #comic-thumbnail .thumbnail-fucus-dark:hover {
+          border: 4px solid #50FF44; }
+          #comic-container .selection-container #comic-thumbnail .thumbnail-fucus-dark:hover::after {
+            border: 10px solid #50FF44;
+            border-color: transparent transparent #50FF44 transparent; }
+  #comic-container .scroll-off::-webkit-scrollbar-track {
+    border: 4px solid #FFFFFF; }
+  #comic-container .scroll-off::-webkit-scrollbar-thumb {
+    background-color: #FFFFFF; }
+  #comic-container .scroll-off::-webkit-scrollbar-button:horizontal:decrement {
+    background-image: url(../img/caret-left-solid-black.svg);
+    background-color: #FFFFFF; }
+  #comic-container .scroll-off::-webkit-scrollbar-button:horizontal:increment {
+    background-image: url(../img/caret-right-solid-black.svg);
+    background-color: #FFFFFF; }
