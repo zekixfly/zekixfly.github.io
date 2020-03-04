@@ -1,0 +1,434 @@
+/*---------------版權區---------------
+ *作者: Zeki
+ *信箱: zekixfly@hotmail.com
+ *
+ *版權聲明:
+ *一、本網站的版權屬原作者所有。 
+ *二、盼望尊重知識產權，請勿擅自轉貼複製。
+ *    
+ *---------------版權區-------------*/
+@import compass
+@import animate.min
+
+
+a
+  text-decoration: none
+  color: $main-txtcolor
+  outline: 0
+
+a[href*="updog"]
+  display: none !important
+
+html, body
+  width: 100%
+  height: 100%
+  overflow: hidden
+  //background: image-url("../fullbg/IMG_0638.jpg")
+  //background-size: cover
+
+// preload picture
+body:after 
+  content: url(../images/zeki-player/pause-hover.png) url(../images/zeki-player/play-hover.png) url(../images/zeki-player/shuffle-hover.png) url(../images/zeki-player/zeki-rabit-hover.gif) url(../images/zeki-player/zeki-rabit-check.png) url(../images/zeki-player/zeki-rabit-music-arrow.png)
+  display: none
+
+
+*
+  border: 0px solid #eee
+  margin: 0
+  padding: 0
+  list-style: none
+  font-family: Arial
+
+#header
+  +animate(fadeInDown, 3s)
+  position: relative
+  top: 0px
+  width: 100%
+  height: 30px
+  line-height: 30px
+  z-index: 1
+  background: $main-bgcolor
+  +opacity(0.5)
+  #m-play, #m-pause, #zeki-rabit, #m-shuffle
+    cursor: pointer      
+  #m-play
+    background-image: url("../images/zeki-player/play.png")    
+    display: block   
+    +transition(all 0.5s) 
+    &:hover
+      +transition(all 0.5s)
+      background-image: url("../images/zeki-player/play-hover.png")
+  #m-pause
+    background-image: url("../images/zeki-player/pause.png")    
+    display: none
+    +transition(all 0.5s)
+    &:hover
+      +transition(all 0.5s)
+      background-image: url("../images/zeki-player/pause-hover.png")    
+    &:active
+      background-image: url("../images/zeki-player/pause-hover.png")
+  #m-pause, #m-play
+    float: left
+    width: 25px
+    height: 25px
+    background-size: 25px 25px
+    margin: 2.5px 10px 2.5px 10px
+  #m-duration
+    float: left
+    color: $main-txtcolor
+    width: 130px
+    text-align: center 
+    #m-current-time, #m-total-time
+      float: left
+      padding: 0px 5px
+      font-family: monospace
+    #m-total-time
+      float: right
+    #zeki-rabit      
+      background-image: url("../images/zeki-player/zeki-rabit.png")
+      background-size: 37px 30px
+      background-position: center
+      background-repeat: no-repeat
+      width: 37px
+      height: 30px
+      margin: 0 auto
+      display: inline-block
+      vertical-align: middle
+      position: absolute
+      left: 92px
+      &:hover
+        background-image: url("../images/zeki-player/zeki-rabit-hover.gif")
+        #music-list
+          display: block
+    .zeki-rabit-check
+      background-image: url("../images/zeki-player/zeki-rabit-check.png") !important
+
+  marquee
+    //float: left
+    position: absolute
+    top: 0px
+    left: 185px
+    // width: 100%
+    height: inherit      
+    font-size: 15px
+    font-weight: bold
+    color: $main-txtcolor      
+    margin-right: 225px
+    overflow: hidden
+  #m-volume
+    background-image: url("../images/zeki-player/volume-faint.png")
+    +transition(all 0.5s)
+  #m-shuffle
+    background-image: url("../images/zeki-player/shuffle.png")
+    +transition(all 0.5s)
+    &:hover
+      +transition(all 0.5s)
+      background-image: url("../images/zeki-player/shuffle-hover.png")
+  #m-volume, #m-shuffle
+    float: right
+    width: 20px
+    height: 20px
+    background-size: 20px 20px
+    margin: 5px 10px 5px 0px
+    //background-color: orange
+.shuffle-focus
+  background-image: url("../images/zeki-player/shuffle-hover.png") !important
+
+#Zeki-info
+  position: absolute
+  top: 31px
+  right: 10px
+  width: 12em
+  z-index: 0
+  .Ztitle
+    font-size: 6em
+    color: oldlace
+    //opacity: 0.7
+    border-bottom: solid
+  .Zcopyright
+    display: none
+    color: $main-txtcolor
+    font-size: 13px
+    font-family: Arial
+    text-align: center
+    font-weight: bold  
+  .Zdescript
+    float: right
+    font-size: 15px
+    line-height: 30px
+    color: white
+    background-color: rgba(0,0,0,0.1)
+    border-radius: 5px
+    padding: 5px
+    margin-top: 5px
+    -webkit-writing-mode: vertical-rl
+    writing-mode: vertical-rl
+    //height: 12em
+    //text-align: center
+    .Zd2
+      display: none
+#recommended-music  
+  position: absolute
+  bottom: 31px
+  right: 10px
+  z-index: 0
+  font-size: 12px
+  color: orangered
+  span
+    color: white
+
+#prog1
+  width: 100%
+  color: orange
+
+#content
+  float: right
+  background-color: rgba(0,0,0,0.5)
+  position: absolute
+  top: 30px
+  right: 0px
+  bottom: 30px
+  left: 0px
+  margin: auto
+  +opacity(0.95)
+  //+border-radius(15px)
+  z-index: 0
+  display: none
+
+  #zekiiframe
+    height: 100%
+    width: 100%
+    overflow: auto
+    border-width: 0px
+  .iframe-padding10
+    padding: 30px 0
+    box-sizing: border-box
+#music-list  
+  display: none
+  position: absolute
+  top: 30px
+  left: 0
+  bottom: 30px
+  right: 0
+  background-color: rgba(125,125,125,0.5)
+  overflow: auto
+  table
+    width: 100%
+    border-collapse: collapse
+    color: lightcyan    
+    font-size: 15px
+    tr
+      cursor: pointer
+      td
+        // padding: 10px
+        &:nth-child(1)      
+          border-right: 1px solid #00ff00
+          width: 110px 
+          text-align: center
+          +box-sizing(border-box)
+        &:nth-child(2) 
+          padding: 10px        
+      &:hover
+        background-color: rgba(190,190,190,1)
+        color: rgba(62,62,62,1)
+        #music-info
+          color: rgba(0,0,0,0.5)
+  .zeki-rabit-music-arrow
+    background-image: url("../images/zeki-player/zeki-rabit-music-arrow.png")
+    background-size: 15px 15px
+    width: 15px
+    height: 15px
+    margin-left: 110px
+.music-focus
+  +animate(blink, 2s)
+  -webkit-animation-iteration-count: infinite
+  animation-iteration-count: infinite
+
+
+
+
+#music-title, #music-info
+  font-family: monospace
+#music-title
+  font-size: 30px
+#music-info
+  font-size: 15px
+  color: rgba(255,255,255,0.3)
+
+
+.music-list-in, .music-list-out
+  display: block !important
+.music-list-in
+  +animate(slideInDown, 0.5s)    
+.music-list-out
+  +animate(slideOutUp, 0.5s)
+
+
+#webdetail
+  position: absolute
+  bottom: 30px
+  float: left
+  width: 240px
+  height: auto
+  background: $main-bgcolor
+  color: $main-txtcolorhover
+  font-size: 13px
+  text-align: left
+  font-weight: bold
+  +border-top-right-radius(15px)
+  display: none
+  div
+    margin: 7px
+    #Zeki
+      font-size: 30px
+      line-height: 72px
+      img    
+        vertical-align: middle
+        float: right
+        margin: 7px
+        border: 1px solid #B3B3B3
+        width: 72px
+        height: 72px
+        +border-radius(15px)
+    #ul5-count
+      vertical-align: -5px
+  hr
+    width: 100%
+    border: 0
+    height: 1px
+    background-color: #d4d4d4
+    padding: 0px 0px 0px 7px
+    margin: 0px 0px 0px -7px
+
+
+
+
+#footer
+  +animate(fadeInUp, 3s)
+  position: absolute
+  bottom: 0px
+  width: 100%  
+  height: 30px
+  z-index: 1  
+  +transform(translateZ(0))
+  #footer-l
+    float: left
+    width: 240px
+    height: inherit
+    background: $main-bgcolor
+    color: $main-txtcolor
+    font-size: 13px
+    font-family: Arial
+    text-align: left
+    font-weight: bold
+    +opacity(0.7)
+    &:hover
+      +transition(all 0.5s)
+      background: $main-bgcolorhover
+      #webdetail
+        +animate(fadeIn, 0.5s)
+        display: block
+    .detail
+      float: right
+      margin-right: 5px
+      //background-color: #FFF
+
+  span
+    line-height: 30px
+    .zekilogo
+      vertical-align: middle
+      margin: 0px 10px 0px 0px
+      border: 1px solid #BBB
+      width: 28px
+      height: 28px
+
+
+  #footer-r
+    width: auto
+    margin: 0px 0px 0px 241px
+    height: inherit
+    color: #fff
+    background: $main-bgcolor    
+    +opacity(0.5)
+    padding: 0px 0px 0px 10px
+    line-height: 29px
+    overflow: auto
+    .IwithM
+      float: left
+      line-height: inherit
+      font-weight: bold
+      &:hover
+        color: $main-txtcolorhover
+    #close-menu
+      display: none
+      color: $main-txtcolor
+      &:hover
+        color: red
+    #zeki-menu
+      list-style: none
+      width: auto
+      overflow: hidden
+      white-space: nowrap
+      line-height: inherit
+      display: none
+      //sass for loop
+      li
+        //display: inline
+        float: left
+        //background-color: orange
+        a
+          font-weight: bold
+          //color: #999
+          display: inline-block
+          line-height: inherit
+          padding: 0 5px 0 5px
+          &:hover
+            color: $main-txtcolorhover
+          &:focus
+            color: $main-txtcolorhover
+        @for $i from 1 through 5
+          @if $i % 2 == 0
+            &:nth-child(#{$i})
+              +animate(bounceInDown, 0.5s*$i)
+          @else
+            &:nth-child(#{$i})
+              +animate(bounceInUp, 0.5s*$i)
+.new
+  position: absolute
+  right: 0
+  top: -10
+  color: red
+  font-size: 12px
+  font-weight: 900
+
+
+#zeki-cat
+  position: absolute
+  right: 10px
+  bottom: 30px
+
+#bgm
+  position: absolute
+  right: 10px
+  top: 0px
+  font-size: 10px
+  color: #fff
+  background: $main-bgcolor
+  text-align: center
+  opacity: 0.6
+  filter: alpha(opacity = 60)
+  padding: 5px 0px 5px 0px
+  +border-radius(5px)
+
+h4
+  padding: 10px 10px 0px 10px
+  margin: 0px 0px 0px 0px
+
+#bg
+  position: fixed
+  top: 0
+  left: 0
+  z-index: -1
+  //Preserve aspet ratio
+  max-width: 100%
+  min-height: 100%
