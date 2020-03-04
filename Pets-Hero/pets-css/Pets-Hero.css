@@ -1,0 +1,560 @@
+body {	
+    background-color: rgba(255,255,255,0.5);
+}
+
+a[href*="updog"] {
+	display: none !important	
+}
+	
+/*除了input以外的所有元素*/
+*:not(input) {	
+  border: 0px solid #eee;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: monospace;
+}
+hr {	
+  border: 1px solid darkorange;;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+	font-size: 25px;
+}
+h2 {
+	font-size: 14px;
+	font-weight: normal;
+}
+#tip-box {
+	background-color: rgba(0,0,0,0.6);
+    color: white;
+    border-radius: 5px;
+    width: 12.5%;
+    padding: 10px 0px;
+    position: absolute;
+	top: 30%;
+    left: 43.75%;
+    text-align: center;
+    z-index: 200;
+    transition: all 1s;
+}
+
+#alert-box, #confirm-box{
+	background-color: rgba(250,250,250,0.9);
+    border: 1px solid #f97352;
+    width: 25%;
+    position: absolute;
+    top: 25%;
+    left: 37.5%;
+    text-align: center;
+    z-index: 100;
+}
+#alert-box h1, #confirm-box h1{
+	background-color: #f97352;
+	color: #fff;
+    margin: 3px;
+}
+#alert-box p, #confirm-box p{
+	margin: 20px 10px;
+}
+
+#alert-box input[type=button], #confirm-box input[type=button]{
+    background-color: #f97352;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 5px 20px;
+    margin: 10px;
+}
+#alert-box input[type=button]:hover, #confirm-box input[type=button]:hover{
+	background-color: #db593b;
+}
+
+.mask {	
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;    
+    color: yellow;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 50;
+}
+.mask-close {
+	position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: xx-large;
+    cursor: pointer;
+    border: 1px dotted;
+    padding: 5px;
+}
+#equipmentList {
+    width: 25%;
+    /*height: 50%;*/
+    border-radius: 10px;
+    position: absolute;
+    top: 25%;
+    left: 37.5%;
+    z-index: 500;
+    background-color: rgba(0,0,0,0.5);	
+    padding: 10px;
+    text-align: center;
+}
+#equipmentList h3{
+	color: yellow;
+}
+#equipmentList span{
+	margin: 5px;
+}
+#equipmentList span:hover{
+	border: 2px solid yellow;
+}
+
+#heropets-backpack-list {
+	display: none;
+    position: absolute;
+    top: 0px;
+    left: -290px;
+    width: 300px;
+    height: 100%;
+    padding: 10px 0px;
+    box-sizing: border-box;
+    transition: all 0.5s;
+}
+
+.heropets-backpack-title {
+	text-align: center;
+	font-size: x-large;
+	background-color: rgba(255,255,255,0.3);
+}
+
+.backpack-list-open {
+	transition: all 0.5s;
+	left: 0px !important;
+}
+
+.heropets-backpack-content {
+    background-color: rgba(0,0,0,0.8);
+    width: inherit;
+    height: inherit;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.heropets-backpack-content li {
+    width: 50px;
+    height: 50px;
+    background-color: darkgray;
+    border: 2px solid #655547;
+    box-shadow: 0px 0px 2px #000;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 5px;    
+    text-align: center;
+    line-height: 50px;
+    color: gray;
+}
+
+#heropets-backpack-btn {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    width: 20px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    margin-top: -35px;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    cursor: pointer;
+}
+
+#backpack-list li, #shop-list li {
+	position: relative;
+	background: -webkit-linear-gradient(lightgray,aliceblue,lightgray);
+	background: -o-linear-gradient(lightgray,aliceblue,lightgray);
+	background: -moz-linear-gradient(lightgray,aliceblue,lightgray);
+	background: linear-gradient(lightgray,aliceblue,lightgray);
+	height: 50px;
+	margin-bottom: 1px;
+}
+
+#blacksmith-shop-list .synthesis-arrow, #blacksmith-shop-list .synthesis-plus {
+	float: left;
+	/*margin: 0px 10px;*/
+}
+#blacksmith-field-wrap {
+	display: inline-block;
+    margin-top: 60px;
+}
+#blacksmith-field-wrap span{
+	margin: 0px 5px;
+}
+#blacksmith-shop-list .synthesis-plus img{
+	width: 50px;
+    height: 50px;
+}
+
+#blacksmith-shop-list .synthesis-arrow img{
+	width: 50px;
+    height: 50px;
+}
+.synthesis-field, .synthesis-result-field {
+	width: 50px;
+    height: 50px;
+    background-color: darkgray;
+    border: 2px solid #655547;
+    box-shadow: 0px 0px 2px #000;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    color: gray;
+    cursor: pointer;
+    float: left;
+    position: relative;
+}
+.inTheEquipment::before {
+	position: absolute;
+    left: 0;
+    border-radius: 8px;
+	content: '裝備中';
+	color: #ff0000;
+	width: inherit;
+	height: inherit;
+	background-color: rgba(0,0,0,0.5);	
+}
+.inTheEquipment:hover {
+	border: 2px solid #655547 !important;
+}
+
+.synthesis-field-lv {
+    position: absolute;
+    bottom: 5px;
+    line-height: initial;
+    color: #00ff00;
+    width: inherit;
+}
+
+#strengthen-btn, #cancel-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -50px;
+    width: 50px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px dashed gray;
+    cursor: pointer;
+}
+#cancel-btn {
+	margin-left: 25px;
+}
+
+#strengthen-btn:hover, #cancel-btn:hover{
+ background-color: #fff;
+}
+
+.li-Selected {
+	background: -webkit-linear-gradient(Turquoise,Aquamarine,Turquoise) !important;
+	background: -o-linear-gradient(Turquoise,Aquamarine,Turquoise) !important;
+	background: -moz-linear-gradient(Turquoise,Aquamarine,Turquoise) !important;
+	background: linear-gradient(Turquoise,Aquamarine,Turquoise) !important;
+}
+.hero-name {
+	color: darkorange;
+}
+.name {
+	color: hotpink;
+}
+.title td {
+	border-top: 1px solid black;
+	background-color: aliceblue;
+}
+.heropets-wrap {
+	text-align: center;
+}
+.atk-cont {
+	font-size: 12px;
+	color: red;
+}
+#hero-info {		    
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: collapse;
+	outline: 1px solid red;
+	margin-bottom: 1px;
+}
+#pet-avatar {
+	position: relative;
+    width: 200px;
+    height: 200px;
+    border-right: 1px solid;
+}
+#equip-sys {
+    width: 200px;
+    height: 200px;
+    text-align: left;
+}
+#equip-sys > input[type=button], #adventure-text {
+	border-width: 1px 1px 0px 1px;
+	border-style: outset;
+	background-color: lightgray;
+ 	font-size: x-large;
+ 	outline: none;
+ 	cursor: pointer;
+}
+
+#adventure-text {
+	display: none;
+	width: 100%;
+    box-sizing: border-box;
+    border: 2px inset lemonchiffon;
+}
+
+#equip-sys ul li input[type=button] {
+	position: absolute;
+    top: 25px;
+    right: 10px;
+    height: 25px;
+    margin-top: -12.5px;
+    padding: 0 5px;
+    border: 1px solid rgba(0,0,0,0.3);
+    /*outline: 1px solid rgba(0,0,0,0.3);*/
+    outline: none;
+    cursor: pointer;
+}
+#equip-sys ul li input[type=button]:first-child {
+	right: 30px !important;
+}
+#equip-sys ul li input[type=button]:hover {
+	background-color: #fff;
+}
+
+
+
+#backpack-list, #shop-list, #blacksmith-shop-list, #adventure {
+	display: none;
+    border: 1px solid antiquewhite;
+    background-color: antiquewhite;
+    height: inherit;
+    margin: 0;
+    padding: 1px 0;
+    overflow: auto;
+    position: relative;
+}
+#blacksmith-shop-list {
+	padding: 0px 10px;
+	text-align: center;
+}
+
+#pet-body, #pet-head, #pet-armor, .pet-weapon-SbaseV1, .pet-weapon-SbaseV2, .pet-weapon-SbaseV3-1, .pet-weapon-SbaseV3-2, .pet-weapon-SgunV1, .pet-weapon-SgunV2, .pet-weapon-SgunV3-topLeft, .pet-weapon-SgunV3-topRight, .pet-weapon-SgunV3-lowerLeft,  .pet-weapon-SgunV3-lowerRight, .pet-weapon-HbaseV1, .pet-weapon-HgunV1, .pet-weapon-HgunV2, .pet-weapon-HgunV3, .pet-weapon-EbaseV1, .pet-weapon-EbaseV3-1, .pet-weapon-EbaseV3-2, .pet-weapon-EgunV1, .pet-weapon-EgunV2, .pet-weapon-EgunV3-Left, .pet-weapon-EgunV3-Right, #pet-partner-Zeki {
+	position: absolute;
+	top: 0;
+    margin-left: 25%;		    
+    background-size: 200px 200px;  
+    width: inherit;
+    height: inherit;	
+}
+#pet-body {
+	z-index: 1;
+	background-image: url(../pets-img/cat-body-orange.gif);
+}
+#pet-armor {
+	z-index: 2;
+    background-image: url(../pets-img/armor/saddle.png);	
+}
+.pet-weapon-SbaseV1, .pet-weapon-SbaseV2, .pet-weapon-SbaseV3-1, .pet-weapon-SbaseV3-2{
+	z-index: 3;
+	display: none;
+    background-image: url(../pets-img/weapons/S-Spear/Fixed-BaseV1.png);
+}
+.pet-weapon-SbaseV2 {
+	background-image: url(../pets-img/weapons/S-Spear/Fixed-BaseV2.png);	
+}
+.pet-weapon-SbaseV3-1 {
+	background-image: url(../pets-img/weapons/S-Spear/Fixed-BaseV3-1.png);	
+}
+.pet-weapon-SbaseV3-2 {
+	z-index: 5;
+	background-image: url(../pets-img/weapons/S-Spear/Fixed-BaseV3-2.png);	
+}
+.pet-weapon-SgunV1, .pet-weapon-SgunV2, .pet-weapon-SgunV3-topLeft, .pet-weapon-SgunV3-topLeft, .pet-weapon-SgunV3-topRight, .pet-weapon-SgunV3-lowerLeft,  .pet-weapon-SgunV3-lowerRight{
+	z-index: 8;
+	display: none;
+    background-image: url(../pets-img/weapons/S-Spear/Steel-SpearV1.png);
+}
+.pet-weapon-SgunV2 {	
+	background-image: url(../pets-img/weapons/S-Spear/Steel-SpearV2.png);
+}
+.pet-weapon-SgunV3-topLeft {	
+	background-image: url(../pets-img/weapons/S-Spear/Steel-SpearV3-topLeft.png);
+}
+.pet-weapon-SgunV3-topRight {
+	z-index: 6;	
+	background-image: url(../pets-img/weapons/S-Spear/Steel-SpearV3-topRight.png);
+}
+.pet-weapon-SgunV3-lowerLeft {
+	z-index: 4;
+	background-image: url(../pets-img/weapons/S-Spear/Steel-SpearV3-lowerLeft.png);
+}
+.pet-weapon-SgunV3-lowerRight {
+	z-index: 0;
+	background-image: url(../pets-img/weapons/S-Spear/Steel-SpearV3-lowerRight.png);
+}
+.pet-weapon-EbaseV1, .pet-weapon-EbaseV3-1, .pet-weapon-EbaseV3-2 {
+	z-index: 3;
+	display: none;
+    background-image: url(../pets-img/weapons/E-Pulse/Fixed-BaseV1.png);
+}
+.pet-weapon-EbaseV3-1 {
+	background-image: url(../pets-img/weapons/E-Pulse/Fixed-BaseV3-1.png);
+}
+.pet-weapon-EbaseV3-2 {
+	z-index: 5;
+	background-image: url(../pets-img/weapons/E-Pulse/Fixed-BaseV3-2.png);
+}
+
+.pet-weapon-EgunV1, .pet-weapon-EgunV2, .pet-weapon-EgunV3-Left, .pet-weapon-EgunV3-Right {
+	z-index: 8;
+	display: none;
+    background-image: url(../pets-img/weapons/E-Pulse/E-PulseV1.png);
+}
+.pet-weapon-EgunV2 {
+	background-image: url(../pets-img/weapons/E-Pulse/E-PulseV2.png);
+}
+.pet-weapon-EgunV3-Left {
+	background-image: url(../pets-img/weapons/E-Pulse/E-PulseV3-Left.png);
+}
+.pet-weapon-EgunV3-Right {
+	z-index: 4;
+	background-image: url(../pets-img/weapons/E-Pulse/E-PulseV3-Right.png);
+}
+.pet-weapon-HbaseV1 {
+	z-index: 3;
+	display: none;
+    background-image: url(../pets-img/weapons/H-Shotgun/Fixed-BaseV1.png);
+}
+.pet-weapon-HgunV1, .pet-weapon-HgunV2, .pet-weapon-HgunV3 {
+	z-index: 8;
+	display: none;
+    background-image: url(../pets-img/weapons/H-Shotgun/Heavy-ShotgunV1.png);
+}
+.pet-weapon-HgunV2 {
+	background-image: url(../pets-img/weapons/H-Shotgun/Heavy-ShotgunV2.png);	
+}
+.pet-weapon-HgunV3 {
+	background-image: url(../pets-img/weapons/H-Shotgun/Heavy-ShotgunV3.png);	
+}
+#pet-partner-Zeki {
+	z-index: 3;
+	display: none;
+    background-image: url(../pets-img/weapons/Zeki/Zeki.png);
+}
+#pet-head {
+	z-index: 7;
+    background-image: url(../pets-img/cat-head-orange.gif);
+
+}
+
+.float-style {
+    height: inherit;
+    width: auto;
+    float: left;
+}
+.block-style {
+	display: block !important;
+}
+.none-style {
+	display: none !important;
+}
+.antiquewhite-btn {
+	background-color: antiquewhite !important;
+}	
+
+.orange-btn {
+	background-color: orange !important;
+}
+
+.cyan-style {
+	color: cyan !important;
+}
+.red-style {
+	color: red !important;
+}
+.weapons-list {
+    list-style-type: georgian;
+}
+#log-content {
+	text-align: left;
+	width: 50%;
+	margin: 0 auto;
+	height: 300px;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.1);
+    outline: 1px dashed lightsalmon;
+}
+
+.makeing-mask {
+	position: absolute;
+    width: 100%;
+    height: inherit;
+    line-height: 200px;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    color: #ff0000;
+    background-color: rgba(125,125,125,0.9);
+}
+
+
+
+/*animate*/
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}

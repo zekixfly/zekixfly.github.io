@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pets Hero(Beta)</title>
+	<link rel="stylesheet" href="./pets-css/Pets-Hero.css">
+</head>
+<body>
+	<!-- <div id="equipmentList"></div> -->
+<!-- 	<div id="heropets-backpack-list">
+		<ul class="heropets-backpack-content">
+			<div class="heropets-backpack-title">背包</div>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+		<div id="heropets-backpack-btn">》</div>
+	</div> -->
+
+	<div class="heropets-wrap">
+		<h1>寵物英雄</h1>
+		<h3>Pet-Hero</h3>
+		<table id="hero-info">
+			<tr>
+				<td id="pet-avatar" colspan="3">					
+					<div id="pet-body"></div>
+					<div id="pet-armor"></div>
+					<div id="pet-head"></div>
+					<!-- Weapons div increase below. -->
+				</td>
+				<td id="equip-sys" colspan="3">
+
+					<input type="text" id="adventure-text" value="" placeholder="探險中...">
+					<input type="button" id="backpack-btn" value="背包">
+					<input type="button" id="shop-btn" value="商店">
+					<input type="button" id="blacksmith-shop-btn" value="鐵匠鋪">
+					
+					<ul id="backpack-list"></ul>
+					
+					<ul id="shop-list">
+<!-- 					<li>鋼甲突刺(+20~50)</li>
+						<li>格林機槍(+40~50)</li>
+						<li>火焰槍(+50)</li>
+						<li>散彈重砲(+300~500)</li>
+						<li>電磁脈衝(+1~1000)</li> -->
+					</ul>
+
+					<div id="blacksmith-shop-list">
+						<!-- <div class="makeing-mask">Working...</div> -->
+
+					</div>
+					
+					<ul id="adventure">						
+						探險中將無法變更任何裝備，如要變更裝備請待探險完成後!
+					</ul>
+
+				</td>
+			</tr>
+			<tr class="title">
+				<td>名子</td><td>等級</td><td>最大攻擊力</td><td>血量</td><td>經驗值</td><td>金錢</td>
+			</tr>
+			<tr>
+				<td id="hero-name"></td><td id="hero-lv"></td><td id="hero-atk"></td><td id="hero-hp"></td><td id="hero-exp"></td><td id="hero-money"></td>
+			</tr>
+		</table>
+		<div id="log-content">目前沒有探險紀錄。</div><br />
+		<p>(PS:空白鍵也可以放置探險!)</p>
+		<input id="log-btn" type="button" value="勇者開始探險">	
+		<input id="cls-btn" type="button" value="清空探險紀錄">	
+	</div>
+
+<!-- 	<div id="alert-box">
+		<h1>Message Box</h1>
+			<p>hi!!</p>
+			<input type="button" value="OK">
+	</div> -->
+	
+
+</body>
+
+<gameEngineScript>
+<script type=text/javascript src="ZekiCore.js"></script>
+</gameEngineScript>
+
+</html>
