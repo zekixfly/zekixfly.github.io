@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Settings</title>
+	<link rel="stylesheet" href="./../css/zeki-content.css">
+	
+</head>
+<body>
+	<div class="subpage">
+			<table id="setting">
+				<tr>
+					<td>主體顏色</td>
+					<td>
+						<a href="javascript:zekiGetColor('rosybrown');" class="rosybrown"></a>
+						<a href="javascript:zekiGetColor('orange');" class="orange"></a>
+						<a href="javascript:zekiGetColor('bisque');" class="bisque"></a>
+						<a href="javascript:zekiGetColor('palegreen');" class="palegreen"></a>
+						<a href="javascript:zekiGetColor('aliceblue');" class="aliceblue"></a>
+						<a href="javascript:zekiGetColor('indigo');" class="indigo"></a>
+						<a href="javascript:zekiGetColor('mediumpurple');" class="mediumpurple"></a>
+						<a href="javascript:zekiGetColor('black');" class="black"></a>
+						<a href="javascript:zekiGetColor('antiquewhite');" class="antiquewhite"></a>
+						<a href="javascript:zekiGetColor('pink');" class="pink"></a>
+						<a href="javascript:zekiGetColor('brown');" class="brown"></a>
+						<a href="javascript:zekiGetColor('cadetblue');" class="cadetblue"></a>
+						<a href="javascript:zekiGetColor('olive');" class="olive"></a>
+						<a href="javascript:zekiGetColor('mediumaquamarine');" class="mediumaquamarine"></a>
+						<a href="javascript:zekiGetColor('transparent');" class="transparent"></a>
+						
+					</td>
+					<td><div id="colortext"></div></td>
+				</tr>
+				<tr>
+					<td>背景圖片</td>
+					<td>
+						<a class="gold-museum" href="javascript:zekiGetBG('gold-museum');" src=""></a>
+						<a class="longteng-bridge" href="javascript:zekiGetBG('longteng-bridge');" ></a>
+						<a class="country-road" href="javascript:zekiGetBG('country-road');" ></a>
+						<a class="rail" href="javascript:zekiGetBG('rail');" ></a>
+						<a class="zhutian" href="javascript:zekiGetBG('zhutian');" ></a>
+					</td>
+					<td><div id="bgtext"></div></td>
+				</tr>
+
+			</table>
+			<div class="zeki-rabit-normal-arrow"></div>	
+		<input id="savesettings" type="button" onclick="saveSettings();" value="儲存設定">
+	</div>
+</body>
+
+<script type="text/javascript" src="../js/cookieSet.js"></script>
+<script type="text/javascript" src="../js/subpagejs/zekiThemes.js"></script>	
+
+</html>

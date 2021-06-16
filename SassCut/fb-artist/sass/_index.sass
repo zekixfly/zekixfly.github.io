@@ -1,0 +1,204 @@
+a[href*="updog"] 
+	display: none !important 
+
+body
+	background: image-url('bg.jpg')
+	+background-size(cover)
+.wrap
+	width: $wrap-width
+	height: $wrap-height
+	margin: 66px auto
+	+box-shadow(0px 0px 20px 0px #000)
+	overflow: hidden
+	.personal-side
+		float: left
+		background-color: #3b5998
+		width: 300px
+		height: inherit
+		padding: 30px
+		+border-radius(5px 0 0 5px)
+		+box-sizing(border-box)
+		//
+		text-align: center
+		.logoheader
+			margin-bottom: 24px
+		.photoicon
+			margin-bottom: 23px
+		.nickname
+			margin-bottom: 23px
+			a
+				color: #fff
+				font-size: 22px
+				font-weight: bold
+			img
+				vertical-align: middle
+		.checkimg
+			margin-left: 10px
+		.introduce
+			margin-bottom: 40px
+			h1
+				font-size: 15px
+				font-weight: bold
+				+opacity(0.42)
+				margin-bottom: 20px
+			p
+				font-size: $default-font
+				line-height: $line-height
+		table
+			text-align: left
+			width: 240px
+			margin-bottom: 100px
+			td
+				width: 120px
+				padding: 13px 9px
+				+box-sizing(border-box)
+				h1
+					font-size: 18px
+					margin-bottom: 8px
+				h2
+					font-size: 12px
+					+opacity(0.42)
+			.like-td, .talk-td
+				border-width: 1px
+				border-top-style: solid
+				border-bottom-style: solid
+				border-color: #536ca0
+			.talk-td
+				border-left-style: solid
+		.like-zone
+			width: 242px
+			height: 62px
+			border: 1px solid #4f6699
+			display: table-cell
+			vertical-align: middle
+			+border-radius(5px)
+			.like-btn
+				background: image-url('like.png') no-repeat 10% center
+				width: 230px
+				height: 50px
+				border: none
+				color: #fff
+				background-color: #607cb6
+				+border-radius(5px)
+				&:hover
+					color: $hot-color					
+					background: image-url('like-hover.png') no-repeat 10% center
+					background-color: #fff
+
+	.content
+		position: relative
+		float: right
+		background-color: #fff
+		width: $wrap-width - 300px
+		height: inherit
+		+opacity(0.8)
+		+border-radius(0 5px 5px 0)
+		.next
+			position: absolute
+			top: $wrap-height/2
+			right: -(image-width('right-arrow.png')/3)	
+			&:hover
+				
+		.header
+			height: 81px
+			background-image: linear-gradient(#e1d6d8,#eae4e6)
+			+opacity(0.92)
+			border-width: 1px
+			border-color: #bdbdbd
+			border-bottom-style: solid
+			+box-shadow(0px 1px 3px 0px #dddace)
+			.search
+				float: left
+				position: relative
+				text-align: center				
+				//display: block
+				width: 321px
+				height: inherit
+				//background-color: orange
+				//border: 5px solid #000
+				.search-text
+					position: absolute
+					top: 0
+					bottom: 0
+					left: 0
+					right: 0
+					margin: auto
+					color: $hot-color
+					font-size: 30px
+					font-weight: bold
+					background: image-url('search-icon.png') no-repeat left center	
+					width: 260px
+					height: 35px
+					border: none
+					border-width: 1px
+					border-color: #bdbdbd
+					border-bottom-style: solid
+
+			.actions
+				float: left				
+				text-align: center
+				width: 159px
+				height: inherit
+				border-width: 1px
+				border-color: #bdbdbd
+				border-left-style: solid
+				border-right-style: solid
+				.ac1, .ac2, .ac3
+					line-height: 90px
+				.ac2, .ac3
+					margin-left: 20px
+			.user
+				text-align: center
+				a
+					font-size: $default-font
+					line-height: 81px
+					font-weight: bold
+					color: #3a3f48
+					&:hover
+						color: $hot-color
+				img
+					margin-left: 14px
+					vertical-align: middle
+		.slide
+			padding: 0 30px
+
+			.menu				
+				border-width: 1px
+				border-color: #D6D3CC
+				border-bottom-style: solid
+				height: 87px
+				margin-bottom: 29px
+				a
+					float: left
+					color: #97969c
+					margin-left: 76px
+					font-weight: bold
+					line-height: 87px
+					&:hover
+						color: $hot-color
+						background: image-url('select-circle.png') no-repeat center center
+			.photo-zone
+				margin-bottom: 40px
+				img
+					width: 218px
+					height: 218px
+					border: 1px solid #D6D3CC
+					+box-sizing(border-box)
+					&:hover
+						border-color: $hot-color
+			h1
+				font-size: 18px
+				text-align: center
+				color: #3a3f48
+				+opacity(0.9)
+				margin-bottom: 17px
+			h2
+				font-size: 16px
+				text-align: center
+				color: #3a3f48
+				+opacity(0.42)
+.footer
+	text-align: center
+	margin-bottom: 66px
+	em
+		color: $hot-color

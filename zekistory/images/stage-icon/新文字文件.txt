@@ -1,0 +1,121 @@
+<table align="center" border="0"> 
+<tr> 
+<td ><font color="#0080FF" size="1"> 
+
+
+<script language="JavaScript"> 
+<!-- 
+<!--設定訪問次數與相應網友等級//--> 
+<!--基本級--> 
+var base=5 
+<!--一等級--> 
+var no1=8 
+<!--特等級--> 
+var vp=10 
+<!--忠實級--> 
+var sp=15 
+<!--設定各個等級的稱謂--> 
+var basetext="基本網友" 
+var no1text="一等網友" 
+var vptext="特等網友" 
+var sptext="忠實網友" 
+var toptext="最佳網友" 
+ 
+function getCookieVal (offset) { 
+var endstr=document.cookie.indexOf(";", offset); 
+if (endstr == -1) endstr=document.cookie.length; 
+return unescape(document.cookie.substring(offset, endstr)); 
+} 
+ 
+function GetCookie (name) { 
+var arg=name+"="; 
+var alen=arg.length; 
+var clen=document.cookie.length; 
+var i=0; 
+while (i < clen) { 
+var j=i+alen; 
+if (document.cookie.substring(i, j) == arg) return getCookieVal (j); 
+i=document.cookie.indexOf(" ", i)+1; 
+if (i == 0) break;  
+} 
+return null; 
+} 
+ 
+function SetCookie (name, value) { 
+var argv = SetCookie.arguments; 
+var argc = SetCookie.arguments.length; 
+var expires = (argc > 2) ? argv[2] : null; 
+var path = (argc > 3) ? argv[3] : null; 
+var domain = (argc > 4) ? argv[4] : null; 
+var secure = (argc > 5) ? argv[5] : false; 
+document.cookie = name + "=" + escape (value) + 
+((expires == null) ? "" : ("; expires=" + expires.toGMTString())) + 
+((path == null) ? "" : ("; path=" + path)) + 
+((domain == null) ? "" : ("; domain=" + domain)) + 
+((secure == true) ? "; secure" : ""); 
+} 
+ 
+function show_count() { 
+var expdate=new Date(); 
+var num; 
+expdate.setTime(expdate.getTime()+(24*60*60*1000*60));  
+if(!(GetCookie("name"))) num=0;  
+else num=GetCookie("count"); 
+if (num != 0) { 
+<!--在這裡輸入第一次光臨出現的文字//--> 
+if (num == 1) document.write("<font size=4>這是您第一次拜訪本單元，請儘情瀏覽！！<br>"); 
+<!--在這裡輸入以後來再次登錄顯示的文字//--> 
+else document.write("<font size=4>您已來過"+num+" 次了，感覺不錯吧！<br>"); 
+document.write("目前等級："); 
+if (num < base) document.write(basetext); 
+else if (num < no1) document.write(no1text); 
+else if (num < vp) document.write(vptext); 
+else if (num < sp) document.write(sptext); 
+else {document.write(toptext)}; 
+document.write("</font><br>"); 
+if (num>sp)  
+{<!--最佳網友出現的對話--> 
+ document.write("<font size=3>你已經是最佳網友了,多謝你對本站的支持</font><br>") }  
+else {<!--非最佳網友出現的對話--> 
+document.write("<font size=3>如果您想提升等級的話，請常回來逛逛唷</font><br>")}; 
+} 
+num++; 
+SetCookie("count", num, expdate); 
+} 
+ 
+function auto_show_name() { 
+if(GetCookie("name") != null) { 
+ 
+} else { 
+<!--未登錄過的新網友所看到的對話//--> 
+document.write("<font size=4>因為您是第一次拜訪，<br>所以請您登錄您的姓名，<br>大門將會為您而開…</b></font><br>"); 
+<!--在這裡修改按鈕的名字//--> 
+document.write("<FORM NAME=\"jeffform1\"><INPUT TYPE=\"button\" VALUE=\"登錄\" onClick=\"set_name(jeffform1.nameinput.value,0)\"><INPUT TYPE=\"RESET\" VALUE=\"重新輸入\"><br><font size=3>請輸入您的姓名：<INPUT TYPE = \"text\" NAME = \"nameinput\"></FORM>");  
+} 
+} 
+ 
+function set_name(cookie_name,flag) { 
+var expdate = new Date (); 
+expdate.setTime(expdate.getTime()+(24*60*60*1000*60)); 
+var username=cookie_name; 
+if (flag == 0) { 
+if (username != "") { 
+<!--第一次輸入用戶名後對話視窗所出現的對話//--> 
+if (confirm("您所輸入的姓名是“"+username+"”，您確定嗎？")) { 
+SetCookie ("name", username, expdate); 
+window.history.go(0); 
+} 
+} else  
+<!--沒有輸入用戶名所出現的對話視窗所顯現的對話//--> 
+alert("抱歉！！請先輸入您的姓名，謝謝。"); 
+} 
+} 
+// --></script><script 
+language="JavaScript"> 
+auto_show_name(); 
+show_count(); 
+</script> 
+  </font> 
+</td> 
+</tr> 
+</table>

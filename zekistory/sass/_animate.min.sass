@@ -1,0 +1,89 @@
+//Animate Mixin Plugin
+
+=animate($name: fadeIn, $duration: 1s, $delay: .2s, $function: ease, $mode: both)
+  +experimental(animation, $name $duration $delay $function $mode)
+
+
+//KeyFrame Defaults (pre-made don't edit)
+
+@-webkit-keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@-webkit-keyframes fadeInUp
+  0%
+    opacity: 0
+    -webkit-transform: translateY(20px)
+  100%
+    opacity: 1
+    -webkit-transform: translateY(0)
+
+@-webkit-keyframes fadeInDown
+  0%
+    opacity: 0
+    -webkit-transform: translateY(-20px)
+  100%
+    opacity: 1
+    -webkit-transform: translateY(0)
+
+@-webkit-keyframes rotateInDownLeft
+  0%
+    -webkit-transform-origin: left bottom
+    -webkit-transform: rotate(-90deg)
+    opacity: 0
+  100%
+    -webkit-transform-origin: left bottom
+    -webkit-transform: rotate(0)
+    opacity: 1
+
+@-webkit-keyframes slideInDown 
+  0% 
+    -webkit-transform: translateY(-100%)
+    transform: translateY(-100%)
+    visibility: visible  
+  100% 
+    -webkit-transform: translateY(0)
+    transform: translateY(0)
+  
+@-webkit-keyframes slideOutUp 
+  0% 
+    -webkit-transform: translateY(0)
+    transform: translateY(0)  
+  100% 
+    visibility: hidden
+    -webkit-transform: translateY(-100%)
+    transform: translateY(-100%)
+
+@-webkit-keyframes blink 
+  0% 
+    opacity: 1    
+  50% 
+    opacity: 0
+  100%
+    opacity: 1
+    
+@-webkit-keyframes bounceInUp
+  0%
+    opacity: 0
+    -webkit-transform: translateY(2000px)
+  60%
+    opacity: 1
+    -webkit-transform: translateY(-30px)
+  80%
+    -webkit-transform: translateY(10px)
+  100%
+    -webkit-transform: translateY(0)
+    
+@-webkit-keyframes bounceInDown
+  0%
+    opacity: 0
+    -webkit-transform: translateY(-2000px)
+  60%
+    opacity: 1
+    -webkit-transform: translateY(30px)
+  80%
+    -webkit-transform: translateY(-10px)
+  100%
+    -webkit-transform: translateY(0)

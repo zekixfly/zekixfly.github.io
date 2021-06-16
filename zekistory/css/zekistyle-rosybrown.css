@@ -1,0 +1,780 @@
+@charset "UTF-8";
+/*---------------版權區---------------
+ *作者: Zeki
+ *信箱: zekixfly@hotmail.com
+ *
+ *版權聲明:
+ *一、本網站的版權屬原作者所有。 
+ *二、盼望尊重知識產權，請勿擅自轉貼複製。
+ *    
+ *---------------版權區------------- */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-webkit-keyframes rotateInDownLeft {
+  0% {
+    -webkit-transform-origin: left bottom;
+    -webkit-transform: rotate(-90deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slideInDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes slideOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    visibility: hidden;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+}
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(-30px);
+  }
+  80% {
+    -webkit-transform: translateY(10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+@-webkit-keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+  }
+  80% {
+    -webkit-transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+a {
+  text-decoration: none;
+  color: rgba(143, 188, 188, 0.5);
+  outline: 0;
+}
+
+a[href*="updog"] {
+  display: none !important;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body:after {
+  content: url(../images/zeki-player/pause-hover.png) url(../images/zeki-player/play-hover.png) url(../images/zeki-player/shuffle-hover.png) url(../images/zeki-player/zeki-rabit-hover.gif) url(../images/zeki-player/zeki-rabit-check.png) url(../images/zeki-player/zeki-rabit-music-arrow.png);
+  display: none;
+}
+
+* {
+  border: 0px solid #eee;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: Arial;
+}
+
+#header {
+  -webkit-animation: fadeInDown 3s 0.2s ease both;
+  -moz-animation: fadeInDown 3s 0.2s ease both;
+  -ms-animation: fadeInDown 3s 0.2s ease both;
+  -o-animation: fadeInDown 3s 0.2s ease both;
+  animation: fadeInDown 3s 0.2s ease both;
+  position: relative;
+  top: 0px;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  z-index: 1;
+  background: rgba(188, 143, 143, 0.5);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
+#header #m-play, #header #m-pause, #header #zeki-rabit, #header #m-shuffle {
+  cursor: pointer;
+}
+#header #m-play {
+  background-image: url("../images/zeki-player/play.png");
+  display: block;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#header #m-play:hover {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background-image: url("../images/zeki-player/play-hover.png");
+}
+#header #m-pause {
+  background-image: url("../images/zeki-player/pause.png");
+  display: none;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#header #m-pause:hover {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background-image: url("../images/zeki-player/pause-hover.png");
+}
+#header #m-pause:active {
+  background-image: url("../images/zeki-player/pause-hover.png");
+}
+#header #m-pause, #header #m-play {
+  float: left;
+  width: 25px;
+  height: 25px;
+  background-size: 25px 25px;
+  margin: 2.5px 10px 2.5px 10px;
+}
+#header #m-duration {
+  float: left;
+  color: rgba(143, 188, 188, 0.5);
+  width: 130px;
+  text-align: center;
+}
+#header #m-duration #m-current-time, #header #m-duration #m-total-time {
+  float: left;
+  padding: 0px 5px;
+  font-family: monospace;
+}
+#header #m-duration #m-total-time {
+  float: right;
+}
+#header #m-duration #zeki-rabit {
+  background-image: url("../images/zeki-player/zeki-rabit.png");
+  background-size: 37px 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 37px;
+  height: 30px;
+  margin: 0 auto;
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  left: 92px;
+}
+#header #m-duration #zeki-rabit:hover {
+  background-image: url("../images/zeki-player/zeki-rabit-hover.gif");
+}
+#header #m-duration #zeki-rabit:hover #music-list {
+  display: block;
+}
+#header #m-duration .zeki-rabit-check {
+  background-image: url("../images/zeki-player/zeki-rabit-check.png") !important;
+}
+#header marquee {
+  position: absolute;
+  top: 0px;
+  left: 185px;
+  height: inherit;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgba(143, 188, 188, 0.5);
+  margin-right: 225px;
+  overflow: hidden;
+}
+#header #m-volume {
+  background-image: url("../images/zeki-player/volume-faint.png");
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#header #m-shuffle {
+  background-image: url("../images/zeki-player/shuffle.png");
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#header #m-shuffle:hover {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background-image: url("../images/zeki-player/shuffle-hover.png");
+}
+#header #m-volume, #header #m-shuffle {
+  float: right;
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  margin: 5px 10px 5px 0px;
+}
+
+.shuffle-focus {
+  background-image: url("../images/zeki-player/shuffle-hover.png") !important;
+}
+
+#Zeki-info {
+  position: absolute;
+  top: 31px;
+  right: 10px;
+  width: 12em;
+  z-index: 0;
+}
+#Zeki-info .Ztitle {
+  font-size: 6em;
+  color: oldlace;
+  border-bottom: solid;
+}
+#Zeki-info .Zcopyright {
+  display: none;
+  color: rgba(143, 188, 188, 0.5);
+  font-size: 13px;
+  font-family: Arial;
+  text-align: center;
+  font-weight: bold;
+}
+#Zeki-info .Zdescript {
+  float: right;
+  font-size: 15px;
+  line-height: 30px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+}
+#Zeki-info .Zdescript .Zd2 {
+  display: none;
+}
+
+#recommended-music {
+  position: absolute;
+  bottom: 31px;
+  right: 10px;
+  z-index: 0;
+  font-size: 12px;
+  color: orangered;
+}
+#recommended-music span {
+  color: white;
+}
+
+#prog1 {
+  width: 100%;
+  color: orange;
+}
+
+#content {
+  float: right;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  bottom: 30px;
+  left: 0px;
+  margin: auto;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=95);
+  opacity: 0.95;
+  z-index: 0;
+  display: none;
+}
+#content #zekiiframe {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  border-width: 0px;
+}
+#content .iframe-padding10 {
+  padding: 30px 0;
+  box-sizing: border-box;
+}
+
+#music-list {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  bottom: 30px;
+  right: 0;
+  background-color: rgba(125, 125, 125, 0.5);
+  overflow: auto;
+}
+#music-list table {
+  width: 100%;
+  border-collapse: collapse;
+  color: lightcyan;
+  font-size: 15px;
+}
+#music-list table tr {
+  cursor: pointer;
+}
+#music-list table tr td:nth-child(1) {
+  border-right: 1px solid #00ff00;
+  width: 110px;
+  text-align: center;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#music-list table tr td:nth-child(2) {
+  padding: 10px;
+}
+#music-list table tr:hover {
+  background-color: #bebebe;
+  color: #3e3e3e;
+}
+#music-list table tr:hover #music-info {
+  color: rgba(0, 0, 0, 0.5);
+}
+#music-list .zeki-rabit-music-arrow {
+  background-image: url("../images/zeki-player/zeki-rabit-music-arrow.png");
+  background-size: 15px 15px;
+  width: 15px;
+  height: 15px;
+  margin-left: 110px;
+}
+
+.music-focus {
+  -webkit-animation: blink 2s 0.2s ease both;
+  -moz-animation: blink 2s 0.2s ease both;
+  -ms-animation: blink 2s 0.2s ease both;
+  -o-animation: blink 2s 0.2s ease both;
+  animation: blink 2s 0.2s ease both;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+#music-title, #music-info {
+  font-family: monospace;
+}
+
+#music-title {
+  font-size: 30px;
+}
+
+#music-info {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.music-list-in, .music-list-out {
+  display: block !important;
+}
+
+.music-list-in {
+  -webkit-animation: slideInDown 0.5s 0.2s ease both;
+  -moz-animation: slideInDown 0.5s 0.2s ease both;
+  -ms-animation: slideInDown 0.5s 0.2s ease both;
+  -o-animation: slideInDown 0.5s 0.2s ease both;
+  animation: slideInDown 0.5s 0.2s ease both;
+}
+
+.music-list-out {
+  -webkit-animation: slideOutUp 0.5s 0.2s ease both;
+  -moz-animation: slideOutUp 0.5s 0.2s ease both;
+  -ms-animation: slideOutUp 0.5s 0.2s ease both;
+  -o-animation: slideOutUp 0.5s 0.2s ease both;
+  animation: slideOutUp 0.5s 0.2s ease both;
+}
+
+#webdetail {
+  position: absolute;
+  bottom: 30px;
+  float: left;
+  width: 240px;
+  height: auto;
+  background: rgba(188, 143, 143, 0.5);
+  color: #8fbcbc;
+  font-size: 13px;
+  text-align: left;
+  font-weight: bold;
+  -moz-border-radius-topright: 15px;
+  -webkit-border-top-right-radius: 15px;
+  border-top-right-radius: 15px;
+  display: none;
+}
+#webdetail div {
+  margin: 7px;
+}
+#webdetail div #Zeki {
+  font-size: 30px;
+  line-height: 72px;
+}
+#webdetail div #Zeki img {
+  vertical-align: middle;
+  float: right;
+  margin: 7px;
+  border: 1px solid #B3B3B3;
+  width: 72px;
+  height: 72px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
+#webdetail div #ul5-count {
+  vertical-align: -5px;
+}
+#webdetail hr {
+  width: 100%;
+  border: 0;
+  height: 1px;
+  background-color: #d4d4d4;
+  padding: 0px 0px 0px 7px;
+  margin: 0px 0px 0px -7px;
+}
+
+#footer {
+  -webkit-animation: fadeInUp 3s 0.2s ease both;
+  -moz-animation: fadeInUp 3s 0.2s ease both;
+  -ms-animation: fadeInUp 3s 0.2s ease both;
+  -o-animation: fadeInUp 3s 0.2s ease both;
+  animation: fadeInUp 3s 0.2s ease both;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 30px;
+  z-index: 1;
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+#footer #footer-l {
+  float: left;
+  width: 240px;
+  height: inherit;
+  background: rgba(188, 143, 143, 0.5);
+  color: rgba(143, 188, 188, 0.5);
+  font-size: 13px;
+  font-family: Arial;
+  text-align: left;
+  font-weight: bold;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+}
+#footer #footer-l:hover {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background: rosybrown;
+}
+#footer #footer-l:hover #webdetail {
+  -webkit-animation: fadeIn 0.5s 0.2s ease both;
+  -moz-animation: fadeIn 0.5s 0.2s ease both;
+  -ms-animation: fadeIn 0.5s 0.2s ease both;
+  -o-animation: fadeIn 0.5s 0.2s ease both;
+  animation: fadeIn 0.5s 0.2s ease both;
+  display: block;
+}
+#footer #footer-l .detail {
+  float: right;
+  margin-right: 5px;
+}
+#footer span {
+  line-height: 30px;
+}
+#footer span .zekilogo {
+  vertical-align: middle;
+  margin: 0px 10px 0px 0px;
+  border: 1px solid #BBB;
+  width: 28px;
+  height: 28px;
+}
+#footer #footer-r {
+  width: auto;
+  margin: 0px 0px 0px 241px;
+  height: inherit;
+  color: #fff;
+  background: rgba(188, 143, 143, 0.5);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  padding: 0px 0px 0px 10px;
+  line-height: 29px;
+  overflow: auto;
+}
+#footer #footer-r .IwithM {
+  float: left;
+  line-height: inherit;
+  font-weight: bold;
+}
+#footer #footer-r .IwithM:hover {
+  color: #8fbcbc;
+}
+#footer #footer-r #close-menu {
+  display: none;
+  color: rgba(143, 188, 188, 0.5);
+}
+#footer #footer-r #close-menu:hover {
+  color: red;
+}
+#footer #footer-r #zeki-menu {
+  list-style: none;
+  width: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: inherit;
+  display: none;
+}
+#footer #footer-r #zeki-menu li {
+  float: left;
+}
+#footer #footer-r #zeki-menu li a {
+  font-weight: bold;
+  display: inline-block;
+  line-height: inherit;
+  padding: 0 5px 0 5px;
+}
+#footer #footer-r #zeki-menu li a:hover {
+  color: #8fbcbc;
+}
+#footer #footer-r #zeki-menu li a:focus {
+  color: #8fbcbc;
+}
+#footer #footer-r #zeki-menu li:nth-child(1) {
+  -webkit-animation: bounceInUp 0.5s 0.2s ease both;
+  -moz-animation: bounceInUp 0.5s 0.2s ease both;
+  -ms-animation: bounceInUp 0.5s 0.2s ease both;
+  -o-animation: bounceInUp 0.5s 0.2s ease both;
+  animation: bounceInUp 0.5s 0.2s ease both;
+}
+#footer #footer-r #zeki-menu li:nth-child(2) {
+  -webkit-animation: bounceInDown 1s 0.2s ease both;
+  -moz-animation: bounceInDown 1s 0.2s ease both;
+  -ms-animation: bounceInDown 1s 0.2s ease both;
+  -o-animation: bounceInDown 1s 0.2s ease both;
+  animation: bounceInDown 1s 0.2s ease both;
+}
+#footer #footer-r #zeki-menu li:nth-child(3) {
+  -webkit-animation: bounceInUp 1.5s 0.2s ease both;
+  -moz-animation: bounceInUp 1.5s 0.2s ease both;
+  -ms-animation: bounceInUp 1.5s 0.2s ease both;
+  -o-animation: bounceInUp 1.5s 0.2s ease both;
+  animation: bounceInUp 1.5s 0.2s ease both;
+}
+#footer #footer-r #zeki-menu li:nth-child(4) {
+  -webkit-animation: bounceInDown 2s 0.2s ease both;
+  -moz-animation: bounceInDown 2s 0.2s ease both;
+  -ms-animation: bounceInDown 2s 0.2s ease both;
+  -o-animation: bounceInDown 2s 0.2s ease both;
+  animation: bounceInDown 2s 0.2s ease both;
+}
+#footer #footer-r #zeki-menu li:nth-child(5) {
+  -webkit-animation: bounceInUp 2.5s 0.2s ease both;
+  -moz-animation: bounceInUp 2.5s 0.2s ease both;
+  -ms-animation: bounceInUp 2.5s 0.2s ease both;
+  -o-animation: bounceInUp 2.5s 0.2s ease both;
+  animation: bounceInUp 2.5s 0.2s ease both;
+}
+
+.new {
+  position: absolute;
+  right: 0;
+  top: -10;
+  color: red;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+#zeki-cat {
+  position: absolute;
+  right: 10px;
+  bottom: 30px;
+}
+
+#bgm {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  font-size: 10px;
+  color: #fff;
+  background: rgba(188, 143, 143, 0.5);
+  text-align: center;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  padding: 5px 0px 5px 0px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+h4 {
+  padding: 10px 10px 0px 10px;
+  margin: 0px 0px 0px 0px;
+}
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  max-width: 100%;
+  min-height: 100%;
+}
+
+@media screen and (min-device-width: 700px) and (max-device-width: 900px), screen and (min-width: 700px) and (max-width: 900px) {
+  #Zeki-info .Zcopyright {
+    display: block;
+  }
+  #Zeki-info .Zcopyright img {
+    vertical-align: middle;
+  }
+  #Zeki-info .Zdescript {
+    font-size: 14px;
+  }
+
+  #jinyong-books {
+    display: none;
+  }
+
+  #footer {
+    height: auto;
+  }
+  #footer #footer-l {
+    display: none;
+  }
+  #footer #footer-r {
+    margin: 0;
+    line-height: auto;
+  }
+}
+@media screen and (min-device-width: 480px) and (max-device-width: 700px), screen and (min-width: 480px) and (max-width: 700px) {
+  #Zeki-info .Zcopyright {
+    display: block;
+  }
+  #Zeki-info .Zcopyright img {
+    vertical-align: middle;
+  }
+  #Zeki-info .Zdescript {
+    font-size: 12px;
+    -webkit-writing-mode: horizontal-tb;
+    writing-mode: horizontal-tb;
+  }
+  #Zeki-info .Zdescript .Zd1 {
+    line-height: 12px;
+  }
+
+  #footer {
+    height: auto;
+  }
+  #footer #footer-l {
+    display: none;
+  }
+  #footer #footer-r {
+    margin: 0;
+    line-height: auto;
+  }
+}
+@media screen and (max-device-width: 480px), screen and (max-width: 480px) {
+  #header #header-l {
+    width: 100%;
+  }
+  #header #guestdetail {
+    width: 100%;
+  }
+  #header #header-r {
+    display: none;
+  }
+
+  #Zeki-info .Zcopyright {
+    display: block;
+  }
+  #Zeki-info .Zcopyright img {
+    vertical-align: middle;
+  }
+  #Zeki-info .Zdescript {
+    -webkit-writing-mode: horizontal-tb;
+    writing-mode: horizontal-tb;
+  }
+  #Zeki-info .Zdescript .Zd1 {
+    display: none;
+  }
+  #Zeki-info .Zdescript .Zd2 {
+    display: block;
+  }
+
+  #jinyong-books {
+    display: none;
+  }
+
+  #footer {
+    height: auto;
+  }
+  #footer #footer-l {
+    display: none;
+  }
+  #footer #footer-r {
+    margin: 0;
+    line-height: auto;
+  }
+}

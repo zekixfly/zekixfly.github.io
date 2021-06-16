@@ -1,0 +1,161 @@
+a[href*="updog"] 
+	display: none !important 
+
+body
+	background: image-url('bg.jpg')
+.wrap
+	width: $wrap-width
+	margin: 0 auto
+	+box-sizing(border-box)
+.header
+	position: relative
+	//background-color: lightcyan
+	height: 150px
+	h1 a
+		+bg('logo.png')
+		display: block
+		position: absolute
+		top: 35px
+		left: 20px
+.topbar
+	//background-color: yellow
+	position: absolute
+	top: 35px
+	right: 20px
+	a
+		float: left
+		margin-left: 15px
+	.fb
+		+bg('fb.jpg')
+		display: block
+	.tweet
+		+bg('tweet.jpg')
+		display: block
+.menu
+	position: absolute
+	right: 20px
+	bottom: 31px
+	h2
+		display: none
+	ul li
+		float: left	
+		margin-left: 46px
+		a
+			color: $text-color
+			font-weight: bold
+			&:hover
+				color: $hot-color
+.slide
+	background-color: orange
+	@extend %clearfix
+	height: 415px
+	margin-bottom: 35px
+	.slide-left
+		float: left
+		width: 640px
+		height: inherit
+	.slide-right
+		float: left
+		background-color: #292929
+		width: $wrap-width - 640px
+		height: inherit
+		padding: 50px 45px
+		+box-sizing(border-box)
+		h2
+			color: $hot-color
+			font-size: 45px
+			margin-bottom: 26px
+		p
+			line-height: $line-height
+			color: #ffffff
+			+opacity(0.5)
+			margin-bottom: 34px
+		.more
+			background-color: #3f3f3f
+			display: block
+			color: #ffffff
+			width: 132px
+			height: 43px
+			text-align: center
+			line-height: 43px
+			font-weight: bold
+			&:hover
+				color: $hot-color
+.introduce
+	background-color: #FFF
+	padding: 30px 44px
+	line-height: $line-height
+	font-weight: bold
+	margin-bottom: 35px
+	em
+		color: $hot-color
+.content
+	background-color: #FFF
+	@extend %clearfix
+	height: 451px
+	+box-sizing(border-box)
+	padding: 35px 45px
+	margin-bottom: 40px
+	h2
+		font-size: 26px
+		font-weight: bold
+		margin-bottom: 20px
+		em
+			color: $hot-color
+	.latest
+		width: 575px
+		float: left
+		
+		.list
+			@extend %clearfix
+			font-size: $default-size
+			line-height: $line-height
+			img
+				float: left
+				border: 5px solid #F4F4F4
+				margin-bottom: 30px
+				&:hover
+					border-color: $hot-color
+			h3
+				font-weight: bold
+				padding-left: 225px
+			p
+				padding-left: 225px
+
+	.side
+		width: 210px
+		float: right
+		.service
+			margin-bottom: 42.2px
+			ul li
+				font-size: $default-size	
+				line-height: $line-height
+				background: image-url('dot.gif') no-repeat left center
+				a
+					padding-left: 12px
+					color: $text-color
+					&:hover
+						color: $hot-color
+		.find
+			.find-text
+				color: #BEBEBE
+				border: 1px solid #F4F4F4
+				width: 210px
+				height: 43px
+				font-size: $default-size
+				margin-bottom: 15px
+			.find-btn
+				width: 108px
+				height: 43px
+				color: #BEBEBE				
+				font-weight: bold
+				background-color: #F4F4F4
+				border: none
+				&:hover
+					color: $hot-color
+.footer
+	font-size: $default-size
+	text-align: center
+	line-height: 1.8
+	em
+		color: $hot-color
