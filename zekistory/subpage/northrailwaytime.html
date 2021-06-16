@@ -1,0 +1,118 @@
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by anonymous (http://jsbin.com/zuyayexuve/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html ng-app="railwaytime">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<meta charset=utf-8 />
+<title>Zeki的個人台鐵時刻表</title>
+<style id="jsbin-css">
+tr {
+  transition: all 0.1s;
+}
+
+tr:hover {
+  transition: all 0.1s;
+  background-color: rgba(0,0,0,0.1);  
+}
+
+
+
+.online {
+  background-color: rgba(0,255,0,0.5);
+}
+.offline {
+  background-color: rgba(255,0,0,0.5);
+}
+</style>
+</head>
+<body style="margin:0">
+  
+  <div ng-controller="todoCtrl"  style="background-color: antiquewhite;
+  overflow: auto;
+  /*margin: 30px 0;*/
+  padding: 10px;
+  text-align: center;
+  ">
+    Today is {{nowDate}},
+    Time is {{nowTime}}.
+    
+    <BUTTON ng-click="ajax()">RequireNewTime</BUTTON>
+
+    <p>{{status}}</p>
+    
+    <div style="margin-bottom:10px;padding:10px">
+      <a style="margin-bottom:10px;padding:10px" href="./southrailwaytime.html">南下</a>|北上
+    </div>
+
+
+    <div style="display:inline-block">
+      <table style="float:left; padding-right:50px">
+
+        <tr><td colspan="4" style="text-align:center">台鐵</td></tr>
+        <tr>
+          <td style="padding:0 20px 0 0">車次</td>
+          <td>竹田</td>
+          <td>→</td>
+          <td>新左營</td>
+        </tr>
+        <tr class="animated bounceInUp" ng-class="obj.OriginStopTime.DepartureTime > nowTime ? 'online' : 'offline'" ng-repeat="obj in astradata.data | orderBy:'OriginStopTime.DepartureTime'">
+          <td>{{obj.DailyTrainInfo.TrainNo}}</td>
+          <td>{{obj.OriginStopTime.DepartureTime}}</td>
+          <td>→</td>
+          <td>{{obj.DestinationStopTime.DepartureTime}}</td>
+        </tr>
+      </table>
+      
+      <table style="float:left; padding-right:50px">
+       <tr><td colspan="4" style="text-align:center">高鐵</td></tr>
+        <tr>
+          <td style="padding:0 20px 0 0">車次</td>
+          <td>左營</td>
+          <td>→</td>
+          <td>新竹(六家)</td>
+        </tr>
+        <tr class="animated bounceInUp" ng-class="obj.OriginStopTime.DepartureTime > nowTime ? 'online' : 'offline'" ng-repeat="obj in athsrdata.data | orderBy:'OriginStopTime.DepartureTime'">
+          <td>{{obj.DailyTrainInfo.TrainNo}}</td>
+          <td>{{obj.OriginStopTime.DepartureTime}}</td>
+          <td>→</td>
+          <td>{{obj.DestinationStopTime.DepartureTime}}</td>
+        </tr>
+      </table>
+        
+      <table style="float:left;">
+
+        <tr><td colspan="4" style="text-align:center">台鐵</td></tr>
+        <tr>
+          <td style="padding:0 20px 0 0">車次</td>
+          <td>六家</td>
+          <td>→</td>
+          <td>竹中</td>
+        </tr>
+        <tr class="animated bounceInUp" ng-class="obj.OriginStopTime.DepartureTime > nowTime ? 'online' : 'offline'" ng-repeat="obj in antradata.data | orderBy:'DailyTrainInfo.TrainNo'">
+          <td>{{obj.DailyTrainInfo.TrainNo}}</td>
+          <td>{{obj.OriginStopTime.DepartureTime}}</td>
+          <td>→</td>
+          <td>{{obj.DestinationStopTime.DepartureTime}}</td>
+        </tr>
+
+      </table>  
+    </div>
+    
+      
+  </div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
+<script src="../js/controller/railwaytime.js"></script>
+
+
+</html>
