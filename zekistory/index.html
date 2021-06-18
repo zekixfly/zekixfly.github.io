@@ -12,202 +12,209 @@
 -->
 <html>
 
-	<head>
-		<title>Zeki's Story | 顥魄晨曦</title>
-		<link id="zekistyle" rel="stylesheet" type="text/css" href="css/zekistyle-black.css?v=0.1" media="screen">
-		<link rel="Shortcut Icon" type="image/x-icon" href="./images/zeki-logo/Zeki-16.ico" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta property="og:title" content="Zeki's Story | 顥魄晨曦" />
-		<meta property="og:type" content="website" />
-		<meta property="og:url"	content="https://zekistory.updog.co/zekistory/index.html" />
-		
-		<meta property="og:image" content="https://zekistory.updog.co/zekistory/images/zeki-logo/Zeki-200.png"	/>
-		<meta property="og:image:type" content="image/png" />
-		<meta property="og:image:width" content="70" />
-		<meta property="og:image:height" content="70" />
-		<meta property="og:site_name" content="zekistory.updog.co" />
-		<meta property="og:description" content="Zeki的個人網站 - 微動攝影 | Zeki's Personal Web - Cinemagraph." />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <title>Zeki's Story | 顥魄晨曦</title>
+    <link id="zekistyle" rel="stylesheet" type="text/css" href="css/zekistyle-black.css?v=0.1" media="screen">
+    <link rel="Shortcut Icon" type="image/x-icon" href="./images/zeki-logo/Zeki-16.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta property="og:title" content="Zeki's Story | 顥魄晨曦" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zekistory.updog.co/zekistory/index.html" />
 
-	</head>
+    <meta property="og:image" content="https://zekistory.updog.co/zekistory/images/zeki-logo/Zeki-200.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="70" />
+    <meta property="og:image:height" content="70" />
+    <meta property="og:site_name" content="zekistory.updog.co" />
+    <meta property="og:description" content="Zeki的個人網站 - 微動攝影 | Zeki's Personal Web - Cinemagraph." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<body id="app">
-		
-		<div id="header">	
-			<!-- <img src="./webpng/sound.png"> -->
-			<div id="m-pause" onclick="javascript:zekimusicOff();" title="music off"></div>
-			<div id="m-play" onclick="javascript:zekimusicOn();" title="music on"></div>
-			<div id="m-duration">
-				<span id="m-current-time">00:00</span>
-				<span id="zeki-rabit" title="Play List">
+</head>
+
+<body id="app">
+
+    <div id="header">
+        <!-- <img src="./webpng/sound.png"> -->
+        <div id="m-pause" onclick="javascript:zekimusicOff();" title="music off"></div>
+        <div id="m-play" onclick="javascript:zekimusicOn();" title="music on"></div>
+        <div id="m-duration">
+            <span id="m-current-time">00:00</span>
+            <span id="zeki-rabit" title="Play List">
 				</span>
-				<span id="m-total-time">00:00</span>
-			</div>
+            <span id="m-total-time">00:00</span>
+        </div>
 
-			<marquee direction="left" scrollamount="2">
-			站長滴咕：Welcome my home! It's my secret home. I hope my dream can come true bit by bit...
-			</marquee>
+        <marquee direction="left" scrollamount="2">
+            站長滴咕：Welcome my home! It's my secret home. I hope my dream can come true bit by bit...
+        </marquee>
 
-			<div id="m-shuffle" onclick="javascript:zekimusicShuffle();" title="music shuffle"></div>
-			
+        <div id="m-shuffle" onclick="javascript:zekimusicShuffle();" title="music shuffle"></div>
 
-<!-- 			<div id="m-volume" onclick="javascript:zekimusicVolume();" title="music volume"></div> -->
-		</div>
-		
-		
-		<div id="Zeki-info">
-			<!-- <div class="Ztitle">Zeki</div> -->
-			<div class="Zcopyright">
-			<!--版權區-->
-				<img src="./images/zeki-logo/Zeki-16.ico" alt="Zeki's Web Logo">
-				Copyright &copy; 2013 by Zeki.
-			<!--版權區-->
-			</div>
-			<div class="Zdescript">
-				<span class="Zd1">
+
+        <!-- 			<div id="m-volume" onclick="javascript:zekimusicVolume();" title="music volume"></div> -->
+    </div>
+
+
+    <div id="Zeki-info">
+        <!-- <div class="Ztitle">Zeki</div> -->
+        <div class="Zcopyright">
+            <!--版權區-->
+            <img src="./images/zeki-logo/Zeki-16.ico" alt="Zeki's Web Logo"> Copyright &copy; 2013 by Zeki.
+            <!--版權區-->
+        </div>
+        <div class="Zdescript">
+            <span class="Zd1">
 					獨坐幽篁裡，彈琴復長嘯。<br />
 					深林人不知，明月來相照。<br />
 
 					<br />
 					王維　－　竹里館<br />
 				</span>
-				<span class="Zd2">
+            <span class="Zd2">
 					愛你所愛選你所愛，<br />
 					請別留下遺憾。<br />
-				</span>		
-			</div>
-		</div>
+				</span>
+        </div>
+    </div>
 
 
 
-		
 
 
-		<div id="content">
-			<iframe name="zekiiframe" id="zekiiframe" src="./subpage/record.html" allowtransparency="true" scrolling="yes"></iframe>
-		</div>
-		<article id="music-list">
-			<table></table>
-			<div class="zeki-rabit-music-arrow"></div>				
-		</article>
 
-		
+    <div id="content">
+        <iframe name="zekiiframe" id="zekiiframe" src="./subpage/record.html" allowtransparency="true" scrolling="yes"></iframe>
+    </div>
+    <article id="music-list">
+        <table></table>
+        <div class="zeki-rabit-music-arrow"></div>
+    </article>
 
-		
-		
-		<div id="footer">			
-			<div id="footer-l">
-				<span id="webdetail">
+
+
+
+
+    <div id="footer">
+        <div id="footer-l">
+            <span id="webdetail">
 					<div>
-						<span id="Zeki">顥魄晨曦<img class="zekilogo" src="./images/zeki-logo/Zeki.png"></span>
-						<br>
-						<hr>
-						成立日期：2013.4.10<br>
-						已經歷了：<span id="countbuild"></span><br>
-						站台年齡：<span id="countyear"></span>歲<br>
-						新年到數：<span id="countnewyearseve"></span><br>
+						<span id="Zeki">Zeki<img class="zekilogo" src="./images/zeki-logo/Zeki.png"></span>
+            <br>
+            <hr> 成立日期：2013.4.10
+            <br> 已經歷了：
+            <span id="countbuild"></span><br> 站台年齡：
+            <span id="countyear"></span>歲<br> 新年到數：
+            <span id="countnewyearseve"></span><br>
 
-<!-- 						<p style="display:inline-block;vertical-align:10%;">在線訪客：</p>
+            <!-- 						<p style="display:inline-block;vertical-align:10%;">在線訪客：</p>
 						<script id="_wau8fs">var _wau = _wau || []; _wau.push(["small", "k5orp2qjspf3", "8fs"]);
 						(function() {var s=document.createElement("script"); s.async=true;
 						s.src="whos-widgets-small.js";
 						document.getElementsByTagName("head")[0].appendChild(s);
 						})();</script> -->
-						<hr>
-						<span id="countthrough">此為運用了JS寫成的cookie等級系統，可惜您看不到。</span>
-						<hr>
-						<div class="social-life" style="text-align:center">
-							<a href="http://mypaper.pchome.com.tw/zekixfly" target="_blank" title="我的PChome報台">
-								<img src="./images/social-icon/pchome.png" style="width:48px;height:48px;border-right:10px solid transparent;">
-							</a>
-							<a href="https://www.facebook.com/haohsi.chang" target="_blank" title="我的Facebook">
-								<img src="./images/social-icon/facebook.png" style="width:48px;height:48px;border-right: 10px solid transparent;">
-							</a>
-							<a href="https://www.instagram.com/sagittarius_zeki" target="_blank" title="我的instagram">
-								<img src="./images/social-icon/instagram.png" style="width:48px;height:48px;border-right: 10px solid transparent;">
-							</a>
-						</div>
-<!-- 						站長滴咕：
+            <hr>
+            <span id="countthrough">此為運用了JS寫成的cookie等級系統，可惜您看不到。</span>
+            <hr>
+            <div class="social-life" style="text-align:center">
+                <a href="http://mypaper.pchome.com.tw/zekixfly" target="_blank" title="我的PChome報台">
+                    <img src="./images/social-icon/pchome.png" style="width:48px;height:48px;border-right:10px solid transparent;">
+                </a>
+                <a href="https://www.facebook.com/haohsi.chang" target="_blank" title="我的Facebook">
+                    <img src="./images/social-icon/facebook.png" style="width:48px;height:48px;border-right: 10px solid transparent;">
+                </a>
+                <a href="https://www.instagram.com/sagittarius_zeki" target="_blank" title="我的instagram">
+                    <img src="./images/social-icon/instagram.png" style="width:48px;height:48px;border-right: 10px solid transparent;">
+                </a>
+            </div>
+            <!-- 						站長滴咕：
 						【孤獨行】-五絕<br>				
 						下淡水溪行，私家左岸汀。<br>				
 						沉寂無語對，靜默到天明。<br>
 						103.6.7 1033 -->
-					</div>
-				</span>
-				<span class="ct">
+        </div>
+        </span>
+        <span class="ct">
 					<img class="zekilogo" src="./images/zeki-logo/Zeki.png">
 				</span>
-				<span class="ct">
+        <span class="ct">
 				<!--版權區-->
 				Copyright &copy; 2013 by Zeki.
 				<!--版權區-->
 				</span>
-				<span class="detail">
+        <span class="detail">
 				&#9650
 				</span>
-			</div>
-			<div id="footer-r">				
-					<a id="open-menu" class="IwithM" href="javascript: void(0)" onclick="javascript:openMenu();" z-html="message.menu.Enable">wait...
+    </div>
+    <div id="footer-r">
+        <a id="open-menu" class="IwithM" href="javascript: void(0)" onclick="javascript:openMenu();" z-html="message.menu.Enable">wait...
 					
 					</a>
-					<a id="close-menu" class="IwithM" href="javascript: void(0)" onclick="closeMenu();" z-html="message.menu.Disable">close
-					</a>					
-					<ul id="zeki-menu">
-						<li>|<a href="subpage/record.html" target="zekiiframe" z-text="message.menu.record"></a></li>
-					
-						<li>|<a href="../Pets-Hero/index.html" target="zekiiframe" z-text="message.menu.petshero"></a><span class="new">New</span></li>
+        <a id="close-menu" class="IwithM" href="javascript: void(0)" onclick="closeMenu();" z-html="message.menu.Disable">close
+					</a>
+        <ul id="zeki-menu">
+            <li>|
+                <a href="subpage/record.html" target="zekiiframe" z-text="message.menu.record"></a>
+            </li>
 
-						<li>|<a href="subpage/cmgp.html" target="zekiiframe" z-text="message.menu.cmgp"></a></li>
+            <li>|
+                <a href="../Pets-Hero/index.html" target="zekiiframe" z-text="message.menu.petshero"></a><span class="new">New</span></li>
 
-						<!-- <li>|<a href="subpage/worklist.html" target="zekiiframe" z-text="message.menu.practice"></a></li> -->
+            <li>|
+                <a href="subpage/cmgp.html" target="zekiiframe" z-text="message.menu.cmgp"></a>
+            </li>
 
-						<!--<li>|<a href="subpage/pixelart.html" target="zekiiframe">像素藝術</a></li>-->
+            <!-- <li>|<a href="subpage/worklist.html" target="zekiiframe" z-text="message.menu.practice"></a></li> -->
 
-						<!-- <li>|<a href="subpage/southrailwaytime.html" target="zekiiframe" z-text="message.menu.timetable"></a></li>	 -->
-				
-						<li>|<a href="https://www.tovery.net/guestbook.asp?user=zekixfly" target="zekiiframe" z-text="message.menu.guestbook"></a></li>
+            <!--<li>|<a href="subpage/pixelart.html" target="zekiiframe">像素藝術</a></li>-->
 
-						<li>|<a href="subpage/theme.html" target="zekiiframe" z-text="message.menu.theme"></a>|</li>				
-					</ul>
-			</div>			
-			<!--<div id="bottomR">-->
-				<!--樂園階段程式碼開始//--> 
-				<!--<script type="text/javascript" src="zekistage.js"></script>-->
-				<!--樂園階段程式碼結束//-->
-			<!--</div>-->
-			
-		</div>
+            <!-- <li>|<a href="subpage/southrailwaytime.html" target="zekiiframe" z-text="message.menu.timetable"></a></li>	 -->
 
-		
+            <li>|
+                <a href="https://www.tovery.net/guestbook.asp?user=zekixfly" target="zekiiframe" z-text="message.menu.guestbook"></a>
+            </li>
 
-		<img id="bg" src="./images/fullbg/gold-museum.jpg" name="pic">
+            <li>|
+                <a href="subpage/theme.html" target="zekiiframe" z-text="message.menu.theme"></a>|</li>
+        </ul>
+    </div>
+    <!--<div id="bottomR">-->
+    <!--樂園階段程式碼開始//-->
+    <!--<script type="text/javascript" src="zekistage.js"></script>-->
+    <!--樂園階段程式碼結束//-->
+    <!--</div>-->
 
-		
+    </div>
 
 
-	<!-- 	<div id="recommended-music">
+
+    <img id="bg" src="./images/fullbg/gold-museum.jpg" name="pic">
+
+
+
+
+    <!-- 	<div id="recommended-music">
 			Now Playing: 			
 			<span id="recommended-movies-link">Kathryn Kaye - Summer Afternoon</span>
 		</div> -->
 
-		<div id="zeki-cat">
-			<img src="./images/zeki-animal/ZekiCat.gif" alt="">
-		</div>
+    <div id="zeki-cat">
+        <img src="./images/zeki-animal/ZekiCat.gif" alt="">
+    </div>
 
-		<div id="bgm">
-			<!--Music Player//-->
-			<!--<embed id="music" src="./bgm/Ludovico Einaudi - Einaudi Fairytale.mp3" loop="1" hidden="true" autostart="true">-->
+    <div id="bgm">
+        <!--Music Player//-->
+        <!--<embed id="music" src="./bgm/Ludovico Einaudi - Einaudi Fairytale.mp3" loop="1" hidden="true" autostart="true">-->
 
-			<!-- <audio preload="auto" id="bg-music">
+        <!-- <audio preload="auto" id="bg-music">
 				<source src="./bgm/Kathryn Kaye - Summer Afternoon.mp3" type="audio/mp3">
 				<source src="./bgm/Joe Bongiorno - Your Time.mp3" type="audio/mp3">				
 			</audio> -->
 
-			<!--Music Player//-->
-		</div>
-		<div id="btnSE"></div>
+        <!--Music Player//-->
+    </div>
+    <div id="btnSE"></div>
 
-	</body>
-		<script id="ZekiCore" type="text/javascript" src="./js/ZekiCore.js" import="main"></script>
-				
+</body>
+<script id="ZekiCore" type="text/javascript" src="./js/ZekiCore.js" import="main"></script>
+
 </html>
