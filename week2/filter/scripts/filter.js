@@ -323,7 +323,7 @@ function doAjax(callBackFn) {
     ajax({
         type: 'get',
         // url: './JSON/activity_C_f.json',
-        url: 'https://gis.taiwan.net.tw/XMLReleaseALL_public/activity_C_f.json',
+        url: 'https://cors-anywhere.herokuapp.com/https://gis.taiwan.net.tw/XMLReleaseALL_public/activity_C_f.json',
         // postDataType: 'application/x-www-form-urlencoded',
         ok: function(response) {
             callBackFn(response);
