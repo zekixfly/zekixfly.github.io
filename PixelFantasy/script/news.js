@@ -1,5 +1,5 @@
 function getNews(){
-    fetch("/jsondata/pixelartwork.json")
+    fetch("./jsondata/pixelartwork.json")
         .then(response => {
             // console.log(response);
             return response.json();
