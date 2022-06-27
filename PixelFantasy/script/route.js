@@ -1,9 +1,9 @@
 let route = {
     hisReplace: function(id = 'news') {
-        history.replaceState( {id}, `${id}`, `/#/${id}`);
+        history.replaceState( {id}, `${id}`, `./#/${id}`);
     },
     hisPush: function (id = 'news') {
-        history.pushState( {id}, `${id}`, `/#/${id}`);
+        history.pushState( {id}, `${id}`, `./#/${id}`);
     },
     switchFocus: function(id) {           
         
@@ -21,7 +21,7 @@ let route = {
     },
     tempLoad: function(id , target){
 
-        fetch(`/template/${id}.html`)
+        fetch(`./template/${id}.html`)
             .then(response => {
                 if(response.ok != false){
                     // 轉換成存文字
@@ -81,15 +81,16 @@ let route = {
 document.addEventListener("DOMContentLoaded", function(event) {
     
     route.tempLoad('nav', 'nav');
-    let url = location.pathname;
-    if(url == '/' || url == '/index.html' || url == '/#/news'){            
+    let url = location.pathname.split("/")[location.pathname.split("/").length-1];
+    if(url == '' || url == 'index.html' || url == 'news'){            
         
         route.tempLoad('news', 'content');
         route.hisReplace('news');
 
         // document.title = 'content';
-    }else{            
-        route.focusSwitch(location.hash.replace('#/', ''));
+    }else{
+        route.tempLoad(location.hash.replace('#/', ''), 'content');          
+        // route.focusSwitch(location.hash.replace('#/', ''));
     }
     route.tempLoad('footer', 'footer');
 });
