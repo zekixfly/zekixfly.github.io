@@ -1,0 +1,24 @@
+<template id='contact'>
+
+    <h1 class="headline">Contact Me</h1>    
+    <form method="GET" action="mailto:zekixfly@hotmail.com" enctype="text/plain" class="contactForm">
+    
+        <!-- <div>NickName*</div>
+        <input type="text" name="nickname" size="30"/> -->
+    
+        <div>E-mail<span class="required">*</span></div>
+        <input type="email" name="email" size="30" onblur="isEmail(this.value)" placeholder="test@example.com" required="required"/>
+        <span class="formTip"></span>
+        
+        <div>Subject</div>
+        <input type="text" name="subject" size="30" value="這是寄給Zeki的郵件!"/>
+
+        <div>Message<span class="required">*</span></div>
+        <textarea name="body" cols="45" rows="6" required="required"></textarea>
+        <p class="required">*號為必填</p>        
+        <br/>
+        <input id="sendZeki" type="submit" value="Send" />
+        
+    </form>
+
+</template>
