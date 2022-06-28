@@ -5,7 +5,7 @@ let route = {
     hisPush: function (id = 'news') {
         history.pushState( {id}, `${id}`, `./#/${id}`);
     },
-    switchFocus: function(id) {           
+    navSwitchFocus: function(id) {           
         
         // document.title = id;
         // this.tempLoad( id, 'content');
@@ -48,13 +48,13 @@ let route = {
                                 route.hisPush(event.target.id);
                             });
                         });
+                        route.navSwitchFocus('news');
                         break;
                     case 'content':
                         document.querySelector('[slot=content]').innerHTML = html.getTags('template')[0].innerHTML;
                         if(document.querySelector('[slot=nav]').innerHTML != ''){
-                            route.switchFocus(id);
+                            route.navSwitchFocus(id);
                         }
-                        
                         break;
                     case 'footer':
                         document.querySelector('[slot=footer]').innerHTML = html.getTags('template')[0].innerHTML;
@@ -81,7 +81,7 @@ let route = {
 
 // 監聽此頁面的DOM都載入完畢時，才觸發做函式。
 document.addEventListener("DOMContentLoaded", function(event) {
-    
+
     route.tempLoad('nav', 'nav');
     
     let url = location.pathname.split("/")[location.pathname.split("/").length-1];
