@@ -19,9 +19,9 @@ let route = {
         getId(id).addClass('focus');
 
     },
-    tempLoad: function(id , target){
+    tempLoad: async function(id , target){
 
-        fetch(`./template/${id}.html`)
+        await fetch(`./template/${id}.html`)
             .then(response => {
                 if(response.ok != false){
                     // 轉換成存文字
@@ -44,15 +44,17 @@ let route = {
                         document.querySelectorAll('.navbar-nav>li a').forEach(ele => {
                             // console.log(ele.id);
                             window[ele.id].addEventListener('click', event => {
-                                route.tempLoad(event.target.id, 'content');
-                                route.switchFocus(event.target.id);
+                                route.tempLoad(event.target.id, 'content');                                
                                 route.hisPush(event.target.id);
                             });
                         });
                         break;
                     case 'content':
                         document.querySelector('[slot=content]').innerHTML = html.getTags('template')[0].innerHTML;
-                        route.switchFocus(id);
+                        if(document.querySelector('[slot=nav]').innerHTML != ''){
+                            route.switchFocus(id);
+                        }
+                        
                         break;
                     case 'footer':
                         document.querySelector('[slot=footer]').innerHTML = html.getTags('template')[0].innerHTML;
@@ -62,13 +64,13 @@ let route = {
                 }
                 
                 switch (id) {
-                    case "vogue":
-                    case "animal":
-                    case "vehicle":
-                    case "house":
+                    case 'vogue':
+                    case 'animal':
+                    case 'vehicle':
+                    case 'house':
                         pixelArtWork(id);
                         break;
-                    case "news":
+                    case 'news':
                         getNews();
                     default:
                         break;
@@ -81,6 +83,7 @@ let route = {
 document.addEventListener("DOMContentLoaded", function(event) {
     
     route.tempLoad('nav', 'nav');
+    
     let url = location.pathname.split("/")[location.pathname.split("/").length-1];
     if(url == '' || url == 'index.html' || url == 'news'){            
         
@@ -89,10 +92,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         // document.title = 'content';
     }else{
-        route.tempLoad(location.hash.replace('#/', ''), 'content');          
-        // route.focusSwitch(location.hash.replace('#/', ''));
+        route.tempLoad(location.hash.replace('#/', ''), 'content');        
     }
-    route.tempLoad('footer', 'footer');
+    route.tempLoad('footer', 'footer');    
 });
 
 // 點擊上一頁下一頁觸發事件
@@ -107,7 +109,5 @@ window.addEventListener("popstate", event => {
 window.addEventListener("hashchange", () => {
     console.log(location.hash.replace('#/', ''));
     route.tempLoad(location.hash.replace('#/', ''), 'content');
-    // route.switchFocus(location.hash.replace('#/', ''));
-
 });
 // window.onload = e => {console.log(e)}
