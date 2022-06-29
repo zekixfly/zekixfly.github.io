@@ -12,7 +12,7 @@ function pixelArtWork(id){
 
                 // console.log(`${id.replace(/^./, id[0].toUpperCase())} Fantasy`);
                 // 替換id第一個小寫字母為大寫                
-                if(`${id.replace(/^./, id[0].toUpperCase())} Fantasy` == json[idx].category){
+                if(`${id.replace(/^./, id[0].toUpperCase())}` == json[idx].category){
                     var imgElement = makeTag("img");
                     imgElement.src = `img/pixelart/${id}/` + json[idx].src;
                     imgElement.addEventListener("load", () => {
