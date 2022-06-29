@@ -215,24 +215,6 @@ body {
   image-rendering: pixelated;
 }
 
-#vehicleWork .pixelart_Thumbnail {
-  width: 851px;
-  height: 600px;
-}
-
-#vehicleWork .pixelart_Thumbnail:hover img {
-  position: absolute;
-  top: -550px;
-  left: 1450px;
-  transform: scale(5) translateZ(0);
-  -webkit-transform: scale(5) translateZ(0);
-}
-
-#vehicleWork .pixelart_Thumbnail::before {
-  content: 'Air Shark';
-  background-color: antiquewhite;
-}
-
 #showBox {
   display: none;
   position: fixed;
