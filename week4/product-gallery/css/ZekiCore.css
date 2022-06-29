@@ -1,47 +1,36 @@
 @charset "UTF-8";
-/*↓↓↓The below add you wanted animate↓↓↓ */
-@-webkit-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0); }
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0); } }
+/*↓↓↓The below add you wanted animate↓↓↓*/
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0); }
+    transform: translate3d(0, 100%, 0);
+  }
   to {
     opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0); } }
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @keyframes fadeIn {
   from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-@-webkit-keyframes fadeOutDown {
-  from {
-    opacity: 1; }
-  to {
     opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0); } }
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeOutDown {
   from {
-    opacity: 1; }
+    opacity: 1;
+  }
   to {
     opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0); } }
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
 #tip-box {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
@@ -53,20 +42,16 @@
   left: 43.75%;
   text-align: center;
   z-index: 200;
-  transition: all 1s; }
+  transition: all 1s;
+}
 
 #alert-box, #confirm-box {
-  -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
-  -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
-  -webkit-animation-delay: 0s;
   animation-delay: 0s;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
-    animation-iteration-count--webkit-backface-visibility: visible !important;
+  animation-iteration-count--webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
   background-color: rgba(250, 250, 250, 0.9);
   border: 1px solid #f97352;
@@ -76,16 +61,19 @@
   top: 25%;
   left: 37.5%;
   text-align: center;
-  z-index: 100; }
+  z-index: 100;
+}
 
 #alert-box h1, #confirm-box h1 {
   font-size: 25px;
   background-color: #f97352;
   color: #fff;
-  margin: 3px; }
+  margin: 3px;
+}
 
 #alert-box p, #confirm-box p {
-  margin: 20px 10px; }
+  margin: 20px 10px;
+}
 
 #alert-box input[type=button], #confirm-box input[type=button] {
   background-color: #f97352;
@@ -94,10 +82,12 @@
   outline: none;
   cursor: pointer;
   padding: 5px 20px;
-  margin: 10px; }
+  margin: 10px;
+}
 
 #alert-box input[type=button]:hover, #confirm-box input[type=button]:hover {
-  background-color: #db593b; }
+  background-color: #db593b;
+}
 
 .mask {
   width: 100%;
@@ -107,7 +97,8 @@
   left: 0px;
   color: yellow;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 50; }
+  z-index: 50;
+}
 
 .mask-close {
   position: absolute;
@@ -116,19 +107,17 @@
   font-size: xx-large;
   cursor: pointer;
   border: 1px dotted;
-  padding: 5px; }
+  padding: 5px;
+}
 
-/*animate */
+/*animate*/
 .fadeInDown {
-  -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
-  -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-delay: 0s;
   animation-delay: 0s;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
-    animation-iteration-count--webkit-backface-visibility: visible !important;
-  backface-visibility: visible !important; }
+  animation-iteration-count--webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+/*# sourceMappingURL=ZekiCore.css.map */
