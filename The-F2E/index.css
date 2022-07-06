@@ -1,0 +1,13 @@
+.tab-content{
+    padding: 0 10%;
+}
+
+.badge-dark{
+    color: #fff;
+    background-color: #000;
+    text-decoration: none;
+}
+
+.badge-dark:hover{
+    color: aquamarine;
+}
