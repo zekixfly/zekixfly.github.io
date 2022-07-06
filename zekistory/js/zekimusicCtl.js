@@ -40,6 +40,7 @@ for(var i = 0; i<playList.length; i++) {
 function selectMusic(trackNum) {
 	buildMusic(trackNum);
 	currentTrack(trackNum);
+	zekimusicOn();
 }
 
 function musicListSwitch() {
@@ -110,15 +111,16 @@ function buildMusic(i) {
 	audio = getId('bg-music');
 	audio.volume = 0.15;//volume = 15%
 	audio.addEventListener('ended', ended);
-	var audioPromise = audio.play();
-	if (audioPromise !== undefined) {
-		audioPromise.then(_ => {
-			// Autoplay started!
-			console.log('Music Start');
-		}).catch(error => {
-			console.log(error);
-		});
-	}
+	// var audioPromise = audio.play();
+	// if (audioPromise !== undefined) {
+	// 	audioPromise.then(_ => {
+	// 		// Autoplay started!
+	// 		console.log('Music Start');
+	// 	}).catch(error => {
+	// 		console.log(error);
+	// 		console.log('Music Start Failse');
+	// 	});
+	// }
 
 	// zekimusicOn();
 }
