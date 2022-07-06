@@ -26,9 +26,22 @@ class Board extends React.Component {
     );
   }
 
-  render() {
+  render() {    
     return (
-      <div>         
+      <div>
+
+        {/* {function() {
+          for(let i=0; i<3; i++) {
+            <div className="board-row">
+              {function() {                
+                for(let j=0; j<3; j++) {          
+                  {Board.prototype.renderSquare(i*3+j)};
+                } 
+              }()}
+            </div>
+          }
+        }()} */}
+
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -106,7 +119,7 @@ class Game extends React.Component {
       status = `Winner: ${winner}`;
     }
     else if(this.state.stepNumber === 9 && winner === null) {
-      status = `The two sides are tied.`;      
+      status = `Tie！`;      
     }
     else {
       status = `Next Player: ${this.state.oIsNext ? 'O' : 'X'}`;  
