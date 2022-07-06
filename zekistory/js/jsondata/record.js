@@ -4,11 +4,7 @@ function recordTxt() {
     // {
     //  date:'',
     //  description:''
-    // }, 
-    {
-     date:'2018.03.23',
-     description:'最近使用原生的JS寫了一個放置型RPG-『寵物英雄』Beta版。'
-    }, 
+    // },  
     {
       date:'2018.02.16',
       description:'費了一番功夫，終於有了自己的音樂播放器:D。'
