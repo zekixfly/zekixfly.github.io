@@ -408,6 +408,14 @@ body {
   padding: 5px;
 }
 
+.me section p a {
+  color: inherit;
+}
+
+.me section p a:hover {
+  color: #008B8B;
+}
+
 .me .section-left {
   text-align: center;
   border-right: 1px dashed rgba(0, 0, 0, 0.2);
