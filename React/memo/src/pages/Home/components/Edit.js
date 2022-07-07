@@ -2,22 +2,37 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const Edit = ({ add, submittingStatus }) => {
+
+  function checkDate(date) {  
+    if(date.toString().length < 2) {
+        return `0${date}`
+    }
+    else {
+      return date;
+    }
+    
+  }
+
   const [note, setNote] = useState("");
   function noteChange(e) {
     setNote(e.target.value);
   }
-
-  const [date, setDate] = useState("");
+  let now = new Date();
+  const [date, setDate] = useState(`${now.getFullYear()}-${checkDate(now.getMonth()+1)}-${checkDate(now.getDate())}`);
   function dateChange(e) {
     setDate(e.target.value);
   }
 
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState(`${checkDate(now.getHours())}:${checkDate(now.getMinutes())}`);
   function timeChange(e) {
     setTime(e.target.value);
   }
 
   function addItem() {
+    if(note === null || note === "") {
+      alert("記事欄位勿為空！");
+      return;
+    }
     submittingStatus.current = true;
     add((prev) => {
       return [        
