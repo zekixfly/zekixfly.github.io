@@ -1,27 +1,31 @@
 let route = {
-    hisReplace: function(id = 'news') {
-        history.replaceState( {id}, `${id}`, `./#/${id}`);
+    hisReplace: function(ref = 'news') {
+        history.replaceState( {ref}, `${ref}`, `./#/${ref}`);
     },
-    hisPush: function (id = 'news') {
-        history.pushState( {id}, `${id}`, `./#/${id}`);
+    hisPush: function (ref = 'news') {
+        history.pushState( {ref}, `${ref}`, `./#/${ref}`);
     },
-    navSwitchFocus: function(id) {           
+    navSwitchFocus: function(currentNode) {           
         
-        // document.title = id;
-        // this.tempLoad( id, 'content');
-        getId(id).parentElement.siblings().forEach(ele => {
-            ele.getTags('a').delClass('focus');
-        });
-        getId(id).closest(".navbar-nav>li").siblings().forEach(ele => {
-            ele.getTags('a').delClass('focus');
+        // document.title = ref;        
+        currentNode.siblings().forEach(ele => {
+            ele.delClass('focus');
         });
 
-        getId(id).addClass('focus');
+        currentNode.closest('.nav-list>li').siblings().forEach(ele => {
+            ele.delClass('focus');
+        });
+        
+        currentNode.parentElement.querySelectorAll('.nav-list-pixel>li').forEach(ele => {
+            ele.delClass('focus');
+        });
+
+        currentNode.addClass('focus');
 
     },
-    tempLoad: async function(id , target){
+    tempLoad: async function(ref , target){
 
-        await fetch(`./template/${id}.html`)
+        await fetch(`./template/${ref}.html`)
             .then(response => {
                 if(response.ok != false){
                     // 轉換成存文字
@@ -41,20 +45,18 @@ let route = {
                 switch (target) {
                     case 'nav':
                         document.querySelector('[slot=nav]').innerHTML = html.getTags('template')[0].innerHTML;
-                        document.querySelectorAll('.navbar-nav>li a').forEach(ele => {
-                            // console.log(ele.id);
-                            window[ele.id].addEventListener('click', event => {
-                                route.tempLoad(event.target.id, 'content');                                
-                                route.hisPush(event.target.id);
-                            });
-                        });
-                        route.navSwitchFocus('news');
+                        document.getElementById('navList').onclick = event => {
+                            console.log(event.target.getAttr('ref'));
+                            if(event.target.getAttr('ref')){
+                                route.tempLoad(event.target.getAttr('ref'), 'content');                                
+                                route.hisPush(event.target.getAttr('ref'));
+                                route.navSwitchFocus(event.target);
+                            }
+                        }
+                        route.navSwitchFocus( document.querySelector('[ref=news]') );
                         break;
                     case 'content':
                         document.querySelector('[slot=content]').innerHTML = html.getTags('template')[0].innerHTML;
-                        if(document.querySelector('[slot=nav]').innerHTML != ''){
-                            route.navSwitchFocus(id);
-                        }
                         break;
                     case 'footer':
                         document.querySelector('[slot=footer]').innerHTML = html.getTags('template')[0].innerHTML;
@@ -63,12 +65,12 @@ let route = {
                         break;
                 }
                 
-                switch (id) {
+                switch (ref) {
                     case 'vogue':
                     case 'animal':
                     case 'vehicle':
                     case 'house':
-                        pixelArtWork(id);
+                        pixelArtWork(ref);
                         break;
                     case 'news':
                         getNews();

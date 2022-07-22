@@ -1,19 +1,17 @@
 <template id='nav'>
   <h1><a href="./"><img src="img/Pixel-FantasyX3.png" alt="Zeki's Secret Base." title="Zeki's Secret Base."></a></h1>
   <!-- <h1>Pixel Fantasy</h1> -->
-  <ul class="navbar-nav">    
+  <ul id="navList" class="nav-list">
     <li>Pixel
-      <ul class="navbar-nav-list">
-        <li><a href="javascript:void(0)" id="vogue">Vogue</a></li>
-        <li><a href="javascript:void(0)" id="animal">Animal</a></li>
-        <li><a href="javascript:void(0)" id="vehicle">Vehicle</a></li>
-        <!-- <li><a href="javascript:void(0)" id="house">House Fantasy</a></li> -->
+      <ul class="nav-list-pixel">
+        <li ref="vogue" name="zeki">Vogue</li>
+        <li ref="animal">Animal</li>
+        <li ref="vehicle">Vehicle</li>
+        <!-- <li ref="house">House Fantasy</li> -->
       </ul>
     </li>
-    <!-- <li><a href="javascript:void(0)" id="home">HOME</a></li> -->
-    <!-- <li><a href="javascript:void(0)" id="portfolio">PORTFOLIO</a></li> -->
-    <li><a href="javascript:void(0)" id="news">News</a></li>
-    <li><a href="javascript:void(0)" id="about">About</a></li>
-    <li><a href="javascript:void(0)" id="contact">Contact</a></li>
+    <li ref="news">News</li>
+    <li ref="about">About</li>
+    <li ref="contact">Contact</li>
   </ul>
 </template>

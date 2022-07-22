@@ -76,7 +76,7 @@ body {
   overflow: hidden;
 }
 
-.navbar-collapse {
+.nav {
   float: left;
   width: 25%;
   height: auto;
@@ -87,58 +87,58 @@ body {
   zoom: 1;
 }
 
-.navbar-collapse:before {
+.nav:before {
   content: "";
   display: table;
 }
 
-.navbar-collapse:after {
+.nav:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.navbar-collapse h1 {
+.nav h1 {
   height: inherit;
   font-size: 30px;
   font-weight: bold;
   height: 57px;
 }
 
-.navbar-collapse h1 img {
+.nav h1 img {
   width: 165px;
   height: 57px;
 }
 
-.navbar-nav {
+.nav-list {
   font-size: 16px;
   color: rgba(0, 0, 0, 0.4);
   margin: 25px 0;
 }
 
-.navbar-nav li a {
+.nav-list li[ref] {
   display: block;
   cursor: pointer;
   color: inherit;
   padding: 3px 8px;
 }
 
-.navbar-nav li a:hover {
+.nav-list li[ref]:hover {
   transition: all 0.2s ease;
   color: #000;
 }
 
-.navbar-nav li a.focus {
+.nav-list li[ref].focus {
   color: #000;
 }
 
-.navbar-nav-list li {
+.nav-list-pixel li {
   cursor: all-scroll;
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   margin-right: 18px;
 }
 
-.navbar-nav-list li a::after {
+.nav-list-pixel li::after {
   content: "-";
   font-size: 12px;
   margin-left: 4px;
