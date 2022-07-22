@@ -1,47 +1,45 @@
-.navbar
-    &-collapse
-        float: left
-        width: 25%
-        height: auto        
-        padding: 0 10px
-        font-size: 20px
-        text-align: right
-        color: rgba(0, 0, 0, 0.4)
-        +clearfix
-        h1
-            height: inherit
-            font-size: 30px
-            // color: #fff
-            font-weight: bold
+.nav
+    float: left
+    width: 25%
+    height: auto        
+    padding: 0 10px
+    font-size: 20px
+    text-align: right
+    color: rgba(0, 0, 0, 0.4)
+    +clearfix
+    h1
+        height: inherit
+        font-size: 30px
+        // color: #fff
+        font-weight: bold
+        height: 57px
+        img
+            width: 165px
             height: 57px
-            img
-                width: 165px
-                height: 57px
 
-    &-nav
+    &-list
         font-size: 16px
         color: rgba(0, 0, 0, 0.4)
         margin: 25px 0
+        li[ref]
+            display: block
+            cursor: pointer
+            color: inherit
+            padding: 3px 8px
+            &:hover
+                transition: all 0.2s ease
+                color: #000
+            &.focus
+                color: #000
+    &-list-pixel
         li
-            a
-                display: block
-                cursor: pointer
-                color: inherit
-                padding: 3px 8px
-                &:hover
-                    transition: all 0.2s ease
-                    color: #000
-                &.focus
-                    color: #000
-        &-list
-            li
-                cursor: all-scroll
-                border-right: 1px solid rgba(0, 0, 0, 0.2)
-                margin-right: 18px
-                a::after
-                    content: "-"
-                    // color: rgba(0, 0, 0, 0.12)
-                    font-size: 12px
-                    margin-left: 4px
+            cursor: all-scroll
+            border-right: 1px solid rgba(0, 0, 0, 0.2)
+            margin-right: 18px
+            &::after
+                content: "-"
+                // color: rgba(0, 0, 0, 0.12)
+                font-size: 12px
+                margin-left: 4px
 
             
