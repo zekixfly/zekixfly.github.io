@@ -46,7 +46,7 @@ let route = {
                     case 'nav':
                         document.querySelector('[slot=nav]').innerHTML = html.getTags('template')[0].innerHTML;
                         document.getElementById('navList').onclick = event => {
-                            console.log(event.target.getAttr('ref'));
+                            // console.log(event.target.getAttr('ref'));
                             if(event.target.getAttr('ref')){
                                 route.tempLoad(event.target.getAttr('ref'), 'content');                                
                                 route.hisPush(event.target.getAttr('ref'));
