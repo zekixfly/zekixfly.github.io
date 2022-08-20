@@ -25,59 +25,56 @@ let route = {
     },
     tempLoad: async function(ref , target){
 
-        await fetch(`./template/${ref}.html`)
-            .then(response => {
-                if(response.ok != false){
-                    // 轉換成存文字
-                    return response.text();
-                }
-                else {
-                    throw new Error('URL Error! Access Denied!');
-                }
-            })
-            .then(text => {
-                // 轉換成HTML   
-                let HtmlParser = new DOMParser();
-                return HtmlParser.parseFromString(text, 'text/html');
-            })
-            .then(html => {
-                // 找尋插入的標籤
-                switch (target) {
-                    case 'nav':
-                        document.querySelector('[slot=nav]').innerHTML = html.getTags('template')[0].innerHTML;
-                        document.getElementById('navList').onclick = event => {
-                            // console.log(event.target.getAttr('ref'));
-                            if(event.target.getAttr('ref')){
-                                route.tempLoad(event.target.getAttr('ref'), 'content');                                
-                                route.hisPush(event.target.getAttr('ref'));
-                                route.navSwitchFocus(event.target);
-                            }
+        try {
+            const response = await fetch(`./template/${ref}.html`);
+            
+            // 轉換成文字
+            const htmlText = await response.text();
+
+            // 轉換成HTML
+            const htmlParser = new DOMParser();
+            const htmlElement = htmlParser.parseFromString(htmlText, 'text/html');
+
+            // 找尋插入的標籤
+            switch (target) {
+                case 'nav':
+                    document.querySelector('[slot=nav]').innerHTML = htmlElement.getTags('template')[0].innerHTML;
+                    getId('navList').onclick = event => {
+                        // console.log(event.target.getAttr('ref'));
+                        if(event.target.getAttr('ref')){
+                            route.tempLoad(event.target.getAttr('ref'), 'content');                                
+                            route.hisPush(event.target.getAttr('ref'));
+                            route.navSwitchFocus(event.target);
                         }
-                        route.navSwitchFocus( document.querySelector('[ref=news]') );
-                        break;
-                    case 'content':
-                        document.querySelector('[slot=content]').innerHTML = html.getTags('template')[0].innerHTML;
-                        break;
-                    case 'footer':
-                        document.querySelector('[slot=footer]').innerHTML = html.getTags('template')[0].innerHTML;
-                        break;
-                    default:
-                        break;
-                }
-                
-                switch (ref) {
-                    case 'vogue':
-                    case 'animal':
-                    case 'vehicle':
-                    case 'house':
-                        pixelArtWork(ref);
-                        break;
-                    case 'news':
-                        getNews();
-                    default:
-                        break;
-                }
-            })
+                    }
+                    route.navSwitchFocus( document.querySelector('[ref=news]') );
+                    break;
+                case 'content':
+                    document.querySelector('[slot=content]').innerHTML = htmlElement.getTags('template')[0].innerHTML;
+                    break;
+                case 'footer':
+                    document.querySelector('[slot=footer]').innerHTML = htmlElement.getTags('template')[0].innerHTML;
+                    break;
+                default:
+                    break;
+            }
+            
+            switch (ref) {
+                case 'vogue':
+                case 'animal':
+                case 'vehicle':
+                case 'house':
+                    pixelArtWork(ref);
+                    break;
+                case 'news':
+                    getNews();
+                default:
+                    break;
+            }
+        } catch (error) {
+             console.warn('Request Error:', error);
+        }   
+                       
     }
 };
 
