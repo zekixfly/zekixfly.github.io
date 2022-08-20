@@ -51,14 +51,14 @@ export default class Game extends Component {
         const current = history[this.state.stepNumber];
         const winner = calculateWinner(current.squares);    
     
-            const moves = history.map((step, move)=> {
+        const moves = history.map((step, move)=> {
             const desc = move ? `Go to move #${move}${history[move].position}` : `Go to game start`;
             return (
                 <li key={move}>
                 <button onClick={()=> this.jumpTo(move)}>{desc}</button>
                 </li>
             );
-            });
+        });
     
         let status, winSquare;
     
@@ -77,17 +77,17 @@ export default class Game extends Component {
     
         return (
             <div className="game">
-            <div className="game-board">
-                <Board 
-                winSquare = {winSquare}            
-                squareArray = {current.squares} 
-                onClick = {(i)=> {this.handleClick(i)}}
-                />
-            </div>
-            <div className="game-info">                    
-                <div>{status}</div>
-                <ol>{moves}</ol>
-            </div>
+                <div className="game-board">
+                    <Board 
+                    winSquare = {winSquare}            
+                    squareArray = {current.squares} 
+                    onClick = {(i)=> {this.handleClick(i)}}
+                    />
+                </div>
+                <div className="game-info">                    
+                    <div>{status}</div>
+                    <ol>{moves}</ol>
+                </div>
             </div>
         );
     }
