@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Link} from 'react-router-dom'
 import BookGoNavLink from '../BookGoNavLink'
 import './index.sass'
 
@@ -11,7 +10,8 @@ class Nav extends Component {
       <nav>
         <div className="nav-wrap">
           
-          <h1><Link to='home'>BookGo</Link></h1>
+          
+          <h1><a href='/'>BookGO</a></h1>
           <div className="nav-link-wrap">
             <BookGoNavLink to='home'>{langHome}</BookGoNavLink>
             <BookGoNavLink to='tracklist'>{langTrackList}</BookGoNavLink>
