@@ -1,26 +1,27 @@
 let route = {
-    hisReplace: function(ref = 'news') {
-        history.replaceState( {ref}, `${ref}`, `./#/${ref}`);
+    replace: function(ref = 'news') {
+        history.replaceState( {page: ref}, `${ref}`, `./#/${ref}`);
     },
-    hisPush: function (ref = 'news') {
-        history.pushState( {ref}, `${ref}`, `./#/${ref}`);
+    push: function (ref = 'news') {
+        history.pushState( {page: ref}, `${ref}`, `./#/${ref}`);
     },
-    navSwitchFocus: function(currentNode) {           
+    active: function(ref) {           
         
+        const currentNode = document.querySelector(`[ref=${ref}]`)
         // document.title = ref;        
         currentNode.siblings().forEach(ele => {
-            ele.delClass('focus');
+            ele.delClass('active');
         });
 
         currentNode.closest('.nav-list>li').siblings().forEach(ele => {
-            ele.delClass('focus');
+            ele.delClass('active');
         });
         
         currentNode.parentElement.querySelectorAll('.nav-list-pixel>li').forEach(ele => {
-            ele.delClass('focus');
+            ele.delClass('active');
         });
 
-        currentNode.addClass('focus');
+        currentNode.addClass('active');
 
     },
     tempLoad: async function(ref , target){
@@ -42,12 +43,12 @@ let route = {
                     getId('navList').onclick = event => {
                         // console.log(event.target.getAttr('ref'));
                         if(event.target.getAttr('ref')){
-                            route.tempLoad(event.target.getAttr('ref'), 'content');                                
-                            route.hisPush(event.target.getAttr('ref'));
-                            route.navSwitchFocus(event.target);
+                            route.tempLoad(event.target.getAttr('ref'), 'content');
+                            route.push(event.target.getAttr('ref'));
+                            route.active(event.target.getAttr('ref'));
                         }
                     }
-                    route.navSwitchFocus( document.querySelector('[ref=news]') );
+                    route.active('news');
                     break;
                 case 'content':
                     document.querySelector('[slot=content]').innerHTML = htmlElement.getTags('template')[0].innerHTML;
@@ -87,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if(url == '' || url == 'index.html' || url == 'news'){            
         
         route.tempLoad('news', 'content');
-        route.hisReplace('news');
+        route.replace('news');
 
         // document.title = 'content';
     }else{
@@ -98,15 +99,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 // 點擊上一頁下一頁觸發事件
 window.addEventListener("popstate", event => {
-    if (event.state?.id) {
-        route.focusSwitch(event.state.id);
-        route.hisReplace(event.state.id);
+    // console.log(event.state);
+    if (event.state?.page) {
+        route.active(event.state.page);
+        route.replace(event.state.page);
     }
 });
 
 // 輸入網址時觸發事件
 window.addEventListener("hashchange", () => {
-    console.log(location.hash.replace('#/', ''));
+    // console.log(location.hash.replace('#/', ''));
+    route.active(location.hash.replace('#/', ''));
     route.tempLoad(location.hash.replace('#/', ''), 'content');
 });
 // window.onload = e => {console.log(e)}
