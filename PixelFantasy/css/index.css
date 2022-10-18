@@ -128,7 +128,7 @@ body {
   color: #000;
 }
 
-.nav-list li[ref].focus {
+.nav-list li[ref].active {
   color: #000;
 }
 
