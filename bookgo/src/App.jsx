@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {BrowserRouter} from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setLanguage } from './redux/actions/settings'
 import Nav from './components/Nav'
@@ -57,12 +57,12 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className='bookgo-wrap'>
           <Nav />
           <Content />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     )
   }
 }
