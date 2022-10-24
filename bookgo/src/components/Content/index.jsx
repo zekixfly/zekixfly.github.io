@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Routes,Route,Navigate } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { addNewProducts, addBestSellers, isLoadingBoolean, err } from '../../redux/actions/bestdeal'
+import { addNewProducts, addBestSellers, isFirstBoolean, isLoadingBoolean, err } from '../../redux/actions/bestdeal'
 import Home from '../../pages/Home'
 import TrackList from '../../pages/TrackList'
 import Settings from '../../pages/Settings'
@@ -10,7 +10,9 @@ import './index.sass'
 class Content extends Component {
   
   async componentDidMount(){
-    // 網頁一載入先將JSON裡的每一個物件加入唯一識別ID
+    const { addNewProducts ,addBestSellers, isFirstBoolean, isLoadingBoolean, err } = this.props
+    isFirstBoolean(false)
+    isLoadingBoolean(true)
     try {
       const response = await fetch('./jsondata/data.json')
       const jsonArray = await response.json()
@@ -19,17 +21,18 @@ class Content extends Component {
       const filterNewProduct = jsonArray.filter((bookObj)=>{
         return (bookObj?.category?.indexOf('new') !== -1 && bookObj?.category?.indexOf('new') !== undefined)
       })
-      this.props.addNewProducts(filterNewProduct)
+      addNewProducts(filterNewProduct)
       // 首頁自動呈現best sellers
       const filterBestSellers = jsonArray.filter((bookObj)=>{
         return (bookObj?.category?.indexOf('hot') !== -1 && bookObj?.category?.indexOf('hot') !== undefined)
       })
-      this.props.addBestSellers(filterBestSellers)
-
+      addBestSellers(filterBestSellers)
+      isFirstBoolean(true)
+      isLoadingBoolean(false)
     } catch (error) {
       console.warn('請求出錯',error);
-      this.props.err(error.message)
-      this.props.isLoadingBoolean(false)
+      err(error.message)
+      isLoadingBoolean(false)
       // this.setState({err: error.message, isLoadingBoolean:false})      
     }  
   }
@@ -50,5 +53,5 @@ class Content extends Component {
 
 export default connect(
   state=>({}),
-  {addNewProducts, addBestSellers, isLoadingBoolean, err}
+  {addNewProducts, addBestSellers, isFirstBoolean, isLoadingBoolean, err}
 )(Content)
