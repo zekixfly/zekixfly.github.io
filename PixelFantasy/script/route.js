@@ -43,7 +43,7 @@ let route = {
                     getId('navList').onclick = event => {
                         // console.log(event.target.getAttr('ref'));
                         if(event.target.getAttr('ref')){
-                            route.tempLoad(event.target.getAttr('ref'), 'content');
+                            // route.tempLoad(event.target.getAttr('ref'), 'content');
                             route.push(event.target.getAttr('ref'));
                             route.active(event.target.getAttr('ref'));
                         }
@@ -79,6 +79,27 @@ let route = {
     }
 };
 
+// 綁定事件監聽，這樣就創建了2個全新的事件，事件名為pushState和replaceState，我們就可以在全局監聽：
+history.replaceState.bindEvent();
+history.pushState.bindEvent();
+ 
+
+window.addEventListener('replaceState', function(e) {
+    console.log('THEY DID IT AGAIN! replaceState',e.arguments[0].page);
+    if(document.querySelector('[slot=nav]').innerHTML !== '') {
+        route.active(location.hash.replace('#/', ''));
+    }    
+    route.tempLoad(location.hash.replace('#/', ''), 'content');
+});
+window.addEventListener('pushState', function(e) {
+    console.log('THEY DID IT AGAIN! pushState',e.arguments[0].page);
+    if(document.querySelector('[slot=nav]').innerHTML !== '') {
+        route.active(location.hash.replace('#/', ''));
+    }    
+    route.tempLoad(location.hash.replace('#/', ''), 'content');
+});
+
+
 // 監聽此頁面的DOM都載入完畢時，才觸發做函式。
 document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -87,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let url = location.pathname.split("/")[location.pathname.split("/").length-1];
     if(url == '' || url == 'index.html' || url == 'news'){            
         
-        route.tempLoad('news', 'content');
+        // route.tempLoad('news', 'content');
         route.replace('news');
 
         // document.title = 'content';

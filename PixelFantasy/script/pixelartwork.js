@@ -1,8 +1,8 @@
 async function pixelArtWork(id){
-
+    
     const res = await fetch(API_GET_DATA);
     const data =  await res.json();
-
+    getId(`${id}Work`).innerHTML = '';
     for(var idx in data){
         var divElement = makeTag("div");
         divElement.className = "pixelart_Thumbnail";

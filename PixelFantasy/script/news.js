@@ -1,8 +1,8 @@
 async function getNews(){
-
+    
     const res = await fetch(API_GET_DATA);
     const data =  await res.json();
-    
+    getId('newsInfo').innerHTML = '';
     let tableElement = makeTag("table");
     tableElement.className = "newsInfo_Table";
     
