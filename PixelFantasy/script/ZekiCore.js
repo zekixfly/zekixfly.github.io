@@ -28,7 +28,44 @@ Object.defineProperty(HTMLBodyElement.prototype, 'addKid', {
   enumerable: false,
 })
 
+// 函數綁定事件監聽，只要被綁定過的函示，就可以使用addEventListener監聽。
+Object.defineProperty(Function.prototype, 'bindEvent', {
+  value: function(){
 
+    let functionName = this.name
+    
+    const origFunction = window.frames.hasOwnProperty(functionName) ? window.frames[functionName] : 
+    window.location.hasOwnProperty(functionName) ? window.location[functionName] :
+    window.console.hasOwnProperty(functionName) ? window.console[functionName] : 
+    window.History.prototype.hasOwnProperty(functionName) ? window.History.prototype[functionName] :
+    window.Document.prototype.hasOwnProperty(functionName) ? window.Document.prototype[functionName] :    
+    window.Navigator.prototype.hasOwnProperty(functionName) ? window.Navigator.prototype[functionName] :
+    window.Screen.prototype.hasOwnProperty(functionName) ? window.Screen.prototype[functionName] : window[functionName];
+  
+    const origObject = window.frames.hasOwnProperty(functionName) ? frames : 
+    window.location.hasOwnProperty(functionName) ? location :
+    window.console.hasOwnProperty(functionName) ? console : 
+    window.History.prototype.hasOwnProperty(functionName) ? history :
+    window.Document.prototype.hasOwnProperty(functionName) ? document :    
+    window.Navigator.prototype.hasOwnProperty(functionName) ? navigator :
+    window.Screen.prototype.hasOwnProperty(functionName) ? screen : window;
+  
+    origObject[functionName] = function(){        
+        origFunction.apply(origObject, arguments);
+        const myEvent = new Event(
+            functionName,  
+            {
+                bubbles: true, // bubbles值代表可否使用冒泡機制
+                cancelable: true // cancelable則是代表可否使用stopPropagation()方法
+            }
+        );
+        myEvent.arguments = arguments;
+        window.dispatchEvent(myEvent);
+    }    
+  },
+  writable: false,
+  enumerable: false,
+})
 
 Object.defineProperties(Document.prototype,  {
   'getTags': {
@@ -63,7 +100,6 @@ Object.defineProperties(Document.prototype,  {
   },
 
 })
-
 
 Object.defineProperties(window, {
   //create element
