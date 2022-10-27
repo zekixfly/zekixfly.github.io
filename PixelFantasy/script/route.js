@@ -8,7 +8,7 @@ let route = {
     active: function(ref) {           
         
         const currentNode = document.querySelector(`[ref=${ref}]`)
-        // document.title = ref;        
+        document.title = `Pixel Fantasy - ${ref.replace(/^./,ref[0].toUpperCase())}`;       
         currentNode.siblings().forEach(ele => {
             ele.delClass('active');
         });
@@ -52,6 +52,7 @@ let route = {
                     break;
                 case 'content':
                     document.querySelector('[slot=content]').innerHTML = htmlElement.getTags('template')[0].innerHTML;
+                    route.active(location.hash.replace('#/', ''));
                     break;
                 case 'footer':
                     document.querySelector('[slot=footer]').innerHTML = htmlElement.getTags('template')[0].innerHTML;
@@ -82,23 +83,14 @@ let route = {
 // 綁定事件監聽，這樣就創建了2個全新的事件，事件名為pushState和replaceState，我們就可以在全局監聽：
 history.replaceState.bindEvent();
 history.pushState.bindEvent();
- 
 
 window.addEventListener('replaceState', function(e) {
-    console.log('THEY DID IT AGAIN! replaceState',e.arguments[0].page);
-    if(document.querySelector('[slot=nav]').innerHTML !== '') {
-        route.active(location.hash.replace('#/', ''));
-    }    
-    route.tempLoad(location.hash.replace('#/', ''), 'content');
-});
-window.addEventListener('pushState', function(e) {
-    console.log('THEY DID IT AGAIN! pushState',e.arguments[0].page);
-    if(document.querySelector('[slot=nav]').innerHTML !== '') {
-        route.active(location.hash.replace('#/', ''));
-    }    
     route.tempLoad(location.hash.replace('#/', ''), 'content');
 });
 
+window.addEventListener('pushState', function(e) {
+    route.tempLoad(location.hash.replace('#/', ''), 'content');
+});
 
 // 監聽此頁面的DOM都載入完畢時，才觸發做函式。
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -106,12 +98,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     route.tempLoad('nav', 'nav');
     
     let url = location.pathname.split("/")[location.pathname.split("/").length-1];
-    if(url == '' || url == 'index.html' || url == 'news'){            
-        
-        // route.tempLoad('news', 'content');
+    if(url == '' || url == 'index.html'){           
         route.replace('news');
-
-        // document.title = 'content';
     }else{
         route.tempLoad(location.hash.replace('#/', ''), 'content');        
     }
@@ -120,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 // 點擊上一頁下一頁觸發事件
 window.addEventListener("popstate", event => {
-    // console.log(event.state);
     if (event.state?.page) {
         route.active(event.state.page);
         route.replace(event.state.page);
@@ -129,8 +116,6 @@ window.addEventListener("popstate", event => {
 
 // 輸入網址時觸發事件
 window.addEventListener("hashchange", () => {
-    // console.log(location.hash.replace('#/', ''));
-    route.active(location.hash.replace('#/', ''));
     route.tempLoad(location.hash.replace('#/', ''), 'content');
 });
 // window.onload = e => {console.log(e)}

@@ -51,7 +51,7 @@ Object.defineProperty(Function.prototype, 'bindEvent', {
     window.Screen.prototype.hasOwnProperty(functionName) ? screen : window;
   
     origObject[functionName] = function(){        
-        origFunction.apply(origObject, arguments);
+        origFunction.apply(origObject, arguments); // 原函數依然可以正常執行。
         const myEvent = new Event(
             functionName,  
             {
