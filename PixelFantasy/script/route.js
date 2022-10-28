@@ -36,10 +36,13 @@ let route = {
             const htmlParser = new DOMParser();
             const htmlElement = htmlParser.parseFromString(htmlText, 'text/html');
 
+            // 取得template樣板網頁的內容
+            const htmlTemplate = htmlElement.getTags('template')[0].innerHTML;
+
             // 找尋插入的標籤
             switch (target) {
                 case 'nav':
-                    document.querySelector('[slot=nav]').innerHTML = htmlElement.getTags('template')[0].innerHTML;
+                    document.querySelector('[slot=nav]').innerHTML = htmlTemplate;
                     getId('navList').onclick = event => {
                         // console.log(event.target.getAttr('ref'));
                         if(event.target.getAttr('ref')){
@@ -51,28 +54,29 @@ let route = {
                     route.active('news');
                     break;
                 case 'content':
-                    document.querySelector('[slot=content]').innerHTML = htmlElement.getTags('template')[0].innerHTML;
+                    document.querySelector('[slot=content]').innerHTML = htmlTemplate;
+
+                    /* 判斷template樣板網頁裡是否有script，
+                    如果有script就取得template樣板網頁裡的script腳本，
+                    並將script載入template當前的樣板頁面。 */
+                    if(htmlElement.getTags('script').length !== 0){
+                        htmlElement.getTags('script').map(script=>{
+                            const scriptTag = makeTag('script');
+                            scriptTag.type = 'text/javascript';
+                            // scriptTag.id = ref;
+                            scriptTag.innerHTML = script.innerHTML;
+                            document.querySelector('[slot=content]').addKid(scriptTag);
+                        })                
+                    }                    
                     route.active(location.hash.replace('#/', ''));
                     break;
                 case 'footer':
-                    document.querySelector('[slot=footer]').innerHTML = htmlElement.getTags('template')[0].innerHTML;
+                    document.querySelector('[slot=footer]').innerHTML = htmlTemplate;
                     break;
                 default:
                     break;
             }
-            
-            switch (ref) {
-                case 'vogue':
-                case 'animal':
-                case 'vehicle':
-                case 'house':
-                    pixelArtWork(ref);
-                    break;
-                case 'news':
-                    getNews();
-                default:
-                    break;
-            }
+
         } catch (error) {
              console.warn('Request Error:', error);
         }   
