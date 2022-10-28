@@ -57,14 +57,17 @@ let route = {
                     document.querySelector('[slot=content]').innerHTML = htmlTemplate;
 
                     /* 判斷template樣板網頁裡是否有script，
-                    如果有script就取得template樣板網頁裡的script腳本，
+                    如果有script就取得template樣板網頁裡的script，
                     並將script載入template當前的樣板頁面。 */
                     if(htmlElement.getTags('script').length !== 0){
-                        htmlElement.getTags('script').map(script=>{
+                        htmlElement.getTags('script').map( script => {
                             const scriptTag = makeTag('script');
-                            scriptTag.type = 'text/javascript';
-                            // scriptTag.id = ref;
-                            scriptTag.innerHTML = script.innerHTML;
+                            scriptTag.type = script.type || 'text/javascript';
+                            if(script.src){
+                                scriptTag.src = script.src;
+                            }else if(script.innerHTML){
+                                scriptTag.innerHTML = script.innerHTML;
+                            }
                             document.querySelector('[slot=content]').addKid(scriptTag);
                         })                
                     }                    
