@@ -8,4 +8,3 @@ function isEmail(email) {
         return true;
     }
 }
-

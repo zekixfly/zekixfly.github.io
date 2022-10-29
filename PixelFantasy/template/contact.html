@@ -1,20 +1,20 @@
 <template id='contact'>
 
     <h1 class="headline">Contact Me</h1>    
-    <form method="GET" action="mailto:zekixfly@hotmail.com" enctype="text/plain" class="contactForm" target="_top">
+    <form id="contact-form" class="contactForm">
     
-        <!-- <div>NickName*</div>
-        <input type="text" name="nickname" size="30"/> -->
-    
+
+        <input type="hidden" name="contact_number">
+
+        <div>NickName<span class="required">*</span></div>
+        <input type="text" name="user_name" size="30" required="required"/>
+
         <div>E-mail<span class="required">*</span></div>
-        <input type="email" name="email" size="30" onblur="isEmail(this.value)" placeholder="test@example.com" required="required"/>
+        <input type="email" name="user_email" size="30" onblur="isEmail(this.value)" placeholder="test@example.com" required="required"/>
         <span class="formTip"></span>
         
-        <div>Subject</div>
-        <input type="text" name="subject" size="30" value="這是寄給Zeki的郵件!"/>
-
         <div>Message<span class="required">*</span></div>
-        <textarea name="body" cols="45" rows="6" required="required"></textarea>
+        <textarea name="message" cols="45" rows="6" required="required"></textarea>
         <p class="required">*號為必填</p>        
         <br/>
         <input id="sendZeki" type="submit" value="Send" />
@@ -22,3 +22,20 @@
     </form>
 
 </template>
+
+<script type="text/javascript">
+    emailjs.init('A1O32767lvzH8CNyq');
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // generate a five digit number for the contact_number variable
+        this.contact_number.value = Math.random() * 100000 | 0;
+        // these IDs from the previous steps
+        emailjs.sendForm('service_zekiray', 'template_zekiray', this)
+            .then(function() {
+                alert('Mail sent successfully!');
+            }, function(error) {
+                alert('Mail delivery failed...', error);
+            });
+    });
+</script>
