@@ -25,7 +25,7 @@ let route = {
 
     },
     tempLoad: async function(ref , target){
-
+        
         try {
             const response = await fetch(`./template/${ref}.html`);
             

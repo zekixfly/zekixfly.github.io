@@ -1,5 +1,5 @@
 async function pixelArtWork(id){
-    
+    getId(`${id}Work`).innerHTML = '<div class="loading"><span></span></div>';
     const res = await fetch(API_GET_DATA);
     const data =  await res.json();
     getId(`${id}Work`).innerHTML = '';
