@@ -1,5 +1,5 @@
 async function pixelArtWork(id){
-    getId(`${id}Work`).innerHTML = '<div class="loading"><span></span></div>';
+    getId(`${id}Work`).addClass('d-none');
     const res = await fetch(API_GET_DATA);
     const data =  await res.json();
     getId(`${id}Work`).innerHTML = '';
@@ -9,7 +9,7 @@ async function pixelArtWork(id){
 
         // console.log(`${id.replace(/^./, id[0].toUpperCase())} Fantasy`);
         // 替換id第一個小寫字母為大寫                
-        if(`${id.replace(/^./, id[0].toUpperCase())}` == data[idx].category){
+        if(`${id.replace(/^./, id[0].toUpperCase())}` === data[idx].category){
             var imgElement = makeTag("img");
             imgElement.src = `img/pixelart/${id}/` + data[idx].src;
             imgElement.addEventListener("load", () => {
@@ -53,4 +53,14 @@ async function pixelArtWork(id){
             getId(`${id}Work`).addKid(divElement);
         }
     }
+
+    // 延遲函式
+    // function sleep(ms) {
+    //     return new Promise(resolve => setTimeout(resolve, ms));
+    //   }
+    // await sleep(5000);
+
+    getClasses('loading')[0].addClass('d-none')
+    getId(`${id}Work`).delClass('d-none');
+
 }
