@@ -59,8 +59,26 @@ async function pixelArtWork(id){
     //     return new Promise(resolve => setTimeout(resolve, ms));
     //   }
     // await sleep(5000);
+    let images = getId(`${id}Work`).getTags('img');
+    const promises = images.map(image => {
+        return new Promise((resolve,reject)=>{
+            image.onload = () => resolve(image);
+            image.onerror = () => reject(image);
+        });
+    });
 
-    getClasses('loading')[0].addClass('d-none')
-    getId(`${id}Work`).delClass('d-none');
-
+    // 利用Promise.all監聽所有圖片加載完成
+    Promise.allSettled(promises)
+    .then(results => {
+        results.map(result=>{
+            // 如果圖片載入錯誤，則刪除該元素節點不顯示出來!
+            if(result.status === 'rejected') {
+                getId(`${id}Work`).delKid(result.reason.parentNode)
+                console.debug(`The ${result.reason.src} url is Error!`);
+            }
+        });
+        // 圖片載入完成時，關閉loading動畫，顯示所有圖片。
+        getClasses('loading')[0].addClass('d-none');
+        getId(`${id}Work`).delClass('d-none');
+    })
 }
