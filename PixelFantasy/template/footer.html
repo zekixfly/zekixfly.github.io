@@ -1,3 +1,15 @@
 <template id='footer'>    
-    <small>Copyright &copy; 2022~Now · All Right Reserved ·</small>
+    <small>Copyright &copy; 2022~Now · All Right Reserved · <br/>Latest Update：<span id="lastUpdate"></span></small>
 </template>
+
+
+<script type="text/javascript">
+    const millisecond = new Date(document.lastModified);
+    const year = millisecond.getFullYear();
+    const month = millisecond.getMonth()+1;
+    const date = millisecond.getDate();
+    const hours = millisecond.getHours();
+    const minutes = millisecond.getMinutes();
+    const formateDate = `${year}-${month}-${date} ${hours}:${minutes}`
+    getId('lastUpdate').innerHTML = formateDate;
+</script>
