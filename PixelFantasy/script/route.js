@@ -39,10 +39,29 @@ let route = {
             // 取得template樣板網頁的內容
             const htmlTemplate = htmlElement.getTags('template')[0].innerHTML;
 
+            function mountScript(target){
+                /* 判斷template樣板網頁裡是否有script，
+                如果有script就取得template樣板網頁裡的script，
+                並將script載入template當前的樣板頁面。 */
+                if(htmlElement.getTags('script').length !== 0){
+                    htmlElement.getTags('script').map( script => {
+                        const scriptTag = makeTag('script');
+                        scriptTag.type = script.type || 'text/javascript';
+                        if(script.src){
+                            scriptTag.src = script.src;
+                        }else if(script.innerHTML){
+                            scriptTag.innerHTML = script.innerHTML;
+                        }
+                        document.querySelector(`[slot=${target}]`).addKid(scriptTag);
+                    })                
+                }                    
+            }
+
             // 找尋插入的標籤
             switch (target) {
                 case 'nav':
                     document.querySelector('[slot=nav]').innerHTML = htmlTemplate;
+                    mountScript('nav');
                     getId('navList').onclick = event => {
                         // console.log(event.target.getAttr('ref'));
                         if(event.target.getAttr('ref')){
@@ -55,26 +74,13 @@ let route = {
                     break;
                 case 'content':
                     document.querySelector('[slot=content]').innerHTML = htmlTemplate;
+                    mountScript('content');
 
-                    /* 判斷template樣板網頁裡是否有script，
-                    如果有script就取得template樣板網頁裡的script，
-                    並將script載入template當前的樣板頁面。 */
-                    if(htmlElement.getTags('script').length !== 0){
-                        htmlElement.getTags('script').map( script => {
-                            const scriptTag = makeTag('script');
-                            scriptTag.type = script.type || 'text/javascript';
-                            if(script.src){
-                                scriptTag.src = script.src;
-                            }else if(script.innerHTML){
-                                scriptTag.innerHTML = script.innerHTML;
-                            }
-                            document.querySelector('[slot=content]').addKid(scriptTag);
-                        })                
-                    }                    
                     route.active(location.hash.replace('#/', ''));
                     break;
                 case 'footer':
                     document.querySelector('[slot=footer]').innerHTML = htmlTemplate;
+                    mountScript('footer');
                     break;
                 default:
                     break;
