@@ -13,20 +13,31 @@
     &:hover
         transition: all 0.2s ease
                 
-html, body, .wrap
+html, body, .container
     height: 100%
     font-size: 1rem
 
 body
-    padding: 10px
+    position: absolute
+    left: 0px
+    right: 0px
+    width: 100%
     background-color: #ffffff
+.offset-260
+    // position: absolute
+    left: auto
+    right: 260px !important
 
-.wrap
-    max-width: 1280px
+.container
+    max-width: 1790px
     margin: 0 auto
-    padding-top: 30px
+    padding-top: 40px
 
-.wrapScrollHidden
+@media (max-width: 768px)
+    .container
+        padding-top: 0px
+
+.containerScrollHidden
     overflow: hidden
 
 @import _nav
@@ -43,6 +54,11 @@ body
     color: rgba(0, 0, 0, 0.5)
     font-size: 16px
     font-weight: 100
+    // white-space: nowrap
+    // overflow: hidden
+    // width: -webkit-fill-available
+    // text-overflow: ellipsis
+    // display: inline-block
     tr
         &:hover
             color: rgba(0, 0, 0, 1)
@@ -57,6 +73,11 @@ body
         font-weight: 100
         &:hover
             color: red
+
+[id$='Work']
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-evenly
 
 .pixelart_Thumbnail
     cursor: pointer
@@ -82,6 +103,12 @@ body
         transform: scale(5) translateZ(0)
         -webkit-transform: scale(5) translateZ(0)
         top: 180%
+
+.filling-empty-space-childs
+    width:200px //*the width of the images in this example*/
+    height:0 //*Important! for the divs to collapse should they fall in a new row*/
+    margin: 0 10px
+    padding: 0 2px
 
 #animalWork .pixelart_Thumbnail img, #vehicleWork .pixelart_Thumbnail img
     transform: none
@@ -227,6 +254,10 @@ body
     // background-color: rgba(0,0,0,0.3)    
     +clearfix
 
+@media (max-width: 768px)
+    .content
+        width: 100%
+
 .me
     display: inline-block    
     width: 100%
@@ -240,7 +271,8 @@ body
         padding: 0 50px
         p
             color: rgba(0, 0, 0, 0.5)
-            font-size: 14px
+            font-size: 0.9rem
+            // font-size: 14px
             padding: 5px
             a
                 color: inherit
@@ -266,9 +298,22 @@ body
         .description
             padding: 15px
             // font-weight: bold
+@media (max-width: 768px)
+    .me
+        font-size: 1.5rem
+        .section-left,.section-right
+            width: 100%
+            height: auto
+        .section-left
+            border-right: none
+            border-bottom: 2px dashed rgba(0,0,0,0.2)
 
 .contactForm input, .contactForm textarea
     padding: 5px
+
+@media (max-width: 768px)
+    .contactForm input, .contactForm textarea
+        width: 100%
 
 .contactForm textarea[name="body"]
     resize: vertical
@@ -380,3 +425,6 @@ body
         height: 100%
     100%
         height: 0%
+
+
+@import _rwd
