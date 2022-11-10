@@ -31,6 +31,17 @@
                 color: #000
             &.active
                 color: #000
+        &-m
+            display: none
+            width: 1.5em
+            height: 57px
+            position: absolute
+            left: calc(-1.5em * 2)
+            top: 0px
+            img
+                width: inherit
+                height: inherit
+
     &-list-pixel
         li
             cursor: all-scroll
@@ -41,5 +52,37 @@
                 // color: rgba(0, 0, 0, 0.12)
                 font-size: 12px
                 margin-left: 4px
+.offset-0
+    right: 0px !important
 
-            
+@media (max-width: 768px)
+    .nav
+        padding: 20px
+        width: 260px
+        height: 100%
+        position: fixed
+        right: -260px
+        text-align: left
+        background-color: black
+        color: white !important
+        &-list
+            font-size: 1.5rem
+            color: rgba(255, 255, 255, 0.4)
+            li[ref]
+                &:hover
+                    color: white
+                &.active
+                    color: white
+            &-m
+                display: block
+        &-list-pixel
+            li
+                border-left: 1px solid rgba(255,255,255,0.5)
+                margin-left: 18px
+                &::before
+                    content: "-"
+                    // color: rgba(0, 0, 0, 0.12)
+                    font-size: 12px
+                    margin-right: 4px
+                &::after
+                    display: none

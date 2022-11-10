@@ -70,6 +70,20 @@ let route = {
                             route.active(event.target.getAttr('ref'));
                         }
                     }
+                    let menuSwitch = false;
+                    getId('navList-m').onclick = function(){
+                        menuSwitch = !menuSwitch
+                        if(menuSwitch){
+                            this.getTags('img')[0].src = './svg/iconmonstr-x-mark-lined.svg';
+                            getTags('body')[0].addClass('offset-260');
+                            getClasses('nav')[0].addClass('offset-0');
+                        }
+                        else{
+                            this.getTags('img')[0].src = './svg/iconmonstr-menu.svg';
+                            getTags('body')[0].delClass('offset-260');
+                            getClasses('nav')[0].delClass('offset-0');
+                        }
+                    }
                     route.active('news');
                     break;
                 case 'content':
