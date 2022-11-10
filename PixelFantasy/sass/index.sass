@@ -19,13 +19,11 @@ html, body, .container
 
 body
     position: absolute
-    left: 0px
     right: 0px
     width: 100%
     background-color: #ffffff
 .offset-260
     // position: absolute
-    left: auto
     right: 260px !important
 
 .container
@@ -222,6 +220,34 @@ body
                 image-rendering: pixelated
 
 
+@media (max-width: 768px)
+    #showBox
+        .showBoxContainer
+            .showBoxCover
+                width: 100%
+                height: 100%
+                margin: 0
+                display: flex
+                flex-direction: column
+                justify-content: center
+                .showBoxTitleWrap
+                    position: static
+                    height: auto
+                    .showBoxTitleBox
+                        position: static
+                        &::before, &::after
+                            display: none
+                        .showBoxTitle
+                            width: auto
+                            padding: 10px
+                            transform: none
+                            position: static
+                .showBoxInfo
+                    position: static
+                    text-align: center
+                img
+                    width: 100%
+                    height: auto
 .showBoxPreloader
     display: block
     width: 30px !important

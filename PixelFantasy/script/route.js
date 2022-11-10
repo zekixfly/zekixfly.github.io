@@ -74,12 +74,14 @@ let route = {
                     getId('navList-m').onclick = function(){
                         menuSwitch = !menuSwitch
                         if(menuSwitch){
-                            this.getTags('img')[0].src = './svg/iconmonstr-x-mark-lined.svg';
+                            this.getClasses('menu')[0].addClass('d-none');
+                            this.getClasses('close')[0].addClass('d-block');
                             getTags('body')[0].addClass('offset-260');
                             getClasses('nav')[0].addClass('offset-0');
                         }
                         else{
-                            this.getTags('img')[0].src = './svg/iconmonstr-menu.svg';
+                            this.getClasses('menu')[0].delClass('d-none');
+                            this.getClasses('close')[0].delClass('d-block');
                             getTags('body')[0].delClass('offset-260');
                             getClasses('nav')[0].delClass('offset-0');
                         }
