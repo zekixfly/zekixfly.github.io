@@ -29,17 +29,17 @@ async function pixelArtWork(id){
                     getId("showBox").getTags("img")[0].src = event.target.currentSrc;
                     getId("showBox").getClasses("showBoxTitle")[0].innerHTML = event.currentTarget.title;
                     getId("showBox").getClasses("showBoxInfo")[0].innerHTML = event.currentTarget.getAttr("description");
-                    getClasses("wrap")[0].addClass("wrapScrollHidden");
+                    getClasses("container")[0].addClass("containerScrollHidden");
                     getClasses("showBoxClose")[0].addEventListener("click", event => {
                         getClasses("showBoxContainer")[0].scrollTop = 0;
                         getId("showBox").delClass("d-block");
-                        getClasses("wrap")[0].delClass("wrapScrollHidden");
+                        getClasses("container")[0].delClass("containerScrollHidden");
                         getClasses("showBoxBackGround")[0].delClass("d-block");                            
                     });
                     getClasses("showBoxContainer")[0].addEventListener("click", event => {
                         getClasses("showBoxContainer")[0].scrollTop = 0;
                         getId("showBox").delClass("d-block");
-                        getClasses("wrap")[0].delClass("wrapScrollHidden");
+                        getClasses("container")[0].delClass("containerScrollHidden");
                         getClasses("showBoxBackGround")[0].delClass("d-block");                            
                     });
                     getId("showBox").getClasses("showBoxCover")[0].addEventListener("click", event => {
@@ -52,6 +52,15 @@ async function pixelArtWork(id){
 
             getId(`${id}Work`).addKid(divElement);
         }
+    }
+
+    /* 在CSS裡，因justify-content使用space-evenly空間平均分配，
+    所以最後剩餘的元素因為數量不足又加上自動分配空間的關係，
+    所以乍看之下像是跑版， 因此製造空白的元素來做填充防止跑版。 */
+    for(let i=0; i<4; i++){
+        var dummyElement = makeTag("div");
+        dummyElement.className = "filling-empty-space-childs";
+        getId(`${id}Work`).addKid(dummyElement);
     }
 
     // 延遲函式
