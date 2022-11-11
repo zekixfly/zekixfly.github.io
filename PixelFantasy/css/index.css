@@ -120,11 +120,13 @@ body {
   color: rgba(0, 0, 0, 0.4);
   margin: 25px 0;
 }
-.nav-list li[ref] {
+.nav-list li {
   display: block;
-  cursor: pointer;
   color: inherit;
   padding: 3px 8px;
+}
+.nav-list li[ref] {
+  cursor: pointer;
 }
 .nav-list li[ref]:hover {
   transition: all 0.2s ease;
@@ -149,7 +151,6 @@ body {
   display: none;
 }
 .nav-list-pixel li {
-  cursor: all-scroll;
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   margin-right: 18px;
 }
@@ -173,6 +174,11 @@ body {
     text-align: left;
     background-color: black;
     color: white !important;
+  }
+  .nav h1 img {
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated;
   }
   .nav-list {
     font-size: 1.5rem;

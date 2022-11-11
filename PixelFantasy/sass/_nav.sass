@@ -21,11 +21,12 @@
         font-size: 16px
         color: rgba(0, 0, 0, 0.4)
         margin: 25px 0
-        li[ref]
+        li
             display: block
-            cursor: pointer
             color: inherit
             padding: 3px 8px
+        li[ref]
+            cursor: pointer
             &:hover
                 transition: all 0.2s ease
                 color: #000
@@ -46,7 +47,6 @@
 
     &-list-pixel
         li
-            cursor: all-scroll
             border-right: 1px solid rgba(0, 0, 0, 0.2)
             margin-right: 18px
             &::after
@@ -67,6 +67,11 @@
         text-align: left
         background-color: black
         color: white !important
+        h1
+            img
+                width: 100%
+                height: auto
+                image-rendering: pixelated
         &-list
             font-size: 1.5rem
             color: rgba(255, 255, 255, 0.4)
