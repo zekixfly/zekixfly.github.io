@@ -10,6 +10,11 @@
     const date = millisecond.getDate();
     const hours = millisecond.getHours();
     const minutes = millisecond.getMinutes();
-    const formateDate = `${year}-${month}-${date} ${hours}:${minutes}`
+
+    function checkDate(date) {  
+        return date.toString().length < 2 ? `0${date}` : date;
+    }
+
+    const formateDate = `${year}-${checkDate(month)}-${checkDate(date)} ${checkDate(hours)}:${checkDate(minutes)}`
     getId('lastUpdate').innerHTML = formateDate;
 </script>
