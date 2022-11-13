@@ -22,6 +22,7 @@ body
     right: 0px
     width: 100%
     background-color: #ffffff
+    
 .offset-260
     // position: absolute
     right: 260px !important
@@ -175,20 +176,20 @@ body
                     width: inherit
                     height: inherit
                     overflow: hidden
-                    top: -10px
-                    right: -10px
+                    top: -20px
+                    right: -20px
                     &::before, &::after
                         position: absolute
                         content: ''
                         display: block
-                        border: 5px solid rgba(0,139,139,0.5)
+                        border: 10px solid rgba(0,139,139,0.5)
                         // z-index: -1
                     &::before                
                         top: 0
-                        right: 200px
+                        right: 185px
                         transform: translateX(-30%)
                     &::after
-                        top: 200px
+                        top: 185px
                         right: 0
                         transform: translateY(30%)
                     .showBoxTitle
@@ -210,7 +211,13 @@ body
             //     top: 0
             //     left: 0
             //     box-shadow: 0 0 50px 30px rgba(0,0,0,0.6) inset
- 
+            img
+                width: inherit
+                height: inherit
+                margin: 0 auto
+                display: block
+                image-rendering: pixelated
+                outline: 5px solid #008b8b
             .showBoxInfo
                 position: absolute
                 bottom: 0
@@ -218,13 +225,6 @@ body
                 padding: 5px
                 color: rgba(255, 255, 255, 1)
                 background-color: rgba(0, 0, 0, 0.5)
-            img
-                width: inherit
-                height: inherit
-                margin: 0 auto
-                display: block
-                image-rendering: pixelated
-
 
 @media (max-width: 768px)
     #showBox
@@ -254,6 +254,8 @@ body
                 img
                     width: 100%
                     height: auto
+                    outline: none
+
 .showBoxPreloader
     display: block
     width: 30px !important
