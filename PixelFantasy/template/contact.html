@@ -19,7 +19,12 @@
         <input id="sendZeki" type="submit" value="Send" />
         
     </form>
-    <div id="send-status" class="sendStatus"><div class="sending"></div></div>
+    <div id="send-status" class="sendStatus">
+        <div class="sending"></div>        
+        <p class="msg">Sending mail...</p>
+        <a href='javascript:void(0)' class='return'><= return</a>
+        
+    </div>
 
 </template>
 
@@ -35,18 +40,19 @@
         getId('send-status').delClass('d-none');
         emailjs.sendForm('service_zekiray', 'template_zekiray', this)
             .then(function() {
-                
-                getId('send-status').innerHTML = "<p>Mail sent successfully!</p><a href='javascript:void(0)' class='return'><= return</a>";
-                returnMailPage();
-                
+                resultPage("Mail sent successfully!");
             }, function(error) {
-                getId('send-status').innerHTML = `<p>Sorry, Mail delivery failed...${error}</p><a href='javascript:void(0)' class='return'><= return</a>`;
-                returnMailPage();
-
+                resultPage(`Sorry, Mail delivery failed...${error}`);
             });
     });
-    function returnMailPage(){
-        getId("send-status").getClasses("return")[0].addEventListener("click",()=>{
+    function resultPage(message){        
+        getId('send-status').getClasses('msg')[0].innerHTML = message;
+        getId('send-status').getClasses('sending')[0].addClass('d-none');
+        getId('send-status').getClasses('return')[0].addClass('d-block');
+        getId('send-status').getClasses('return')[0].addEventListener('click',()=>{
+            getId('send-status').getClasses('sending')[0].delClass('d-none');
+            getId('send-status').getClasses('return')[0].delClass('d-block');
+            getId('send-status').getClasses('msg')[0].innerHTML = 'Sending mail...';
             getId('send-status').addClass('d-none');
             getId('contact-form').delClass('d-none');
         })

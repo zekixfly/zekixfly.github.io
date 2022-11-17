@@ -591,6 +591,12 @@ body {
   align-items: center;
   justify-content: center;
 }
+.sendStatus .msg {
+  padding: 20px;
+}
+.sendStatus .return {
+  display: none;
+}
 
 .loading {
   min-height: 145px;
