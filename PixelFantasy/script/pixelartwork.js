@@ -29,17 +29,17 @@ async function pixelArtWork(id){
                     getId("showBox").getTags("img")[0].src = event.target.currentSrc;
                     getId("showBox").getClasses("showBoxTitle")[0].innerHTML = event.currentTarget.title;
                     getId("showBox").getClasses("showBoxInfo")[0].innerHTML = event.currentTarget.getAttr("description");
-                    getClasses("container")[0].addClass("containerScrollHidden");
+                    getTags('body')[0].addClass('overflow-hidden');
                     getClasses("showBoxClose")[0].addEventListener("click", event => {
                         getClasses("showBoxContainer")[0].scrollTop = 0;
                         getId("showBox").delClass("d-block");
-                        getClasses("container")[0].delClass("containerScrollHidden");
+                        getTags('body')[0].delClass('overflow-hidden');
                         getClasses("showBoxBackGround")[0].delClass("d-block");                            
                     });
                     getClasses("showBoxContainer")[0].addEventListener("click", event => {
                         getClasses("showBoxContainer")[0].scrollTop = 0;
                         getId("showBox").delClass("d-block");
-                        getClasses("container")[0].delClass("containerScrollHidden");
+                        getTags('body')[0].delClass('overflow-hidden');
                         getClasses("showBoxBackGround")[0].delClass("d-block");                            
                     });
                     getId("showBox").getClasses("showBoxCover")[0].addEventListener("click", event => {
