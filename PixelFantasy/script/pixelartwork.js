@@ -26,27 +26,28 @@ async function pixelArtWork(id){
                 divElement.addEventListener("click", event => {
                     getClasses("showBoxBackGround")[0].addClass("d-block");
                     getId("showBox").addClass("d-block");
-                    getId("showBox").getTags("img")[0].src = event.target.currentSrc;
+                    getId("showBox").getTags("img")[0].src = `img/pixelart/${id}/`+event.currentTarget.getAttr("src");
                     getId("showBox").getClasses("showBoxTitle")[0].innerHTML = event.currentTarget.title;
                     getId("showBox").getClasses("showBoxInfo")[0].innerHTML = event.currentTarget.getAttr("description");
                     getTags('body')[0].addClass('overflow-hidden');
                     getClasses("showBoxClose")[0].addEventListener("click", event => {
-                        getClasses("showBoxContainer")[0].scrollTop = 0;
-                        getId("showBox").delClass("d-block");
-                        getTags('body')[0].delClass('overflow-hidden');
-                        getClasses("showBoxBackGround")[0].delClass("d-block");                            
+                        showBoxClose()
                     });
                     getClasses("showBoxContainer")[0].addEventListener("click", event => {
-                        getClasses("showBoxContainer")[0].scrollTop = 0;
-                        getId("showBox").delClass("d-block");
-                        getTags('body')[0].delClass('overflow-hidden');
-                        getClasses("showBoxBackGround")[0].delClass("d-block");                            
+                        showBoxClose()
                     });
                     getId("showBox").getClasses("showBoxCover")[0].addEventListener("click", event => {
                         event.preventDefault();
                         event.stopPropagation();
                         console.log("event.preventDefault")
                     });
+                    function showBoxClose(){
+                        getClasses("showBoxContainer")[0].scrollTop = 0;
+                        getId("showBox").delClass("d-block");
+                        getTags('body')[0].delClass('overflow-hidden');
+                        getClasses("showBoxBackGround")[0].delClass("d-block");
+                        document.querySelector('[slot=content]').delAttr('src');
+                    }
                 });                        
             }
 
@@ -89,5 +90,11 @@ async function pixelArtWork(id){
         // 圖片載入完成時，關閉loading動畫，顯示所有圖片。
         getClasses('loading')[0].addClass('d-none');
         getId(`${id}Work`).delClass('d-none');
+
+        // 判斷是否從News點擊載入
+        if(document.querySelector('[slot=content]').getAttr('src')){
+            document.querySelectorAll(`div[src="${document.querySelector('[slot=content]').getAttr('src')}"]`)[0].click()
+        }
+        
     })
 }
