@@ -304,6 +304,14 @@ Object.defineProperties(Element.prototype, {
     writable: false,
     enumerable: false
   },
+  //delete attribute
+  'delAttr': {
+    value: function(attr) {
+      return this.removeAttribute(attr);
+    },
+    writable: false,
+    enumerable: false
+  },
   // append Child
   'addKid': {
     value: function(element) {
