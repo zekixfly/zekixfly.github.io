@@ -3,22 +3,24 @@ async function getNews(){
     const res = await fetch(API_GET_DATA);
     const data =  await res.json();
     getId('newsInfo').innerHTML = '';
-    let tableElement = makeTag("table");
-    tableElement.className = "newsInfo_Table";
+    let ulElement = makeTag("ul");
+    ulElement.className = "newsInfo_Table";
     
     for(let idx in data){
         
-        let trElement = makeTag("tr");     
-        let tdDateElement = makeTag("td");
-        let tdInfoElement = makeTag("td");
+        let liElement = makeTag("li");     
+        let dateElement = makeTag("date");
+        let spanElement = makeTag("span");
 
-        tdDateElement.innerHTML = data[idx].date;
-        tdInfoElement.innerHTML = `「${data[idx].category}」新增：${data[idx].title}`;
+        dateElement.innerHTML = data[idx].date;
+        spanElement.innerHTML = `「${data[idx].category}」新增：${data[idx].title}`;
 
-        trElement.addKid(tdDateElement);
-        trElement.addKid(tdInfoElement);
-        tableElement.addKid(trElement);
-        getId('newsInfo').addKid(tableElement);
+        liElement.setAttr("category", data[idx].category);
+        liElement.setAttr("src", data[idx].src);
+        liElement.addKid(dateElement);
+        liElement.addKid(spanElement);
+        ulElement.addKid(liElement);
+        getId('newsInfo').addKid(ulElement);
         if(idx == 6) {
             let divElement = makeTag("div");
             divElement.id = "newsMore_Line"                    
@@ -30,27 +32,38 @@ async function getNews(){
     getId("newsMore_Line").getClasses("more")[0].addEventListener("click",()=>{
 
         //點擊more時判斷news數量是否只有7則，超過7則表示已點擊過more，將不在增加news數量。
-        if( getClasses("newsInfo_Table")[0].getTags("tr").length <= 7 ){
+        if( getClasses("newsInfo_Table")[0].getTags("li").length <= 7 ){
             for(let i = 7; i<data.length; i++){
-                let trElement = makeTag("tr");     
-                let tdDateElement = makeTag("td");
-                let tdInfoElement = makeTag("td");
+                let liElement = makeTag("li");     
+                let dateElement = makeTag("date");
+                let spanElement = makeTag("span");
 
-                tdDateElement.innerHTML = data[i].date;
-                tdInfoElement.innerHTML = `「${data[i].category}」新增：${data[i].title}`;
+                dateElement.innerHTML = data[i].date;
+                spanElement.innerHTML = `「${data[i].category}」新增：${data[i].title}`;
 
-                trElement.addKid(tdDateElement);
-                trElement.addKid(tdInfoElement);
-                tableElement.addKid(trElement);                    
+                liElement.setAttr("category", data[i].category);
+                liElement.setAttr("src", data[i].src);
+                liElement.addKid(dateElement);
+                liElement.addKid(spanElement);
+                ulElement.addKid(liElement);                    
             }
             getId("newsMore_Line").getClasses("more")[0].innerText = "<<<Less";
         }
         else{
             for(let i = 7; i<data.length; i++){
-                getClasses("newsInfo_Table")[0].getTags("tr")[7].remove();
+                getClasses("newsInfo_Table")[0].getTags("li")[7].remove();
             }
             getId("newsMore_Line").getClasses("more")[0].innerText = "More...";
         }
     });
+    // 點擊News列表，將會自動載入相對應作品頁面。
+    getId('newsInfo').addEventListener('click',event=>{
+        event.path.map(element=>{
+            if(element.tagName?.toLowerCase()==='li'){
+                route.push(element.getAttr('category').toLowerCase());
+                document.querySelector('[slot=content]').setAttr('src',element.getAttr('src'))
+            }         
+        })     
+     })
 }
 

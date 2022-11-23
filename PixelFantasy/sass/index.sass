@@ -55,12 +55,16 @@ body
     // width: -webkit-fill-available
     // text-overflow: ellipsis
     // display: inline-block
-    tr
+    li
+        cursor: pointer
+        width: fit-content
         &:hover
             color: rgba(0, 0, 0, 1)
         &:nth-child(1)
-            td:nth-child(1)
+            date:nth-child(1)
                 color: #008B8B
+        date, span
+            display: inline-block
 
 #newsMore_Line
     .more
