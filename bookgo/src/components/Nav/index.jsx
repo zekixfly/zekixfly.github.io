@@ -11,7 +11,7 @@ class Nav extends Component {
         <div className="nav-wrap">
           
           
-          <h1><a href='/'>BookGO</a></h1>
+          <h1><a href='./'>BookGO</a></h1>
           <div className="nav-link-wrap">
             <BookGoNavLink to='home'>{langHome}</BookGoNavLink>
             <BookGoNavLink to='tracklist'>{langTrackList}</BookGoNavLink>
