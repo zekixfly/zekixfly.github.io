@@ -26,7 +26,7 @@ async function pixelArtWork(id){
                 divElement.addEventListener("click", event => {
                     getClasses("showBoxBackGround")[0].addClass("d-block");
                     getId("showBox").addClass("d-block");
-                    getId("showBox").getTags("img")[0].src = `img/pixelart/${id}/`+event.currentTarget.getAttr("src");
+                    getId("showBox").getTags("img")[0].src = `img/pixelart/${id}/`+ event.currentTarget.getAttr("src");
                     getId("showBox").getClasses("showBoxTitle")[0].innerHTML = event.currentTarget.title;
                     getId("showBox").getClasses("showBoxInfo")[0].innerHTML = event.currentTarget.getAttr("description");
                     getTags('body')[0].addClass('overflow-hidden');
