@@ -223,11 +223,18 @@ body {
 .newsInfo_Table li:hover {
   color: rgb(0, 0, 0);
 }
+.newsInfo_Table li:hover span {
+  background: black url(../img/go.gif) 0px 3px repeat-x;
+  color: white;
+}
 .newsInfo_Table li:nth-child(1) date:nth-child(1) {
   color: #008B8B;
 }
 .newsInfo_Table li date, .newsInfo_Table li span {
   display: inline-block;
+}
+.newsInfo_Table li date {
+  margin-right: 10px;
 }
 
 #newsMore_Line .more {
