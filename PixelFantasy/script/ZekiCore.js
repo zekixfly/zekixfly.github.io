@@ -526,7 +526,7 @@ Object.defineProperties(Array.prototype, {
 Object.defineProperties(HTMLCollection.prototype, {
   'map': {
     value: function(mapFn) {
-      var arr = [].slice.call(this);
+      var arr = [...this];
       return arr.map(mapFn);
     },
     writable: false,
@@ -534,7 +534,7 @@ Object.defineProperties(HTMLCollection.prototype, {
   },
   'forEach': {
     value: function(forEachFn) {
-      var arr = [].slice.call(this);
+      var arr = [...this];
       arr.forEach(forEachFn);//The forEach can not return value, so it's not need add return;
     },      
     writable: false,
