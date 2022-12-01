@@ -115,11 +115,11 @@ let route = {
 history.replaceState.bindEvent();
 history.pushState.bindEvent();
 
-window.addEventListener('replaceState', function(e) {
+window.addEventListener(history.replaceState.name, function(e) {
     route.tempLoad(location.hash.replace('#/', ''), 'content');
 });
 
-window.addEventListener('pushState', function(e) {
+window.addEventListener(history.pushState.name, function(e) {
     route.tempLoad(location.hash.replace('#/', ''), 'content');
 });
 

@@ -55,7 +55,7 @@ Object.defineProperty(Function.prototype, 'bindEvent', {
     window.Navigator.prototype.hasOwnProperty(functionName) ? navigator :
     window.Screen.prototype.hasOwnProperty(functionName) ? screen : window;
   
-    origObject[functionName] = function(){        
+    origObject[functionName] = function(){
         origFunction.apply(origObject, arguments); // 原函數依然可以正常執行。
         const myEvent = new Event(
             functionName,  
@@ -66,7 +66,9 @@ Object.defineProperty(Function.prototype, 'bindEvent', {
         );
         myEvent.arguments = arguments;
         window.dispatchEvent(myEvent);
-    }    
+    }
+    // 將匿名函式取名為原函式的名稱，使得addEventLister可以使用該函式的name來監聽。
+    Object.defineProperty(origObject[functionName], 'name', {value: functionName, writable: false});
   },
   writable: false,
   enumerable: false,
