@@ -54,21 +54,24 @@ Object.defineProperty(Function.prototype, 'bindEvent', {
     window.Document.prototype.hasOwnProperty(functionName) ? document :    
     window.Navigator.prototype.hasOwnProperty(functionName) ? navigator :
     window.Screen.prototype.hasOwnProperty(functionName) ? screen : window;
-  
-    origObject[functionName] = function(){
-        origFunction.apply(origObject, arguments); // 原函數依然可以正常執行。
-        const myEvent = new Event(
-            functionName,  
-            {
-                bubbles: true, // bubbles值代表可否使用冒泡機制
-                cancelable: true // cancelable則是代表可否使用stopPropagation()方法
-            }
-        );
-        myEvent.arguments = arguments;
-        window.dispatchEvent(myEvent);
-    }
-    // 將匿名函式取名為原函式的名稱，使得addEventLister可以使用該函式的name來監聽。
-    Object.defineProperty(origObject[functionName], 'name', {value: functionName, writable: false});
+
+    // 動態命名function名稱，使得addEventLister可以使用該函式的name來監聽。
+    // 解析：{[key]:value}為動態載入傳入的key名稱，
+    // 最後的{[key]:value}[key]則為取出key的值，如obj.key可寫成obj[key]。
+    origObject[functionName] = ({[functionName]:function(){
+      origFunction.apply(origObject, arguments); // 原函數依然可以正常執行。
+      const myEvent = new Event(
+          functionName,  //此為監聽事件的關鍵字命名，
+          {
+              bubbles: true, // bubbles值代表可否使用冒泡機制
+              cancelable: true // cancelable則是代表可否使用stopPropagation()方法
+          }
+      );
+      myEvent.arguments = arguments;
+      window.dispatchEvent(myEvent);
+    }}[functionName]);
+    // 備用方案：也可使用以下方式來動態命名function名稱。
+    // Object.defineProperty(origObject[functionName], 'name', {value: functionName, writable: false});
   },
   writable: false,
   enumerable: false,
