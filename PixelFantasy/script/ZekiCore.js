@@ -36,24 +36,18 @@ Object.defineProperty(HTMLBodyElement.prototype, 'addKid', {
 // 函數綁定事件監聽，只要被綁定過的函示，就可以使用addEventListener監聽。
 Object.defineProperty(Function.prototype, 'bindEvent', {
   value: function(){
-
-    let functionName = this.name
-    
-    const origFunction = window.frames.hasOwnProperty(functionName) ? window.frames[functionName] : 
-    window.location.hasOwnProperty(functionName) ? window.location[functionName] :
-    window.console.hasOwnProperty(functionName) ? window.console[functionName] : 
-    window.History.prototype.hasOwnProperty(functionName) ? window.History.prototype[functionName] :
-    window.Document.prototype.hasOwnProperty(functionName) ? window.Document.prototype[functionName] :    
-    window.Navigator.prototype.hasOwnProperty(functionName) ? window.Navigator.prototype[functionName] :
-    window.Screen.prototype.hasOwnProperty(functionName) ? window.Screen.prototype[functionName] : window[functionName];
-  
-    const origObject = window.frames.hasOwnProperty(functionName) ? frames : 
-    window.location.hasOwnProperty(functionName) ? location :
-    window.console.hasOwnProperty(functionName) ? console : 
-    window.History.prototype.hasOwnProperty(functionName) ? history :
-    window.Document.prototype.hasOwnProperty(functionName) ? document :    
-    window.Navigator.prototype.hasOwnProperty(functionName) ? navigator :
-    window.Screen.prototype.hasOwnProperty(functionName) ? screen : window;
+    // 找尋原物件、原函式及函式名稱。
+    const objsArr = [frames,location,console,history,document,navigator,screen,window];
+    let functionName,origObject,origFunction;
+    objsArr.forEach( obj => {
+      for ( var property in obj ) {
+        if(obj[property] === this) { //此this為指向目前使用bindEvent此方法的函式。
+          functionName = property;
+          origObject = obj;
+          origFunction = obj[property];
+        }
+      }
+    });
 
     // 動態命名function名稱，使得addEventLister可以使用該函式的name來監聽。
     // 解析：{[key]:value}為動態載入傳入的key名稱，
