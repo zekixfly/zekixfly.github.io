@@ -7,17 +7,10 @@ let route = {
     },
     active: function(ref) {           
         
-        const currentNode = document.querySelector(`[ref=${ref}]`)
-        document.title = `Pixel Fantasy - ${ref.replace(/^./,ref[0].toUpperCase())}`;       
-        currentNode.siblings().forEach(ele => {
-            ele.delClass('active');
-        });
+        const currentNode = document.querySelector(`[href=${ref}]`)
+        document.title = `Pixel Fantasy - ${ref.replace(/^./,ref[0].toUpperCase())}`;
 
-        currentNode.closest('.nav-list>li').siblings().forEach(ele => {
-            ele.delClass('active');
-        });
-        
-        currentNode.parentElement.querySelectorAll('.nav-list-pixel>li').forEach(ele => {
+        document.querySelectorAll(`li a`).forEach(ele => {
             ele.delClass('active');
         });
 
@@ -65,11 +58,12 @@ let route = {
                     document.querySelector('[slot=nav]').innerHTML = htmlTemplate;
                     mountScript('nav');
                     getId('navList').onclick = event => {
-                        // console.log(event.target.getAttr('ref'));
-                        if(event.target.getAttr('ref')){
-                            // route.tempLoad(event.target.getAttr('ref'), 'content');
-                            route.push(event.target.getAttr('ref'));
-                            route.active(event.target.getAttr('ref'));
+                        event.preventDefault();
+                        // console.log(event.target.getAttr('href'));
+                        if(event.target.getAttr('href')){
+                            // route.tempLoad(event.target.getAttr('href'), 'content');
+                            route.push(event.target.getAttr('href'));
+                            route.active(event.target.getAttr('href'));
                         }
                     }
                     let menuSwitch = false;
