@@ -134,6 +134,9 @@ body {
 .nav-list li > a:hover, .nav-list li > a.active {
   color: #000;
 }
+.nav-list li:hover::after {
+  color: #000;
+}
 .nav-list-m {
   display: none;
   width: 1.5em;
@@ -157,6 +160,10 @@ body {
   content: "-";
   font-size: 12px;
   margin-left: 4px;
+}
+
+.nav-list-pixel li:has(> a.active)::after {
+  color: #000;
 }
 
 a:has(+ ul > li a:hover), a:has(+ ul > li a.active) {

@@ -36,6 +36,8 @@
                 padding: 3px 8px
                 &:hover,&.active
                     color: #000
+            &:hover::after
+                    color: #000
 
         &-m
             display: none
@@ -59,6 +61,9 @@
                 // color: rgba(0, 0, 0, 0.12)
                 font-size: 12px
                 margin-left: 4px
+
+.nav-list-pixel li:has(>a.active)::after
+    color: #000
 
 a:has(+ul>li a:hover),a:has(+ul>li a.active)
     border-right: 3px solid rgba(0,0,0,1)
