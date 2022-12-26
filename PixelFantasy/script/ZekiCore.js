@@ -399,7 +399,7 @@ Object.defineProperties(Element.prototype, {
   'dataBind': {
     value: function({data=undefined}={}) {
       var allNodeList = this.querySelectorAll('*');
-      var arr = [].slice.call(allNodeList);
+      var arr = Array.from(allNodeList);
       arr.map(  
         function(item,idx) {
           switch (true) {
@@ -524,17 +524,15 @@ Object.defineProperties(Array.prototype, {
 
 Object.defineProperties(HTMLCollection.prototype, {
   'map': {
-    value: function(mapFn) {
-      var arr = [...this];
-      return arr.map(mapFn);
+    value: function(mapFn) {      
+      return Array.from(this).map(mapFn);
     },
     writable: false,
     enumerable: false
   },
   'forEach': {
     value: function(forEachFn) {
-      var arr = [...this];
-      arr.forEach(forEachFn);//The forEach can not return value, so it's not need add return;
+      Array.from(this).forEach(forEachFn);//The forEach can not return value, so it's not need add return;
     },      
     writable: false,
     enumerable: false
