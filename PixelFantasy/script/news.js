@@ -15,11 +15,13 @@ async function getNews(){
         dateElement.innerHTML = data[idx].date;
         spanElement.innerHTML = `「${data[idx].category}」新增：${data[idx].title}`;
 
-        liElement.setAttr("category", data[idx].category);
-        liElement.setAttr("src", data[idx].src);
-        liElement.addKid(dateElement);
-        liElement.addKid(spanElement);
+        liElement.setAttrs({
+            "category": data[idx].category,
+            "src": data[idx].src
+        });
+        liElement.addKids([dateElement,spanElement]);
         ulElement.addKid(liElement);
+        
         getId('newsInfo').addKid(ulElement);
         if(idx == 6) {
             let divElement = makeTag("div");
@@ -41,10 +43,11 @@ async function getNews(){
                 dateElement.innerHTML = data[i].date;
                 spanElement.innerHTML = `「${data[i].category}」新增：${data[i].title}`;
 
-                liElement.setAttr("category", data[i].category);
-                liElement.setAttr("src", data[i].src);
-                liElement.addKid(dateElement);
-                liElement.addKid(spanElement);
+                liElement.setAttrs({
+                    "category": data[i].category,
+                    "src": data[i].src
+                });
+                liElement.addKids([dateElement,spanElement]);
                 ulElement.addKid(liElement);                    
             }
             getId("newsMore_Line").getClasses("more")[0].innerText = "<<<Less";

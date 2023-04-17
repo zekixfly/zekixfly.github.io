@@ -16,11 +16,13 @@ async function pixelArtWork(id){
                 getClasses("showBoxPreloader")[0].addClass("d-none");
             })
             divElement.addKid(imgElement);
-            divElement.setAttr("title", data[idx].title);
-            divElement.setAttr("date", data[idx].date);
-            divElement.setAttr("category", data[idx].category);
-            divElement.setAttr("description", data[idx].description);
-            divElement.setAttr("src", data[idx].src);
+            divElement.setAttrs({
+                "title": data[idx].title,
+                "date": data[idx].date,
+                "category": data[idx].category,
+                "description": data[idx].description,
+                "src": data[idx].src
+            });
 
             if(getId("showBox") != null){
                 divElement.addEventListener("click", event => {
