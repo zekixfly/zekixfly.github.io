@@ -40,7 +40,7 @@ Object.defineProperty(Function.prototype, 'bindEvent', {
     const objsArr = [frames,location,console,history,document,navigator,screen,window];
     let functionName,origObject,origFunction;
     objsArr.forEach( obj => {
-      for ( var property in obj ) {
+      for ( let property in obj ) {
         if(obj[property] === this) { //此this為指向目前使用bindEvent此方法的函式。
           functionName = property;
           origObject = obj;
@@ -298,7 +298,17 @@ Object.defineProperties(Element.prototype, {
   //set attribute
   'setAttr': {
     value: function(key,val) {
-      return this.setAttribute(key,val);
+      this.setAttribute(key,val);
+      return this
+    },
+    writable: false,
+    enumerable: false
+  },
+  //set attributes
+  'setAttrs': {
+    value: function(objElement) {
+      Object.entries(objElement).map(item=>this.setAttribute(item[0],item[1]))
+      return this
     },
     writable: false,
     enumerable: false
@@ -323,8 +333,8 @@ Object.defineProperties(Element.prototype, {
   // batch append Child
   'addKids': {
     value: function(arrElement) {
-      var self = this;
-      arrElement.forEach(function(kid){self.appendChild(kid)});
+      arrElement.forEach(kid=>this.appendChild(kid));
+      return this;
     },
     writable: false,
     enumerable: false
@@ -341,8 +351,8 @@ Object.defineProperties(Element.prototype, {
   // batch remove Child
   'delKids': {
     value: function(arrElement) {
-      var self = this;
-      arrElement.forEach(function(Kid){self.removeChild(Kid)});
+      arrElement.forEach(kid=>this.removeChild(kid));
+      return this;
     },
     writable: false,
     enumerable: false
