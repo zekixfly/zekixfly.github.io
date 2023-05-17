@@ -17,8 +17,12 @@
     </ul>
     
     <div class="description">
-        正面總分：負面總分＝<span class="postiveVal">＿＿＿</span>分：<span class="negativeVal">＿＿＿</span>分<br/><br/>
-        <div>正負情緒比值＝<span class="postive_negative_ratio">0:0</span></div><br/><br/>
+        <blockquote>
+            <h2>結果:</h2>
+            <p>正面總分：負面總分＝<span class="postiveVal">＿＿＿</span>分：<span class="negativeVal">＿＿＿</span>分</p>
+            <p>正負情緒比值＝<span class="postive_negative_ratio">0：0</span></p>
+        </blockquote>
+
         <div class="explain">
             若想快速了解一個人最近的情緒狀態，這種簡易的正負情緒比是個很好的工具。<br/>
         在調查裡，我們發現那些心理健康的人，他們的情緒正負比多半在 2.9：1 以上，約莫 3：1，這個數值，是我們認為身心健康的基本指標。建議讀者定期重填上面的量表，了解不同時期自己的情緒狀態。<br/>
@@ -118,7 +122,7 @@
             
             
             
-            document.getElementsByClassName('postive_negative_ratio')[0].innerHTML = `${positiveEmotionValue/Math.min(positiveEmotionValue,negativeEmotionValue)}:${negativeEmotionValue/Math.min(positiveEmotionValue,negativeEmotionValue)}`
+            document.getElementsByClassName('postive_negative_ratio')[0].innerHTML = `${positiveEmotionValue/Math.min(positiveEmotionValue,negativeEmotionValue)}：${negativeEmotionValue/Math.min(positiveEmotionValue,negativeEmotionValue)}`
             document.getElementsByClassName('postiveVal')[0].innerHTML = positiveEmotionValue;
             document.getElementsByClassName('negativeVal')[0].innerHTML = negativeEmotionValue;
         })
