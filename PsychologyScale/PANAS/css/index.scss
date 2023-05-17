@@ -1,0 +1,68 @@
+ul {
+    list-style: none;
+    padding: 0 15px;
+}
+
+.question {
+    border-bottom: 1px solid #dddfe2;
+    padding: 20px 0;
+}
+
+.title {
+    text-align: center;
+}
+
+.radio_group {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+
+label {
+    position: relative;
+    display: flex;
+}
+.radio_tick {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    border-radius: 50%;
+    box-shadow: inset 0 1px rgba(81,89,106,.05);
+    color: gray;
+    border: 3px solid gray;
+    background-color: #fff;
+    transition: all .2s ease-in-out;
+    margin-top: 3px;
+    box-sizing: border-box;
+    font-weight: bold;
+
+}
+.radio_tick:hover {
+    cursor: pointer;
+    background-color: gray;
+    color: #fff;
+}
+input[type="radio"] {
+    width: 30px;
+    height: 30px;
+}
+
+[type="radio"]:checked + .radio_tick{
+    background-color: gray;
+    color: #fff;
+}
+
+.description{
+    padding: 50px;
+}
+
+.explain {
+    color: darkcyan;
+    margin-top: 10px;
+}
