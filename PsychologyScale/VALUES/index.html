@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>價值觀選擇</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="title">價值觀選擇</div>
+    <div class="desc">我們從研究中找出32種生活風格，每種風格都各有特色與重點，沒有好壞與對錯之分。
+        請你讀完每項描述後，替每種生活風格打分數，5分表示「這完全是我要的生活方式」，1分表示「這完全不是我要的生活方式」。
+        作答時，請記得「不需要給出任何解釋和理由」。沒有標準答案，但要對自己誠實。填寫答案時，請放下別人對你的期待、放下「應該」，
+        選擇你真心嚮往的生活態度。此外，這裡想問你的是，你喜不喜歡、你想不想要，而不是「你能不能做到」。
+    </div>
+    <div class="choice">
+        <span>1. 這完全不是我要的</span>
+        <span>2. 這不太像是我要的</span>
+        <span>3. 中立</span>
+        <span>4. 這是我要的</span>
+        <span>5. 這完全是我要的</span>
+    </div>
+    <ul>
+    </ul>
+    
+    <div class="description">
+        <blockquote>
+            <h2>盤點一下:</h2>
+            <p>
+                在「5分」這一欄中，一共選擇了幾個價值觀?如果你有十項以上的價值觀都給了5分，<br />
+                這意味著你在人生旅途上要同時參考十幾個指北針來行動(很可能會動彈不得)。<br />
+                因此，建議你把這些5分的價值觀抄寫到下面的空格中，一邊抄寫，一邊想想，你些是最近這段時間你覺得最重要的價值觀。<br />
+                如果過程中，你想到某些自己很在意，但不在這32項裡的價值觀，也可以把它填在這裡。最後，選出五項價值觀。
+            </p>
+            <p class="values_result"></p>
+        </blockquote>
+
+        <div class="explain">
+            在不同人生階段，我們的價值觀也會有所不同。同時，價值觀也是「隨時」可以取捨改變的，
+            請不要擔心現在選了之後就不能換。有彈性的轉換價值觀可以替生活帶來更多采多姿的色調。
+            最後，為了確定這些價值觀是你真心認為重要的，請看著最後留下的五個價值觀，
+            然後問自己一個問題: 「假如我做的事情別人永遠不會知道的話，我還願意選擇遵循這種價值觀過日子嗎?」
+            照理說，面對你最後選的五個價值觀，你應該都要能回答「我願意」，這才是你真心的選擇。
+
+        </div>
+        <p>本文摘自蘇益賢的《<a href="https://www.books.com.tw/products/0010781423" target="_blank">練習不壓抑</a>》。由時報文化授權原文轉載，欲閱讀完整作品，歡迎參考原書。</p>
+    </div>
+    
+
+
+    <script type="text/javascript">
+
+        let valuesArr = [];
+        const questions = new Map([
+            ['1','中庸: 不多不少，尋找適度與平衡'],
+            ['2','初心: 面對各種人事物時，都能像是第一次接觸一樣'],
+            ['3','隨遇而安: 練習放下，順其自然，接納事物本來樣貌'],
+            ['4','正念: 對此時此刻的經驗保持意識，開放、好奇地活在當下'],
+            ['5','幽默: 能從自己或世界中看到幽默，散播歡樂的種子'],
+            ['6','公平正義: 在意且願意擁護正義、平等及公平'],
+            ['7','勇氣與冒險: 願意面對害怕、威脅或困難，主動尋求、創造、探索'],
+            ['8','好奇心與開放: 充滿興趣及開放的心胸，對未知進行探索及發現'],
+            ['9','順從與保守: 尊重既有之規則、秩序，遵循過去傳承已久之傳統與道德'],
+            ['10','樂觀與希望: 對自己與世界維持正面與樂觀的展望'],
+            ['11','仁慈與慈悲: 理解生命苦的本質，愛自己與疼惜他人，以仁慈為行動依據'],
+            ['12','自我探索與接納: 重視探索、表達自己的經驗、需求、慾望與本能，接納這樣的自己'],
+            ['13','耐心與勤奮: 冷靜、等待、全心投入，能堅定地繼續做下去'],
+            ['14','嚴謹與秩序: 對自己的言行舉止有所控制，重視規則、規律與一致性'],
+            ['15','創意與彈性: 思考、發想新概念，並能隨環境調適與應變'],
+            ['16','安全感: 對於保護、確保自己或他人的安全感有所堅持'],
+            ['17','獨立自主: 能照顧自己，選擇以自我決定、自我掌握的方式或理念思考與做事'],
+            ['18','感恩: 對自己、他人及生活的各種層面懷著感恩的心'],
+            ['19','負責與被信賴: 可靠、有責任感，值得信任，願意給予承諾'],
+            ['20','平等∕互相與合作: 待人如己，建立平衡的給予和接受關係，能與人協調合作'],
+            ['21','誠實與真誠: 以誠實、真實且誠懇的方式待己待人，不欺瞞'],
+            ['22','挑戰∕修煉與成長: 不斷學習、練習及增進自己能力，享受進步的感受'],
+            ['23','宏觀不帶偏見: 採取更廣闊的觀點，暫時停止評價，保持不偏不倚的觀察立場'],
+            ['24','付出與貢獻: 慷慨助人、給予、分享、照顧、支持與幫忙，且付諸行動'],
+            ['25','變化與刺激: 讓生活充滿改變與不同，享受感官經驗的刺激和樂趣'],
+            ['26','謙和有禮: 友善、隨和、有理、謙虛'],
+            ['27','激勵與熱情: 樂於鼓勵及獎勵自己或他人，提供活力與熱情'],
+            ['28','理性與務實: 看清現實，依據知識∕推論∕可行性來思考與做決定'],
+            ['29','同理∕尊重與包容: 能設身處地感受他人，接納、包容、尊重每個人獨特之處'],
+            ['30','愛與被愛: 擁有愛人的勇氣，也擁有被愛的自信'],
+            ['31','內在平靜與簡潔: 讓自己內心平靜；簡化生活，不執著於不必要的需求'],
+            ['32','意義與價值: 努力找出人生、生活與存在的意義、價值與方向，並以此前進'],
+        ])
+
+        const dul = document.querySelector('ul');
+        dul.innerHTML = Array.from(questions).map(([key, value])=>
+            `<li>
+                <div class="question">
+                    <div class="title">${key}. ${value}</div>
+                    <div class="radio_group">
+                        <label>
+                            <input type="radio" name="q${key}" value="1">
+                            <span class="radio_tick">1</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q${key}" value="2">
+                            <span class="radio_tick">2</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q${key}" value="3">
+                            <span class="radio_tick">3</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q${key}" value="4">
+                            <span class="radio_tick">4</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q${key}" value="5">
+                            <span class="radio_tick">5</span>
+                        </label>
+                    </div>
+                </div>
+            </li>
+            `
+        ).join('');
+        dul.addEventListener('click',event=>{
+            // console.log('event',event.target.value)
+            valuesArr = []
+            Array.from(document.querySelectorAll('input[name]:checked')).forEach(item=>{
+                Number(item.value) === 5 && 
+                (valuesArr.length === 0 || !valuesArr.some(arr=>arr[0] === item?.name?.match(/q(?<number>\d+)/)?.groups?.number)) &&
+                valuesArr.push('<span>'+Array.from(questions)[Number(item?.name?.match(/q(?<number>\d+)/)?.groups?.number-1)]+'</span>');
+            })
+            
+            document.getElementsByClassName('values_result')[0].innerHTML = valuesArr.join('');
+        })
+        
+    </script>
+</body>
+</html>
