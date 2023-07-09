@@ -24,6 +24,16 @@ body > .title {
   border-radius: 5px;
 }
 
+.choice {
+  margin-top: 10px;
+}
+.choice span {
+  background-color: darkcyan;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .radio_group {
   display: flex;
   justify-content: center;
@@ -86,4 +96,14 @@ blockquote {
 .explain {
   color: darkcyan;
   margin-top: 10px;
+}
+
+.values_result span {
+  display: block;
+  background-color: black;
+  color: oldlace;
+  width: fit-content;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
 }/*# sourceMappingURL=index.css.map */
