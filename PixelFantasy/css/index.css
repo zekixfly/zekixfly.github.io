@@ -233,7 +233,15 @@ a:has(+ ul > li a:hover), a:has(+ ul > li a.active) {
 }
 .newsInfo_Table li {
   cursor: pointer;
+  width: -moz-fit-content;
   width: fit-content;
+}
+@media (max-width: 767px) {
+  .newsInfo_Table li {
+    width: auto;
+    padding: 5px 0;
+    border-bottom: 5px dashed rgba(0, 0, 0, 0.1);
+  }
 }
 .newsInfo_Table li:hover {
   color: rgb(0, 0, 0);
@@ -252,10 +260,21 @@ a:has(+ ul > li a:hover), a:has(+ ul > li a.active) {
   margin-right: 10px;
 }
 
+@media (max-width: 767px) {
+  #newsMore_Line {
+    display: flex;
+    justify-content: right;
+  }
+}
 #newsMore_Line .more {
   color: rgba(0, 0, 0, 0.5);
   font-size: 16px;
   font-weight: 100;
+}
+@media (max-width: 767px) {
+  #newsMore_Line .more {
+    font-size: 18px;
+  }
 }
 #newsMore_Line .more:hover {
   color: red;

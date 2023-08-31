@@ -57,17 +57,8 @@ let route = {
                 case 'nav':
                     document.querySelector('[slot=nav]').innerHTML = htmlTemplate;
                     mountScript('nav');
-                    getId('navList').onclick = event => {
-                        event.preventDefault();
-                        // console.log(event.target.getAttr('href'));
-                        if(event.target.getAttr('href')){
-                            // route.tempLoad(event.target.getAttr('href'), 'content');
-                            route.push(event.target.getAttr('href'));
-                            route.active(event.target.getAttr('href'));
-                        }
-                    }
                     let menuSwitch = false;
-                    getId('navList-m').onclick = function(){
+                    function menuSlide() {
                         menuSwitch = !menuSwitch
                         if(menuSwitch){
                             this.getClasses('menu')[0].addClass('d-none');
@@ -82,6 +73,18 @@ let route = {
                             getClasses('nav')[0].delClass('offset-0');
                         }
                     }
+                    getId('navList').onclick = event => {
+                        event.preventDefault();
+                        // console.log(event.target.getAttr('href'));
+                        if(event.target.getAttr('href')){
+                            // route.tempLoad(event.target.getAttr('href'), 'content');
+                            route.push(event.target.getAttr('href'));
+                            route.active(event.target.getAttr('href'));
+                            getComputedStyle(getId('navList-m')).display !== 'none' && menuSlide();
+                        }
+                    }
+                    
+                    getId('navList-m').onclick = menuSlide
                     route.active('news');
                     break;
                 case 'content':
