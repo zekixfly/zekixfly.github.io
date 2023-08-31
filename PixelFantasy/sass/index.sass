@@ -58,6 +58,10 @@ body
     li
         cursor: pointer
         width: fit-content
+        @include breakpoint(sm-max)
+            width: auto
+            padding: 5px 0
+            border-bottom: 5px dashed rgba(0, 0, 0, 0.1)
         &:hover
             color: rgba(0, 0, 0, 1)
             span
@@ -72,10 +76,15 @@ body
             margin-right: 10px
 
 #newsMore_Line
+    @include breakpoint(sm-max)
+        display: flex
+        justify-content: right
     .more
         color: rgba(0, 0, 0, 0.5)
         font-size: 16px
         font-weight: 100
+        @include breakpoint(sm-max)
+            font-size: 18px
         &:hover
             color: red
 

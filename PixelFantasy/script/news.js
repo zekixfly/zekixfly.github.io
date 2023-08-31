@@ -26,7 +26,7 @@ async function getNews(){
         if(idx == 6) {
             let divElement = makeTag("div");
             divElement.id = "newsMore_Line"                    
-            divElement.innerHTML = "<a href='javascript:void(0)' class='more'>More...</a>";
+            divElement.innerHTML = "<a href='javascript:void(0)' class='more'>More...▼</a>";
             getId('newsInfo').addKid(divElement);
             break;
         }
@@ -50,13 +50,13 @@ async function getNews(){
                 liElement.addKids([dateElement,spanElement]);
                 ulElement.addKid(liElement);                    
             }
-            getId("newsMore_Line").getClasses("more")[0].innerText = "<<<Less";
+            getId("newsMore_Line").getClasses("more")[0].innerText = "▲...Less";
         }
         else{
             for(let i = 7; i<data.length; i++){
                 getClasses("newsInfo_Table")[0].getTags("li")[7].remove();
             }
-            getId("newsMore_Line").getClasses("more")[0].innerText = "More...";
+            getId("newsMore_Line").getClasses("more")[0].innerText = "More...▼";
         }
     });
     // 點擊News列表，將會自動載入相對應作品頁面。
