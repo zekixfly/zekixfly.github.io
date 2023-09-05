@@ -32,6 +32,9 @@ $track-item-footer-height: 40px
 .track-item-title
     @extend %clearfix
     border: 1px solid #ccc
+    @include breakpoint(sm-max)
+        display: flex
+        justify-content: space-evenly
     div
         float: left
         text-align: center
@@ -48,6 +51,8 @@ $track-item-footer-height: 40px
     width: $cover-width
 .detail-title
     width: calc(100% - $checkbox-width - $cover-width - $price-width - $track-width)
+    @include breakpoint(sm-max)
+        display: none
 .price-title
     width: $price-width
 .action-title
@@ -73,6 +78,8 @@ $track-item-footer-height: 40px
     .book-detail
         width: calc(100% - $checkbox-width - $cover-width - $price-width - $track-width)
         float: left
+        @include breakpoint(sm-max)
+            display: none
         .title
             padding-top: 0
             text-align: left
@@ -88,6 +95,8 @@ $track-item-footer-height: 40px
     .book-track
         width: $track-width
         float: left
+        @include breakpoint(sm-max)
+            width: min-content
 
 .track-item-footer
     display: flex
@@ -101,7 +110,11 @@ $track-item-footer-height: 40px
     color: #666
     border: 1px solid #ccc
     padding: 0 10px
-    .total-number, .total-amount
-        color: #D93800
-        font-size: 20px
+    @include breakpoint(sm-max)
+        height: auto
+    .total-detail
+        white-space: break-spaces
+        .total-number, .total-amount
+            color: #D93800
+            font-size: 20px
 
