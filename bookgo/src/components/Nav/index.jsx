@@ -9,8 +9,6 @@ class Nav extends Component {
     return (
       <nav>
         <div className="nav-wrap">
-          
-          
           <h1><a href='./'>BookGO</a></h1>
           <div className="nav-link-wrap">
             <BookGoNavLink to='home'>{langHome}</BookGoNavLink>
