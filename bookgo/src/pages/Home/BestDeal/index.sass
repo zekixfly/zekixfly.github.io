@@ -10,6 +10,8 @@ $book-track-height: 30px
 
 .bestdeal 
     height: calc(100% - 35px)
+    @include breakpoint(sm-max)
+        border-top: 3px solid lightgray
     span
         // position: absolute
     ul
@@ -18,12 +20,20 @@ $book-track-height: 30px
         display: flex
         flex-direction: row
         flex-wrap: wrap
+        @include breakpoint(sm-max)
+            background-color: #eee
         .bestdeal-title
             width: 100%
             color: #50AEFE
             border-top: 3px solid lightgray
             background-color: #eee
             padding: 0 5px
+            @include breakpoint(sm-max)
+                border-top: none
+                margin: 0px
+                padding: 5px
+                font-size: 20px
+                font-weight: bold
 
 .centerMsg
     width: 100%
@@ -44,11 +54,13 @@ $book-track-height: 30px
     width: 180px
     height: $index-item-height
     @include breakpoint(sm-max)
-        margin: 0
+        margin: 10px
         padding: 15px
         box-sizing: border-box
-        width: 50%
+        width: calc(50% - 20px)
         height: $index-item-height + 30px
+        box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2)
+        background-color: #FFF
     .book-detail
         +detail-height($index-item-height)
 i
@@ -64,9 +76,11 @@ i
     background-color: #FFF
     box-shadow: 0 0 1px 1px rgba(0,0,0,0.1)
     @include breakpoint(sm-max)
-        margin: 5px
-        width: calc(50% - 10px)
+        margin: 10px
+        width: calc(50% - 20px)
         height: auto
+        border-radius: initial
+        box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2)
 
 .book-cover
     width: inherit
@@ -118,6 +132,8 @@ i
 .book-track
     height: $book-track-height
     font-size: 20px
+    @include breakpoint(sm-max)
+        height: auto
     .cart-btn
         line-height: 20px
         padding: 5px
