@@ -9,15 +9,16 @@ import './index.sass'
 
 class Header extends Component {
 
-  handleKeyUp = async (event) => {
+  searchRef = React.createRef();
+  
+  handleSearch = async (event) => {
     const { placeSearchItems, isFirstBoolean, isLoadingBoolean, err, langHomeSearchAlert } = this.props
-    const { keyCode, target } = event
-    if (keyCode !== 13) return
-    if (target.value.trim() === '') {
+    const { keyCode } = event
+    if (keyCode !== 13 && event.type !== 'click') return
+    if (this.searchRef.current.input.value.trim() === '') {
       alert(langHomeSearchAlert)
       return
     }
-    console.log(target.value)
     isFirstBoolean(false)
     isLoadingBoolean(true)
 
@@ -25,7 +26,7 @@ class Header extends Component {
       const response = await fetch('./jsondata/data.json')
       const jsonArray = await response.json()
       const filterJSON = jsonArray.filter((bookObj) => {
-        return (bookObj?.title.indexOf(target.value) !== -1 && bookObj?.title.indexOf(target.value) !== undefined) || Boolean(bookObj?.author?.filter(author => author?.indexOf(target.value) !== -1).length)
+        return (bookObj?.title.indexOf(this.searchRef.current.input.value) !== -1 && bookObj?.title.indexOf(this.searchRef.current.input.value) !== undefined) || Boolean(bookObj?.author?.filter(author => author?.indexOf(this.searchRef.current.input.value) !== -1).length)
       })
       placeSearchItems(filterJSON)
       isLoadingBoolean(false)
@@ -41,7 +42,7 @@ class Header extends Component {
     const { langHomeSearch } = this.props
     return (
       <div className="header">
-        <Input onKeyUp={this.handleKeyUp} className='search' placeholder={langHomeSearch} suffix={<SearchOutlined style={{ color: "rgba(0,0,0,0.5)", fontSize: 'large' }} />} />
+        <Input ref={this.searchRef} onKeyUp={this.handleSearch} className='search' placeholder={langHomeSearch} suffix={<SearchOutlined style={{ color: "rgba(0,0,0,0.5)", fontSize: 'x-large' }} onClick={this.handleSearch}/>} />
         <div className="member-info">
           <Button type="link" style={{ fontSize: '20px' }}>
             <ShoppingCartOutlined />
