@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>情緒能量類型量表（Energetic Stress Style）</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div class="title">情緒能量類型量表</div>
+    <div class="desc">
+      在進行本量表測驗前，請先<span style="color: red"
+        >「想像自己和家人發生重大衝突時，你會有的第一個反應」</span
+      >，然後去圈選每一個題目中最接近自身經驗的選項。
+    </div>
+    <ul></ul>
+
+    <div class="description">
+      <blockquote>
+        <h2>盤點一下:</h2>
+        <p>
+          計算一下，你有幾個（１）、（２）、（３）、（４）。（１）越多，代表你越可能是「視覺型」；（２）越多，代表你越可能是「邏輯型」；（３）越多，代表你越可能是「聽覺型」；（４）越多，代表你越可能是「感受型」。
+        </p>
+        <p>
+          視覺型：<span class="visualsVal">＿＿＿</span>分、邏輯型：<span
+            class="digitalsVal"
+            >＿＿＿</span
+          >分、聽覺型：<span class="tonalsVal">＿＿＿</span>分、感受型：<span
+            class="kinestheticsVal"
+            >＿＿＿</span
+          >分
+        </p>
+        <p class="values_result"></p>
+      </blockquote>
+
+      <div class="explain">
+        不妨先自己做測驗，然後再請家人做一次。如果你的家人也完成測驗，可以比較一下彼此測驗的結果。
+      </div>
+      <p>
+        本文摘自許瑞云與陳德中的《<a
+          href="https://www.books.com.tw/products/0010881901"
+          target="_blank"
+          >別再說都是為我好</a
+        >》。欲閱讀完整作品，歡迎參考原書。
+      </p>
+    </div>
+
+    <script type="text/javascript">
+      let visualsValue = 0,
+        digitalsValue = 0,
+        tonalsValue = 0,
+        kinestheticsValue = 0;
+      const questions = new Map([
+        [
+          "1",
+          [
+            "我可以清楚看到對方做錯了什麼。",
+            "我通常會很有邏輯、理性、合理地回應，不會情緒化。",
+            "我覺得很生氣，因為我的觀點都沒被聽見。",
+            "我全然被感受淹沒，當下常常說不出話，事後才想到自己當時應該如何回話。",
+          ],
+        ],
+        [
+          "2",
+          [
+            "我的家人告訴我，說我看不到自己錯在哪裡，或自己的問題所在。",
+            "我知道我思考的比感受的還要多。",
+            "我可以「聽出」字裡行間的意思，也就是對方的話中話。",
+            "我的感受和直覺才是重要的，邏輯和思考沒有太大依據。",
+          ],
+        ],
+        [
+          "3",
+          [
+            "我看得出來對方應該要做什麼來解決問題。",
+            "我想先避開，直到對方冷靜下來，我們才能對話。",
+            "我的內在對話聲量（頭腦裡的小劇場）比對方的聲音更大、更清楚。",
+            "當家人不表達他（她）的感受時，我會覺得很寂寞。",
+          ],
+        ],
+        [
+          "4",
+          [
+            "當對方無法符合我的期望或要求時，我會非常生氣。",
+            "有時候家人會指責我太過冷靜鎮定（冷血、沒反應）。",
+            "我會仔細分析對方的行為或言語，事後會產生強烈的情緒（越想越生氣、傷心）。",
+            "我通常不喜歡衝突，因此會特別小心，盡量不說出或做出傷害家人的事。",
+          ],
+        ],
+        [
+          "5",
+          [
+            "我常常能夠指出家人哪裡做得不對、哪裡應該改善。",
+            "邏輯和理性思考是我的強項之一。",
+            "雖然家人說他沒有排斥我，但我還是覺得被排斥。",
+            "我試著盡量遷就家人，讓他感覺好，但我最後可能會因此崩潰或大發脾氣。",
+          ],
+        ],
+        [
+          "6",
+          [
+            "我會責怪家人錯誤的地方。",
+            "我會感到意外，因為我根本不覺得我們之間有什麼問題。",
+            "比起他說的話，我可能被家人說話的語氣、表情、聲調傷得更深。",
+            "我比較想了解家人的感覺，而不那麼在意自己的感受。",
+          ],
+        ],
+        [
+          "7",
+          [
+            "我的家人通常是錯的。",
+            "我總是比較有條理、有組織力、有計畫。",
+            "我會批判自己。",
+            "我不清楚自己真正的感受或想法。",
+          ],
+        ],
+        [
+          "8",
+          [
+            "如果家人避免四目相接，我會想說：「請看著我。」",
+            "我很不喜歡家人強烈的情緒反應。",
+            "我會因為受傷和挫折而退縮。",
+            "如果家人看起來很痛苦，我往往會讓步。",
+          ],
+        ],
+        [
+          "9",
+          [
+            "有時就像是一場競賽，而我總是想著要贏（尤其是辯贏）。",
+            "我的邏輯很強，讓我感到自在。",
+            "我對自己會很嚴厲地批判，總認為自己不夠完美。",
+            "我腦子一片空白，說不出話來，無法立即回應對方。",
+          ],
+        ],
+        [
+          "10",
+          [
+            "「你錯了！你不該這樣！」",
+            "「我才是對的！」",
+            "「你批評我的不是，所以我對你很生氣。」",
+            "「我不想讓你覺得不好受。」",
+          ],
+        ],
+      ]);
+
+      const dul = document.querySelector("ul");
+      dul.innerHTML = Array.from(questions)
+        .map(
+          ([key, value]) =>
+            `<li>
+                <div class="question">
+                    <div class="title">${key}</div>
+                    <div class="radio_group">
+                        <label>
+                            <input type="radio" name="q${key}" value="1">
+                            <span class="radio_tick">（１）${value[0]}</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q${key}" value="2">
+                            <span class="radio_tick">（２）${value[1]}</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q${key}" value="3">
+                            <span class="radio_tick">（３）${value[2]}</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q${key}" value="4">
+                            <span class="radio_tick">（４）${value[3]}</span>
+                        </label>
+                    </div>
+                </div>
+            </li>
+            `
+        )
+        .join("");
+      dul.addEventListener("click", (event) => {
+        // console.log("event", event.target.value);
+        visualsValue = 0;
+        digitalsValue = 0;
+        tonalsValue = 0;
+        kinestheticsValue = 0;
+        Array.from(document.querySelectorAll("input[name]:checked")).forEach(
+          (item) => {
+            Number(item.defaultValue) === 1
+              ? visualsValue++
+              : Number(item.defaultValue) === 2
+              ? digitalsValue++
+              : Number(item.defaultValue) === 3
+              ? tonalsValue++
+              : Number(item.defaultValue) === 4 && kinestheticsValue++;
+          }
+        );
+
+        const energeticStressStyle = (
+          visualsVal,
+          digitalsVal,
+          tonalsVal,
+          kinestheticsVal
+        ) => {
+          switch (
+            Math.max(visualsVal, digitalsVal, tonalsVal, kinestheticsVal)
+          ) {
+            case visualsVal:
+              return "視覺型";
+            case digitalsVal:
+              return "邏輯型";
+            case tonalsVal:
+              return "聽覺型";
+            case kinestheticsVal:
+              return "感受型";
+          }
+        };
+
+        document.getElementsByClassName("visualsVal")[0].innerHTML =
+          visualsValue;
+        document.getElementsByClassName("digitalsVal")[0].innerHTML =
+          digitalsValue;
+        document.getElementsByClassName("tonalsVal")[0].innerHTML = tonalsValue;
+        document.getElementsByClassName("kinestheticsVal")[0].innerHTML =
+          kinestheticsValue;
+
+        document.getElementsByClassName(
+          "values_result"
+        )[0].innerHTML = `您極有可能是: ${energeticStressStyle(
+          visualsValue,
+          digitalsValue,
+          tonalsValue,
+          kinestheticsValue
+        )}`;
+      });
+    </script>
+  </body>
+</html>
