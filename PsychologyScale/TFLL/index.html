@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>愛的五種語言（The Five Love Languages）</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div class="title">愛之語測驗</div>
+    <div class="desc">
+      以下自我檢測問卷的30個問題，各有2個選項，請你比較看看，自己喜歡哪一種「愛的語言」。
+    </div>
+    <ul></ul>
+
+    <div class="description">
+      <blockquote>
+        <h2>測驗結果解析：</h2>
+        <div>
+          <div>
+            <span style="color: red">A</span
+            >最多的人，愛的語言為「肯定的話語」。
+          </div>
+          <div>
+            <span style="color: red">B</span
+            >最多的人，愛的語言為「有品質的互動時間」。
+          </div>
+          <div>
+            <span style="color: red">C</span>最多的人，愛的語言為「收受禮物」。
+          </div>
+          <div>
+            <span style="color: red">D</span
+            >最多的人，愛的語言為「服務的行動」。
+          </div>
+          <div>
+            <span style="color: red">E</span>最多的人，愛的語言為「肢體接觸」。
+          </div>
+        </div>
+
+        <p>
+          肯定的話語：<span class="wordsOfAffirmation">＿＿＿</span
+          >分、有品質的互動時間：<span class="qualityTime">＿＿＿</span
+          >分、收受禮物：<span class="receivingGift">＿＿＿</span
+          >分、服務的行動：<span class="actsOfService">＿＿＿</span
+          >分、肢體接觸：<span class="physicalTouch">＿＿＿</span>分
+        </p>
+        <p class="values_result"></p>
+      </blockquote>
+
+      <div class="explain">
+        除了辨識家人的情緒能量類型、了解彼此之間愛的語言，我們也要學習如何帶著正念溝通，調整自己的情緒，才得以避免擴大關係衝突。
+        <ul>
+          <li>
+            <div class="title">A&nbsp;肯定的話語(Words of Affirmation)</div>
+            直接的讚美與肯定，可以讓人感覺被欣賞。很多人適合的愛的語言，就是肯定的話語。透過欣賞和鼓勵的話，去感覺自己有多重要，或是聽到對方說出「我愛你」，都能讓人感受到自己被愛。
+          </li>
+          <li>
+            <div class="title">B&nbsp;有品質的互動時間(Quality Time)</div>
+            有品質的互動時間，指的是兩個人在一起時，能夠把所有的注意力放在對方身上，至於一起從事什麼活動，反而沒那麼重要，重點是在情感上與對方有所交集，讓對方感覺到被傾聽與被愛。對話時保持眼神接觸，千萬不要一邊交談一邊做別的事，更不要急著給出建議，想要幫對方解決問題。
+          </li>
+          <li>
+            <div class="title">C&nbsp;收受禮物(Receiving Gift)</div>
+            有些人喜歡透過收到禮物來證明自己被愛，或至少確認對方有想到自己。我們往往是因為想到了什麼人，才會想到要準備禮物，所以禮物代表的就是一種「念想」，無關乎禮物的價格。只在心裡想著並不作數，而是要經由送禮具體表達，做為一種愛的表示。有時候一張卡片、一封短箋，都可以讓收到的人非常開心。
+          </li>
+          <li>
+            <div class="title">D&nbsp;服務的行動(Acts of Service)</div>
+            透過幫對方做事、替對方服務，讓對方感到高興，進而表現出你對他的愛。服務的行動可以是為對方做一頓飯、修理東西，甚至是到垃圾。只要是以正面喜樂的態度去進行，能讓對方感受到愛，就是一種愛的語言。
+          </li>
+          <li>
+            <div class="title">E&nbsp;肢體接觸(Physical Touch)</div>
+            肢體接觸可以直接傳達感情，對愛的語言為肢體接觸的人來說，一個親吻或擁抱，可能遠勝昂貴的禮物，或是為對方做很多事。擁抱、牽手、摸摸頭、拍拍肩膀等，很多時候，溫柔的肢體接觸正是最直接的愛的證明。
+          </li>
+        </ul>
+      </div>
+      <p>
+        本文摘自許瑞云與陳德中的《<a
+          href="https://www.books.com.tw/products/0010881901"
+          target="_blank"
+          >別再說都是為我好</a
+        >》。欲閱讀完整作品，歡迎參考原書。
+      </p>
+    </div>
+
+    <script type="text/javascript">
+      let wordsOfAffirmationValue = 0,
+        qualityTimeValue = 0,
+        receivingGiftValue = 0,
+        actsOfServiceValue = 0,
+        physicalTouchValue = 0;
+      const questions = new Map([
+        [
+          "1",
+          [
+            ["我喜歡收到寫滿讚美與肯定的小紙條。", "A"],
+            ["我喜歡被擁抱的感覺。", "E"],
+          ],
+        ],
+        [
+          "2",
+          [
+            ["我喜歡和在我心目中占有特殊地位的人獨處。", "B"],
+            ["每當有人給我實際的幫助，我就會覺得他是愛我的。", "D"],
+          ],
+        ],
+        [
+          "3",
+          [
+            ["我喜歡收到特別為我選購或手做的禮物。", "C"],
+            ["我有空就喜歡去探訪朋友和所愛的人。", "B"],
+          ],
+        ],
+        [
+          "4",
+          [
+            ["有人幫我做事，我就會覺得被愛。", "D"],
+            ["被喜歡的人碰觸身體時，我會感到被愛。", "E"],
+          ],
+        ],
+        [
+          "5",
+          [
+            ["當我所愛的人攬著我的肩膀，我就會有被愛的感覺。", "E"],
+            ["當我所愛的人送我禮物時，我會有被愛的感覺。", "C"],
+          ],
+        ],
+        [
+          "6",
+          [
+            ["我喜歡和朋友，或是所愛的人到處走走。", "B"],
+            ["我喜歡和我心目中喜歡或愛的人擊掌或手牽手。", "E"],
+          ],
+        ],
+        [
+          "7",
+          [
+            ["愛的具體象徵（禮物）對我很重要。", "C"],
+            ["受到別人的肯定讓我有被愛的感覺。", "A"],
+          ],
+        ],
+        [
+          "8",
+          [
+            ["我喜歡和我所愛的人促膝長談。", "E"],
+            ["我喜歡聽到我所愛的人說我很漂亮、很迷人。", "A"],
+          ],
+        ],
+        [
+          "9",
+          [
+            ["我喜歡和好友及所愛的人在一起。", "B"],
+            ["我喜歡收到朋友或所愛的人送的禮物。", "C"],
+          ],
+        ],
+        [
+          "10",
+          [
+            ["我喜歡聽到別人接納和肯定我的話。", "A"],
+            ["如果有人願意幫我的忙，我會知道他是愛我的。", "D"],
+          ],
+        ],
+        [
+          "11",
+          [
+            ["我喜歡和朋友與所愛的人一起做同一件事。", "B"],
+            ["我喜歡聽到別人對我說友善的話。", "A"],
+          ],
+        ],
+        [
+          "12",
+          [
+            ["別人的表現要比他的言語更能感動我。", "D"],
+            ["被擁抱讓我覺得與對方很親近，也覺得自己很重要。", "E"],
+          ],
+        ],
+        [
+          "13",
+          [
+            ["我珍惜別人的讚美，盡量避免受到批評。", "A"],
+            ["生活中常送我許多小禮物，要比送我一份大禮更能感動我。", "C"],
+          ],
+        ],
+        [
+          "14",
+          [
+            ["當我和人聊天或一起做事時，我會覺得與他很親近。", "B"],
+            ["朋友和所愛的人若常常與我有身體的接觸，我會覺得與他很親近。", "E"],
+          ],
+        ],
+        [
+          "15",
+          [
+            ["我喜歡聽到別人稱讚我的成就。", "A"],
+            ["當別人勉強自己去為我做一件事，我會覺得他很愛我。", "D"],
+          ],
+        ],
+        [
+          "16",
+          [
+            ["我喜歡所愛的人走過身邊時，特意用身體碰碰我的感覺。", "E"],
+            ["我喜歡別人聆聽我說話，而且感到興趣十足。", "B"],
+          ],
+        ],
+        [
+          "17",
+          [
+            ["當朋友和所愛的人幫助我完成工作，我會覺得被愛。", "D"],
+            ["我很喜歡收到朋友和所愛的人送的禮物。", "C"],
+          ],
+        ],
+        [
+          "18",
+          [
+            ["我喜歡聽到別人稱讚我的外表。", "A"],
+            ["別人願意體諒我的感受時，我會有被愛的感覺。", "B"],
+          ],
+        ],
+        [
+          "19",
+          [
+            ["我心目中在乎或所愛的人碰我的身體時，我會很有安全感。", "E"],
+            ["實際服務的行動讓我覺得被愛。", "D"],
+          ],
+        ],
+        [
+          "20",
+          [
+            ["我很感激朋友或家人願意為我付出那麼多。", "D"],
+            ["我喜歡收到朋友或家人送我禮物。", "C"],
+          ],
+        ],
+        [
+          "21",
+          [
+            ["我很喜歡被人呵護備至的感覺。", "B"],
+            ["我很喜歡被別人服務的感覺。", "D"],
+          ],
+        ],
+        [
+          "22",
+          [
+            ["有人送我生日禮物時，我會覺得被愛。", "C"],
+            ["有人在我生日那天對我說出特別的話，我會覺得被愛。", "A"],
+          ],
+        ],
+        [
+          "23",
+          [
+            ["有人送我禮物，我就知道他有想到我。", "C"],
+            ["有人幫我做家事，我會覺得被愛。", "D"],
+          ],
+        ],
+        [
+          "24",
+          [
+            ["我很感激有人耐心聽我說話而且不插嘴。", "B"],
+            ["我很感激有人記得某個特別日子並且送我禮物。", "C"],
+          ],
+        ],
+        [
+          "25",
+          [
+            ["我喜歡知道我所愛的人因為關心我，所以幫我做家事。", "D"],
+            ["我喜歡和我的愛人一起去散步。", "B"],
+          ],
+        ],
+        [
+          "26",
+          [
+            ["我喜歡和愛人親吻。", "E"],
+            ["有人不為了特別理由而送我禮物，我會覺得很開心。", "C"],
+          ],
+        ],
+        [
+          "27",
+          [
+            ["我喜歡聽到有人向我表示感謝。", "A"],
+            ["與人交談時，我喜歡對方注視我的眼睛。", "B"],
+          ],
+        ],
+        [
+          "28",
+          [
+            ["朋友或所愛的人送的禮物，我會特別珍惜。", "C"],
+            ["朋友和所愛的人跟我有肢體碰觸，那種感覺很好。", "E"],
+          ],
+        ],
+        [
+          "29",
+          [
+            ["有人熱心做我要求的事，我會覺得被愛。", "D"],
+            ["聽到別人對我表示感激，我會覺得被愛。", "A"],
+          ],
+        ],
+        [
+          "30",
+          [
+            ["我每天都需要身體的接觸。", "E"],
+            ["我每天都需要肯定我的言詞。", "A"],
+          ],
+        ],
+      ]);
+
+      const dul = document.querySelector("ul");
+      dul.innerHTML = Array.from(questions)
+        .map(
+          ([key, value]) =>
+            `<li>
+                <div class="question">
+                    <div class="title">${key}</div>
+                    <div class="radio_group">
+                        <label>
+                            <input type="radio" name="q${key}" value="${value[0]?.[1]}">
+                            <div class="radio_tick">${value[0]?.[0]}<span style="color: red">${value[0]?.[1]}</span></div>
+                        </label>
+                        <label>
+                            <input type="radio" name="q${key}" value="${value[1]?.[1]}">
+                            <div class="radio_tick">${value[1]?.[0]}<span style="color: red">${value[1]?.[1]}</span></div>
+                        </label>
+                    </div>
+                </div>
+            </li>
+            `
+        )
+        .join("");
+      dul.addEventListener("click", (event) => {
+        // console.log("event", event.target.value);
+        wordsOfAffirmationValue = 0;
+        qualityTimeValue = 0;
+        receivingGiftValue = 0;
+        actsOfServiceValue = 0;
+        physicalTouchValue = 0;
+
+        Array.from(document.querySelectorAll("input[name]:checked")).forEach(
+          (item) => {
+            String(item.defaultValue) === "A"
+              ? wordsOfAffirmationValue++
+              : String(item.defaultValue) === "B"
+              ? qualityTimeValue++
+              : String(item.defaultValue) === "C"
+              ? receivingGiftValue++
+              : String(item.defaultValue) === "D"
+              ? actsOfServiceValue++
+              : String(item.defaultValue) === "E" && physicalTouchValue++;
+          }
+        );
+
+        const energeticStressStyle = (
+          wordsOfAffirmationVal,
+          qualityTimeVal,
+          receivingGiftVal,
+          actsOfServiceVal,
+          physicalTouchVal
+        ) => {
+          switch (
+            Math.max(
+              wordsOfAffirmationVal,
+              qualityTimeVal,
+              receivingGiftVal,
+              actsOfServiceVal,
+              physicalTouchVal
+            )
+          ) {
+            case wordsOfAffirmationVal:
+              return "肯定的話語";
+            case qualityTimeVal:
+              return "有品質的互動時間";
+            case receivingGiftVal:
+              return "收受禮物";
+            case actsOfServiceVal:
+              return "服務的行動";
+            case physicalTouchVal:
+              return "肢體接觸";
+          }
+        };
+        document.getElementsByClassName("wordsOfAffirmation")[0].innerHTML =
+          wordsOfAffirmationValue;
+        document.getElementsByClassName("qualityTime")[0].innerHTML =
+          qualityTimeValue;
+        document.getElementsByClassName("receivingGift")[0].innerHTML =
+          receivingGiftValue;
+        document.getElementsByClassName("actsOfService")[0].innerHTML =
+          actsOfServiceValue;
+        document.getElementsByClassName("physicalTouch")[0].innerHTML =
+          physicalTouchValue;
+
+        document.getElementsByClassName(
+          "values_result"
+        )[0].innerHTML = `您最喜歡的愛的語言是: ${energeticStressStyle(
+          wordsOfAffirmationValue,
+          qualityTimeValue,
+          receivingGiftValue,
+          actsOfServiceValue,
+          physicalTouchValue
+        )}`;
+      });
+    </script>
+  </body>
+</html>
