@@ -1,0 +1,13 @@
+export const ADD_JSONDATA = 'add_jsondata'
+export const ADD_NEWPRODUCT = 'add_newProduct'
+export const ADD_BESTSELLER = 'add_bestSeller'
+export const PLACE_SEARCHITEM = 'place_searchItem'
+export const ADD_TRACKITEM = 'add_trackItem'
+export const PLACE_TRACKITEM = 'place_trackItem'
+export const REMOVE_TRACKITEM = 'remove_trackItem'
+export const IS_CHECKED = 'is_checked'
+export const IS_FIRST = 'is_first'
+export const IS_LOADING = 'is_loading'
+export const ERR = 'err'
+
+export const SET_LANGUAGE = 'set_language'

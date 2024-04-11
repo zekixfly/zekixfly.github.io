@@ -1,0 +1,18 @@
+@import ../../style/extend
+.nav-link
+    display: block
+    text-decoration: none
+    color: darkgray   
+    margin: 20px 0 
+
+.active
+    font-weight: bold
+    color: black
+    border-left: 3px solid #50AEFE
+    padding-left: 30px
+    margin-left: -30px
+    @include breakpoint(sm-max)
+        padding-left: initial
+        margin-left: initial
+        border-left: none
+        border-bottom: 3px solid #50AEFE

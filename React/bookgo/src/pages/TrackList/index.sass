@@ -1,0 +1,120 @@
+@import ../../style/_extend
+
+$checkbox-width: 50px
+$cover-width: 150px
+$price-width: 80px
+$track-width: 150px
+$tracklist-title-height: 30px
+$track-item-title-height: 40px
+$track-item-footer-height: 40px
+
+.tracklist
+    
+    height: inherit
+    .track-item-content
+        display: flex
+        align-items: center
+        justify-content: center
+        height: calc(100% - $tracklist-title-height - $track-item-title-height - $track-item-footer-height )
+    ul
+        margin: 0
+        height: -webkit-fill-available
+        overflow: auto
+
+.tracklist-title
+    color: #50AEFE
+    // border-top: 3px solid lightgray
+    // background-color: #eee
+    padding: 0 5px
+    font-size: 20px
+    height: 30px
+
+.track-item-title
+    @extend %clearfix
+    border: 1px solid #ccc
+    @include breakpoint(sm-max)
+        display: flex
+        justify-content: space-evenly
+    div
+        float: left
+        text-align: center
+        font-size: 15px
+        font-weight: bold
+        height: $track-item-title-height
+        line-height: $track-item-title-height
+        background-color: #f8f8f8        
+        color: #666
+        
+.checkbox-title
+    width: $checkbox-width
+.cover-title
+    width: $cover-width
+.detail-title
+    width: calc(100% - $checkbox-width - $cover-width - $price-width - $track-width)
+    @include breakpoint(sm-max)
+        display: none
+.price-title
+    width: $price-width
+.action-title
+    width: $track-width
+    
+
+.track-item
+    @extend %clearfix
+    border-bottom: 1px solid lightgray
+    padding: 15px 0
+    div
+        text-align: center
+    .book-checkbox
+        width: $checkbox-width
+        float: left        
+    .book-cover
+        width: $cover-width
+        float: left
+        text-align: center
+        img
+            width: auto
+            height: inherit
+    .book-detail
+        width: calc(100% - $checkbox-width - $cover-width - $price-width - $track-width)
+        float: left
+        @include breakpoint(sm-max)
+            display: none
+        .title
+            padding-top: 0
+            text-align: left
+    .book-price
+        width: $price-width
+        float: left
+        .price
+            color: #D93800
+            font-size: 20px
+            i
+                font-size: 12px
+                color: black
+    .book-track
+        width: $track-width
+        float: left
+        @include breakpoint(sm-max)
+            width: min-content
+
+.track-item-footer
+    display: flex
+    align-items: center
+    justify-content: space-between
+    font-size: 15px
+    font-weight: bold
+    height: $track-item-footer-height
+    line-height: $track-item-footer-height
+    background-color: #f8f8f8        
+    color: #666
+    border: 1px solid #ccc
+    padding: 0 10px
+    @include breakpoint(sm-max)
+        height: auto
+    .total-detail
+        white-space: break-spaces
+        .total-number, .total-amount
+            color: #D93800
+            font-size: 20px
+

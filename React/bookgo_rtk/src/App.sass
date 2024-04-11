@@ -1,0 +1,22 @@
+@import ./style/extend
+    
+ul
+    list-style: none
+    padding: 0px
+html,body
+    font-family: monospace,serif
+    background-color: #D6DCE1
+    padding: 15px
+    @include breakpoint(sm-max)
+        padding: 0
+.bookgo-wrap
+    background-color: #fff
+    border-radius: 30px
+    position: absolute
+    top: 45px
+    right: 100px
+    bottom: 45px
+    left: 100px
+    @include breakpoint(sm-max)
+        position: static
+        border-radius: initial
