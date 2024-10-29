@@ -1,22 +1,21 @@
-const
-  dayjs = require('dayjs');
+const dayjs = require("dayjs");
 
 dayjs
-  .extend(require('dayjs/plugin/localizedFormat'))
-  .extend(require('dayjs/plugin/relativeTime'));
+  .extend(require("dayjs/plugin/localizedFormat"))
+  .extend(require("dayjs/plugin/relativeTime"));
 
-const
-  dayjsLocales = { // dayjs sometimes don't use the right format!
-    'en-GB': 'en-gb',
-    // 'en-US': 'en',
-  };
+const dayjsLocales = {
+  // dayjs sometimes don't use the right format!
+  "en-GB": "en-gb",
+  // 'en-US': 'en',
+};
 
-Object.values(dayjsLocales).forEach(locale => require(`dayjs/locale/${locale}`));
-
+Object.values(dayjsLocales).forEach((locale) =>
+  require(`dayjs/locale/${locale}`)
+);
 
 module.exports = {
-
-  dateFormat: function (date, format = 'LLL', locale = this.ctx.site.locale) {
+  dateFormat: function (date, format = "LLL", locale = this.ctx.site.locale) {
     return dayjs(date).locale(dayjsLocales[locale]).format(format);
   },
 
@@ -25,6 +24,5 @@ module.exports = {
   },
 
   dateISO: (date) => dayjs(date).toISOString(),
-  dateRSS: (date) => dayjs(date).format('ddd, D MMM YYYY HH:mm:ss ZZ')
-
+  dateRSS: (date) => dayjs(date).format("ddd, D MMM YYYY HH:mm:ss ZZ"),
 };

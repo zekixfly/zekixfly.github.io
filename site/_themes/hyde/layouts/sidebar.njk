@@ -1,19 +1,36 @@
-  <div role="region" class="sidebar">
-    <div class="container sidebar-sticky">
-      <div class="sidebar-about">
-        <h1><a href="/">{{ site.title }}</a></h1>
-        <p class="lead">{{ site.tagline }}</p>
-      </div>
-
-      <nav class="sidebar-nav">
-        <a class="sidebar-nav-item{% if page.url == '/' %} active{% endif %}" href="/">Home</a>
-        {% for item in collections.pages %}
-        <a class="sidebar-nav-item{% if page.url == item.url %} active{% endif %}" href="{{ item.url }}">{{ item.data.title }}</a>
-        {% endfor %}
-        <a class="sidebar-nav-item" href="{{ pkg.homepage }}" rel="noopener" target="_blank">GitHub project</a>
-        <span class="sidebar-nav-item">Currently v{{ pkg.version }}</span>
-      </nav>
-
-      <p>&copy; {{ site.time | dateFormat('YYYY') }} All rights reserved.</p>
+<div role="region" class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1><a href="/">{{ site.title }}</a></h1>
+      <p class="lead">{{ site.tagline }}</p>
     </div>
+
+    <nav class="sidebar-nav">
+      <li class="sidebar-nav-item{% if page.url == '/' %} active{% endif %}">
+        <a href="/">Posts</a>
+      </li>
+
+      {% for item in collections.pages | sort(attribute='data.order') %}
+      <li
+        class="sidebar-nav-item{% if page.url == item.url %} active{% endif %}"
+      >
+        <a href="{{ item.url }}">{{ item.data.title }}</a>
+      </li>
+      {% endfor %} {#
+      <a
+        class="sidebar-nav-item"
+        href="{{ pkg.homepage }}"
+        rel="noopener"
+        target="_blank"
+        >GitHub project</a
+      >
+      <span class="sidebar-nav-item">Currently v{{ pkg.version }}</span> #}
+    </nav>
+
+    <p class="copyright">
+      {# &copy; Copyright {{ site.time | date: '%Y' }} | Rhadow's Tech Blog |
+      All rights reserved #} &copy; Copyright 2024-{{ site.time |
+      dateFormat('YYYY') }} | Zeki Chang | All rights reserved
+    </p>
   </div>
+</div>

@@ -1,7 +1,7 @@
 module.exports = {
-  title: "ECBS",
-  tagline: "Eleventy Classic Blog Starter",
-  url: process.env.URL || 'https://ecbs.com',
+  title: "Zeki's Note",
+  tagline: "Do not ignore your intuition. Sometime, it's always right.",
+  url: process.env.URL || "https://zekixfly.github.io/",
   time: Date.now(),
   locale: "en-GB",
 };

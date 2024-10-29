@@ -1,15 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ site.locale }}">
-{% include "head.njk" %}
-<body class="theme-base-0b">
+  {% include "head.njk" %}
+  <body class="theme-base-bluebird">
+    {% include "navbar.njk" %} {% include "sidebar.njk" %}
 
-{% include "sidebar.njk" %}
-
-  <div role="main" class="content container">
-{% block content %}{{ content | safe }}{% endblock %}
-  </div>
-
-  {% block Scripts %}
-  {% endblock %}
-</body>
+    <div role="main" class="content container">
+      {% block content %} {{ content | safe }} {% endblock %}
+    </div>
+    {% block Scripts %} {% endblock %}
+  </body>
 </html>

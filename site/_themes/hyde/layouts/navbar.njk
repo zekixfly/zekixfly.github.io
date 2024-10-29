@@ -1,0 +1,16 @@
+<div class="navbar">
+  <h1>
+    <a class="home-logo" href="./"> {{ site.title }} </a>
+  </h1>
+
+  <nav>
+    <li class="navbar-nav-item{% if page.url == '/' %} active{% endif %}">
+      <a href="./">Posts</a>
+    </li>
+    {% for item in collections.pages | sort(attribute='data.order') %}
+    <li class="navbar-nav-item{% if page.url == item.url %} active{% endif %}">
+      <a href="./{{ item.url }}">{{ item.data.title }}</a>
+    </li>
+    {% endfor %}
+  </nav>
+</div>

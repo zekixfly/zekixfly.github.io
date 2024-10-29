@@ -1,16 +1,13 @@
 ---
 title: "About"
-#spell-checker: disable
+order: 3
 ---
-Lorem ipsum dolor sit amet in ipsum nullam neque aliquam mauris iusto vestibulum tincidunt in convallis etiam sagittis vestibulum sed arcu id massa aliquet curabitur aenean commodo.
 
-Dui maecenas laboris. Nec quis nunc enim est eros vestibulum elit soluta. Aenean aenean ut. Urna sollicitudin volutpat. Aliquam dictum non. Faucibus nunc volutpat. Nunc in in. Nec ut lacus eu ut praesent vitae at aliquet lorem aliquam laoreet. Ultricies accumsan vitae aliquam quam in ac nec nunc. Faucibus eros sit. Imperdiet egestas quam. Facere in duis nisl ultricies fermentum. Quisque et dicta. Rhoncus molestie erat. A tempor rhoncus. Nulla ac vitae. Nec posuere habitant rutrum tincidunt eleifend vel non tincidunt.
+<div class="about">
+歡迎光臨 Zeki's Note。這裡是專門用來紀錄與 JavaScript 方面相關的筆記小站。
+將會把一些自己覺得重要或是需要複習的東西紀錄上來，也順便分享給大家，如果有些不準確的地方，還煩請留言討論告知，感謝！
 
-* Libero ac vulputate.
-* Feugiat rhoncus aliquam.
-* Felis suspendisse in molestie vel molestie pharetra ut nunc in cras esse.
-* Aliquet ut sociosqu at tortor hendrerit commodo morbi at vestibulum urna platea ante velit scelerisque.
-* Gravida sem in metus sapien vehicula tortor nulla nunc.
-* Habitant non sed.
+本部落格由 Eleventy 製作，並使用 eleventy-classic-blog-starter 這個以 [Hyde](https://github.com/TigersWay/eleventy-classic-blog-starter) 的經典樣式作為基礎樣式，並加以改造。而改造部份則參考了 [Rhadow](https://rhadow.github.io/) 與 [René Winkelmeyer](https://blog.winkelmeyer.com/) 的部落格版型製作而成的！因此，非常感謝兩位部落格主的先鋒開創，讓我有了參考的模板，感恩！！
+{% include "signature.njk" %}
 
-Donec sem sed. Congue erat porta iaculis volutpat accumsan ac cras id rhoncus ut dignissim accumsan purus wisi et vitae cubilia. Neque in in. In lacus dolor. Sit risus praesent.
+</div>

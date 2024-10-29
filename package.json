@@ -10,22 +10,23 @@
     "hyde-theme"
   ],
   "version": "2.0.1",
+  "private": true,
+  "homepage": "./",
   "license": "MIT",
-  "author": "Ben Michaud <ben@tigersway.net>",
+  "author": "Zeki <zekixfly@hotmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TigersWay/eleventy-classic-blog-starter.git"
+    "url": "git+https://github.com/zekixfly/zekixfly.github.io.git"
   },
-  "homepage": "https://github.com/TigersWay/eleventy-classic-blog-starter/#readme",
   "scripts": {
     "start": "NODE_ENV=development concurrently -c auto npm:dev:* --kill-others",
     "prestart": "rm -rf ./public",
     "dev:11ty": "eleventy --serve --incremental --quiet",
-    "dev:css": "postcss site/_themes/$npm_package_config_theme/css/styles.css -o public/css/styles.min.css -w",
+    "dev:css": "postcss site/_themes/$npm_package_config_theme/css/custom.css -o public/css/custom.min.css -w",
     "build": "npm run build:css && npm run build:11ty",
     "prebuild": "rm -rf ./build",
     "build:11ty": "NODE_ENV=production eleventy --output build --quiet --pathprefix $PATHPREFIX",
-    "build:css": "NODE_ENV=production postcss site/_themes/$npm_package_config_theme/css/styles.css -o site/_themes/$npm_package_config_theme/css/styles.min.css -m",
+    "build:css": "NODE_ENV=production postcss site/_themes/$npm_package_config_theme/css/custom.css -o site/_themes/$npm_package_config_theme/css/custom.min.css -m",
     "prod-preview": "npx http-server build -o --gzip --brotli"
   },
   "config": {
