@@ -8,7 +8,7 @@
   <div class="post-tags">
     Tags: {% for tag in tags %}
     <a
-      href="/tags/{{ tag }}"
+      href="/tags/{{ tag | lowercase }}"
       rel="tooltip"
       title='View posts tagged with "{{ tag }}"'
     >
