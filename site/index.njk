@@ -98,13 +98,13 @@ meta:
 
 <div class="pagination">
   {% if pagination.href.previous %}
-  <a class="pagination-item newer" href="./{{pagination.href.previous}}"
+  <a class="pagination-item newer" href="{{pagination.href.previous}}"
     >Newer Posts</a
   >
   {% else %}
   <span class="pagination-item newer">Newer Posts</span>
   {% endif %} {% if pagination.href.next %}
-  <a class="pagination-item older" href="./{{pagination.href.next}}"
+  <a class="pagination-item older" href="{{pagination.href.next}}"
     >Older Posts</a
   >
   {% else %}
