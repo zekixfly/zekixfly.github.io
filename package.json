@@ -19,15 +19,15 @@
     "url": "git+https://github.com/zekixfly/zekixfly.github.io.git"
   },
   "scripts": {
-    "start": "NODE_ENV=development concurrently -c auto npm:dev:* --kill-others",
+    "start": "cross-env NODE_ENV=development concurrently -c auto npm:dev:* --kill-others",
     "prestart": "rm -rf ./public",
     "dev:11ty": "eleventy --serve --incremental --quiet",
-    "dev:css": "postcss site/_themes/$npm_package_config_theme/css/custom.css -o public/css/custom.min.css -w",
+    "dev:css": "cross-var postcss site/_themes/$npm_package_config_theme/css/custom.css -o public/css/custom.min.css -w",
     "build": "npm run build:css && npm run build:11ty",
     "prebuild": "rm -rf ./build",
-    "build:11ty": "NODE_ENV=production eleventy --output build --quiet --pathprefix $PATHPREFIX",
-    "build:css": "NODE_ENV=production postcss site/_themes/$npm_package_config_theme/css/custom.css -o site/_themes/$npm_package_config_theme/css/custom.min.css -m",
-    "prod-preview": "npx http-server build -o --gzip --brotli"
+    "build:11ty": "cross-var cross-env NODE_ENV=production eleventy --output build --quiet --pathprefix $PATHPREFIX",
+    "build:css": "cross-var cross-env NODE_ENV=production postcss site/_themes/$npm_package_config_theme/css/custom.css -o site/_themes/$npm_package_config_theme/css/custom.min.css -m",
+    "prod-peview": "npx http-server build -o --gzip --brotli"
   },
   "config": {
     "theme": "hyde"
@@ -35,6 +35,8 @@
   "devDependencies": {
     "@11ty/eleventy": "2.0.0",
     "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
+    "cross-var": "^1.1.0",
     "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
     "fast-glob": "^3.2.12",
