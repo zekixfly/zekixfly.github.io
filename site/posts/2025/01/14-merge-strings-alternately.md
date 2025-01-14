@@ -14,10 +14,12 @@ tags: [VanillaJS, LeetCode]
  * @param {string} word2
  * @return {string}
  */
-let mergeAlternately = function(word1, word2) {
+let mergeAlternately = (word1, word2) => {
     if (word1.length < 1 || word2.length > 100) {
         return 'sorry, Words length has error!'; 
     }
+    word1 = word1.toLowerCase();
+    word2 = word2.toLowerCase();
     let i = 0;
     let maxLength = Math.max(word1.length, word2.length);
     let mergedArray = [];
