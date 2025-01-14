@@ -5,8 +5,7 @@ tags: [VanillaJS, LeetCode]
 #spell-checker: disable
 ---
 
-> LeetCode題目: [1768. Merge Strings Alternately
-](https://leetcode.com/problems/merge-strings-alternately/description/?envType=study-plan-v2&envId=leetcode-75)
+> LeetCode題目: [1768. Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately/description/?envType=study-plan-v2&envId=leetcode-75)
 
 **My solution:**
 ```js
@@ -15,7 +14,7 @@ tags: [VanillaJS, LeetCode]
  * @param {string} word2
  * @return {string}
  */
-var mergeAlternately = function(word1, word2) {
+let mergeAlternately = function(word1, word2) {
     if (word1.length < 1 || word2.length > 100) {
         return 'sorry, Words length has error!'; 
     }
