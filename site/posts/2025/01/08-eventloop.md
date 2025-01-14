@@ -9,7 +9,7 @@ tags: [VanillaJS]
 
 > 參考出處: [https://www.explainthis.io/zh-hant/swe/what-is-event-loop](https://www.explainthis.io/zh-hant/swe/what-is-event-loop)
 
-![test](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop/the_javascript_runtime_environment_example.svg)
+![javascript event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop/the_javascript_runtime_environment_example.svg)
 
 
 - **堆疊(Stack): 後進先出(Last In First Out, LIFO)**
