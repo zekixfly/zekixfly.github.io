@@ -16,7 +16,7 @@ tags: [VanillaJS, LeetCode]
  */
 let canPlaceFlowers = (flowerbed, n) => {
     let cloneFlowerbed = [...flowerbed], last = n;
-    if(cloneFlowerbed.length < 1 || cloneFlowerbed.length > 2*Math.pow(10,4)) return 'cloneFlowerbed\'s length error!';
+    if(cloneFlowerbed.length < 1 || cloneFlowerbed.length > 2*Math.pow(10,4)) return 'flowerbed\'s length error!';
     if(last < 0 || last > cloneFlowerbed.length) return 'new flowers\' length error';
     for(let i= 0; i<cloneFlowerbed.length; i++) {
         if(![0,1].includes(cloneFlowerbed[i])) return 'flowerbed\'s array just only type 0 or 1'
