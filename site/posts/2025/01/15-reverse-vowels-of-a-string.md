@@ -1,6 +1,6 @@
 ---
 title: "Reverse Vowels of a String"
-date: 2025-01-15 17:03:00 +7
+date: 2025-01-15 22:43:00 +7
 tags: [VanillaJS, LeetCode]
 #spell-checker: disable
 ---
@@ -16,12 +16,21 @@ tags: [VanillaJS, LeetCode]
 let reverseVowels = s => {
     if(s.length < 1 || s.length > 3*Math.pow(10,5)) return 'string length has error';
     const vowels = ['a','e','i','o','u'];
-    let recordVowels = [], stringArray = Array.from(s);
-    for(let i=0; i<s.length ;i++) {
-        vowels.includes(stringArray[i].toLowerCase()) && recordVowels.push([i, stringArray[i]]);
-    }
-    for(let i=0; i<recordVowels.length; i++) {
-        stringArray[recordVowels[i][0]] = recordVowels[(recordVowels.length-1)-i][1];
+    let tmp = '', stringArray = Array.from(s), left = 0, right = s.length - 1;
+    while(left < right) {
+        if(vowels.includes(stringArray[left].toLowerCase())) {
+            if(vowels.includes(stringArray[right].toLowerCase())) {
+                tmp = stringArray[left];
+                stringArray[left] = stringArray[right];
+                stringArray[right] = tmp;
+                left++;
+                right--;
+            }else {
+                right--;
+            }
+        }else {
+            left++;
+        }
     }
     return stringArray.join('');
 };
