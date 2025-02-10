@@ -1,7 +1,7 @@
 ---
 title: "Longest Substring Without Repeating Characters"
 date: 2023-06-05 16:57:00 +7
-tags: [VanillaJS, LeetCode]
+tags: [LeetCode]
 #spell-checker: disable
 ---
 

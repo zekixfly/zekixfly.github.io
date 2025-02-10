@@ -1,7 +1,7 @@
 ---
 title: "Two Sum"
 date: 2023-06-01 09:32:00 +7
-tags: [VanillaJS, LeetCode]
+tags: [LeetCode]
 #spell-checker: disable
 ---
 

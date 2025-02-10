@@ -1,7 +1,7 @@
 ---
 title: "Kids With the Greatest Number of Candies"
 date: 2025-01-14 16:50:00 +7
-tags: [VanillaJS, LeetCode]
+tags: [LeetCode]
 #spell-checker: disable
 ---
 

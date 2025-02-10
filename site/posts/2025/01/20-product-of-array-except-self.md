@@ -1,7 +1,7 @@
 ---
 title: "Product of Array Except Self"
 date: 2025-01-20 15:18:00 +7
-tags: [VanillaJS, LeetCode]
+tags: [LeetCode]
 #spell-checker: disable
 ---
 

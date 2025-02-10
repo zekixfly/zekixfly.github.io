@@ -1,7 +1,7 @@
 ---
 title: "Longest Palindromic Substring"
 date: 2023-06-06 22:12:00 +7
-tags: [VanillaJS, LeetCode]
+tags: [LeetCode]
 #spell-checker: disable
 ---
 

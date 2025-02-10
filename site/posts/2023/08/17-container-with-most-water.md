@@ -1,7 +1,7 @@
 ---
 title: "Container With Most Water"
 date: 2023-08-17 21:20:00 +7
-tags: [VanillaJS, LeetCode]
+tags: [LeetCode]
 #spell-checker: disable
 ---
 

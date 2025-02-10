@@ -1,7 +1,7 @@
 ---
 title: "Reverse Vowels of a String"
 date: 2025-01-15 22:43:00 +7
-tags: [VanillaJS, LeetCode]
+tags: [LeetCode]
 #spell-checker: disable
 ---
 
