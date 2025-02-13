@@ -1,6 +1,6 @@
 ---
 title: "bind和call、apply的差別"
-date: 2021-04-11 12:14:00 +7
+date: 2021-04-11 12:14:00 +8
 tags: [VanillaJS]
 #spell-checker: disable
 ---

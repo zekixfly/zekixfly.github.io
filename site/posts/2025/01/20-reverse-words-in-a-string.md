@@ -1,6 +1,6 @@
 ---
 title: "Reverse Words in a String"
-date: 2025-01-20 11:01:00 +7
+date: 2025-01-20 11:01:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---

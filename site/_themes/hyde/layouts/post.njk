@@ -1,7 +1,7 @@
 {% extends "default.njk" %} {% block content %}
 <article class="post" data-input-path="{{ page.filePathStem }}">
   <h1 class="post-title">{{ title }}</h1>
-  <time class="post-date" datetime="{{ date | dateISO }}"
+  <time class="post-date" title="{{ date | dateRSS }}"
     >{{ date | dateFormat('LL') }}</time
   >
   {{ content | safe | trim }}

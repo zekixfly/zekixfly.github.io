@@ -1,6 +1,6 @@
 ---
 title: "三元運算子 (Conditional operator)"
-date: 2021-04-09 21:03:00 +7
+date: 2021-04-09 21:03:00 +8
 tags: [VanillaJS]
 #spell-checker: disable
 ---

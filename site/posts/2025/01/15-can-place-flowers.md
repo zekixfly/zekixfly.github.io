@@ -1,6 +1,6 @@
 ---
 title: "Can Place Flowers"
-date: 2025-01-15 15:02:00 +7
+date: 2025-01-15 15:02:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---

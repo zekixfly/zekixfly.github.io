@@ -1,6 +1,6 @@
 ---
 title: "Find the Highest Altitude"
-date: 2025-02-12 16:57:00 +7
+date: 2025-02-12 16:57:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---

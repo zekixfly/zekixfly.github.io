@@ -1,6 +1,6 @@
 ---
 title: "while與do-while的差別"
-date: 2021-04-09 16:21:00 +7
+date: 2021-04-09 16:21:00 +8
 tags: [VanillaJS]
 #spell-checker: disable
 ---

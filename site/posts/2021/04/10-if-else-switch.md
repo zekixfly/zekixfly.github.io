@@ -1,6 +1,6 @@
 ---
 title: "可替代if-else-if及switch的寫法"
-date: 2021-04-10 00:05:00 +7
+date: 2021-04-10 00:05:00 +8
 tags: [VanillaJS]
 #spell-checker: disable
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Maximum Number of Vowels in a Substring of Given Length"
-date: 2025-02-10 14:05:00 +7
+date: 2025-02-10 14:05:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---

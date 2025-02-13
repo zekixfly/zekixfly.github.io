@@ -1,6 +1,6 @@
 ---
 title: "Merge Strings Alternately"
-date: 2025-01-14 10:20:00 +7
+date: 2025-01-14 10:20:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---

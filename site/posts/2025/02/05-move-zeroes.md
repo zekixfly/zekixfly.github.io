@@ -1,6 +1,6 @@
 ---
 title: "Move Zeroes"
-date: 2025-02-05 09:50:00 +7
+date: 2025-02-05 09:50:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---

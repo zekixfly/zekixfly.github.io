@@ -1,6 +1,6 @@
 ---
 title: "Find Pivot Index"
-date: 2025-02-13 11:05:00 +7
+date: 2025-02-13 11:05:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---

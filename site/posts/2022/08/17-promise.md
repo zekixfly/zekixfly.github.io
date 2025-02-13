@@ -1,6 +1,6 @@
 ---
 title: "解決callback hell的新方法Promise"
-date: 2022-08-17 18:47:00 +7
+date: 2022-08-17 18:47:00 +8
 tags: [VanillaJS]
 #spell-checker: disable
 ---

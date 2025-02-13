@@ -1,6 +1,6 @@
 ---
 title: "Maximum Average Subarray I"
-date: 2025-02-10 10:34:00 +7
+date: 2025-02-10 10:34:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---

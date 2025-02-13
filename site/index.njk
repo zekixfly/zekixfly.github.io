@@ -33,7 +33,7 @@ meta:
       {% endfor %}
     </div>
     <div class="post-info">
-      <time class="post-date" datetime="{{ post.date | dateISO }}">
+      <time class="post-date" data-time="{{ post.date | dateRelative }}">
         <svg
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"

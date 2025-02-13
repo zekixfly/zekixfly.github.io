@@ -198,6 +198,8 @@
 }
 .theme-base-bluebird .post .post-info .post-date {
   margin-top: initial;
+  cursor: default;
+  position: relative;
 }
 .theme-base-bluebird .post .post-info .post-date .calendar-icon {
   height: 1.25rem;
@@ -214,6 +216,7 @@
   margin-left: 3rem;
   width: 2rem;
 }
+.theme-base-bluebird .post .post-info .post-date:hover::before,
 .theme-base-bluebird .post .post-info .post-readingtime:hover::before {
   content: "";
   position: absolute;
@@ -224,6 +227,7 @@
   border-style: solid;
   border-color: transparent transparent black transparent;
 }
+.theme-base-bluebird .post .post-info .post-date:hover::after,
 .theme-base-bluebird .post .post-info .post-readingtime:hover::after {
   content: attr(data-words);
   position: absolute;
@@ -238,10 +242,19 @@
   text-align: center;
   font-size: 12px;
 }
+.theme-base-bluebird .post .post-info .post-date:hover::after {
+  content: attr(data-time);
+  bottom: -53px;
+  right: calc(-50% + 30px);
+}
 @media (min-width: 58em) {
+
   .theme-base-bluebird .post .post-info .post-readingtime:hover::before {
     top: 15px;
     right: 15px;
+  }
+  .theme-base-bluebird .post .post-info .post-date:hover::after {
+    right: calc(-50% + 37.5px);
   }
   .theme-base-bluebird .post .post-info .post-readingtime:hover::after {
     bottom: -35px;

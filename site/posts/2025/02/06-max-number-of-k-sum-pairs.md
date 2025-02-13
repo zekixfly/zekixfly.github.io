@@ -1,6 +1,6 @@
 ---
 title: "Max Number of K-Sum Pairs"
-date: 2025-02-06 16:32:00 +7
+date: 2025-02-06 16:32:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Reverse Vowels of a String"
-date: 2025-01-15 22:43:00 +7
+date: 2025-01-15 22:43:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---
