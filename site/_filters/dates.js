@@ -6,6 +6,7 @@ dayjs
 
 const dayjsLocales = {
   // dayjs sometimes don't use the right format!
+  "zh-TW": "zh-tw",
   "en-GB": "en-gb",
   // 'en-US': 'en',
 };
