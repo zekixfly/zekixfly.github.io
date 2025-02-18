@@ -3,5 +3,5 @@ module.exports = {
   tagline: "Do not ignore your intuition. Sometime, it's always right.",
   url: process.env.URL || "https://zekixfly.github.io/",
   time: Date.now(),
-  locale: "zh-TW",
+  locale: "en-GB",
 };
