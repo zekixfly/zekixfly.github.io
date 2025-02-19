@@ -1,6 +1,6 @@
 ---
 title: "Unique Number of Occurrences"
-date: 2025-02-18 11:23:00 +8
+date: 2025-02-19 10:13:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---
@@ -13,16 +13,11 @@ tags: [LeetCode]
  * @param {number[]} arr
  * @return {boolean}
  */
-Array.prototype.findAll = function(fn) {
-    let elementList = [];
-    this.forEach((item, idx) => fn(item) === true && elementList.push(item));
-    return elementList;
-}
 let uniqueOccurrences = arr => {
     let lengthList = [];
     const arrSet = new Set(arr);
     for (const setV of arrSet) {
-        let elementLength = arr.findAll(v => v === setV).length;
+        let elementLength = arr.filter(v => v === setV).length;
         if(lengthList.includes(elementLength)) {
             return false;
         } else {
