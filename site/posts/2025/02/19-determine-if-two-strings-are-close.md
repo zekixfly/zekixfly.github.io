@@ -1,6 +1,6 @@
 ---
 title: "Determine if Two Strings Are Close"
-date: 2025-02-19 14:03:00 +8
+date: 2025-02-19 15:50:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---
@@ -16,11 +16,13 @@ tags: [LeetCode]
  */
 let closeStrings = (word1, word2) => {
     if(word1.length !== word2.length) return false;
-    const w1Set = new Set(word1), w2Set = new Set(word2);
-    if(!w1Set.isSupersetOf(w2Set)) return false;
-    let w1map = new Map(), w2map = new Map();
-    Array.from(word1).forEach(v => w1map.has(v) ? w1map.set(v,w1map.get(v)+1) : w1map.set(v,1));
-    Array.from(word2).forEach(v => w2map.has(v) ? w2map.set(v,w2map.get(v)+1) : w2map.set(v,1));
-    return w1map.values().toArray().sort((a,b)=> a-b).join('') === w2map.values().toArray().sort((a,b)=> a-b).join('');
+    const getData = word => {
+        let map = new Map();
+        Array.from(word).forEach(v => map.has(v) ? map.set(v, map.get(v)+1) : map.set(v, 1));
+        return [map.keys().toArray().sort((a,b) => a>b ? 1 : -1).join(''), map.values().toArray().sort((a,b) => a-b).join('')];        
+    }
+    const w1Data = getData(word1);
+    const w2Data = getData(word2);
+    return w1Data[0] === w2Data[0] && w1Data[1] === w2Data[1];
 };
 ```
