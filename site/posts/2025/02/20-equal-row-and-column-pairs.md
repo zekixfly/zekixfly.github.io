@@ -1,6 +1,6 @@
 ---
 title: "Equal Row and Column Pairs"
-date: 2025-02-20 15:15:00 +8
+date: 2025-02-20 15:27:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---
@@ -14,8 +14,9 @@ tags: [LeetCode]
  * @return {number}
  */
 let equalPairs = grid => {
-    let row = grid.map(item=>item.join()), column = [], total = 0;
-    grid.forEach((_,i) => column.push(grid.map(item => item[i]).join()));
+    let total = 0;
+    let row = grid.map(item=>item.join());
+    let column = grid.map((_,i) => grid.map(item => item[i]).join());
     const getMap = arrData => {
         let map = new Map();
         arrData.forEach(arrString => map.has(arrString) ? map.set(arrString, map.get(arrString)+1) : map.set(arrString, 1));
