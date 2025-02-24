@@ -1,7 +1,7 @@
 ---
 title: "Memoize"
 date: 2025-02-24 16:57:00 +8
-tags: [LeetCode]
+tags: [VanillaJS]
 #spell-checker: disable
 ---
 
