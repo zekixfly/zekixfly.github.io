@@ -1,6 +1,6 @@
 ---
 title: "Is Subsequence"
-date: 2025-03-17 10:36:00 +8
+date: 2025-03-17 14:13:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---
@@ -15,10 +15,10 @@ tags: [LeetCode]
  * @return {boolean}
  */
 let isSubsequence = (s, t) => {
-    let sPointer = 0;
-    for(let char of t) {
-        if(s[sPointer] === char) sPointer++;
-        if(sPointer === s.length) return true;
+    let sPointer = 0, tPointer = 0;
+    while(sPointer < s.length && tPointer < t.length) {
+        if(s[sPointer] === t[tPointer]) sPointer++;
+        tPointer++;
     }
     return sPointer === s.length;
 }
