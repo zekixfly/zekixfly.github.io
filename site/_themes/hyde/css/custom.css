@@ -143,6 +143,11 @@
     padding-top: 5.5rem;
   }
 }
+@media screen and (min-width: 48em) {
+  .theme-base-bluebird .content {
+    max-width: max-content;
+  }
+}
 /* End of Navbar */
 
 /* Index css */
