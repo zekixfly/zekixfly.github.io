@@ -25,7 +25,12 @@
 .theme-base-bluebird .sidebar-nav a {
   text-decoration: none;
 }
-.theme-base-bluebird .sidebar-nav > li:last-child::after {
+.theme-base-bluebird .sidebar-nav ul.sidebar-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.theme-base-bluebird .sidebar-nav ul > li:last-child::after {
   visibility: hidden;
   content: "";
   position: relative;
@@ -36,10 +41,12 @@
 }
 .theme-base-bluebird
   .sidebar-nav
+  ul
   > li.active:nth-child(1)
   ~ li:last-child::after,
 .theme-base-bluebird
   .sidebar-nav
+  ul
   > li.sidebar-nav-item:nth-child(1):hover
   ~ li:last-child::after {
   top: -5.25rem;
@@ -47,10 +54,12 @@
 }
 .theme-base-bluebird
   .sidebar-nav
+  ul
   > li.active:nth-child(2)
   ~ li:last-child::after,
 .theme-base-bluebird
   .sidebar-nav
+  ul
   > li.sidebar-nav-item:nth-child(2):hover
   ~ li:last-child::after {
   top: -3.5rem;
@@ -58,25 +67,28 @@
 }
 .theme-base-bluebird
   .sidebar-nav
+  ul
   > li.active:nth-child(3)
   ~ li:last-child::after,
 .theme-base-bluebird
   .sidebar-nav
+  ul
   > li.sidebar-nav-item:nth-child(3):hover
   ~ li:last-child::after {
   top: -1.75rem;
   visibility: visible;
 }
 
-.theme-base-bluebird .sidebar-nav > li.active:nth-child(4):last-child::after,
+.theme-base-bluebird .sidebar-nav ul > li.active:nth-child(4):last-child::after,
 .theme-base-bluebird
   .sidebar-nav
+  ul
   > li.sidebar-nav-item:nth-child(4):last-child:hover::after {
   top: 0rem;
   visibility: visible;
 }
 
-.theme-base-bluebird .sidebar-nav > * {
+.theme-base-bluebird .sidebar-nav ul > * {
   transition: transform 0.4s ease;
 }
 .theme-base-bluebird .content a {
@@ -253,7 +265,6 @@
   right: calc(-50% + 30px);
 }
 @media (min-width: 58em) {
-
   .theme-base-bluebird .post .post-info .post-readingtime:hover::before {
     top: 15px;
     right: 15px;
