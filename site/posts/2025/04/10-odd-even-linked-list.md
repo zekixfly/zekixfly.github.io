@@ -1,6 +1,6 @@
 ---
 title: "Odd Even Linked List"
-date: 2025-04-09 11:48:00 +8
+date: 2025-04-10 15:43:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---
