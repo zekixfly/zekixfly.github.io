@@ -1,6 +1,6 @@
 ---
 title: "Median of Two Sorted Arrays"
-date: 2025-04-14 15:09:00 +8
+date: 2025-04-14 15:17:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---
@@ -16,6 +16,7 @@ tags: [LeetCode]
  */
 let findMedianSortedArrays = (nums1, nums2) => {
     let merged = nums1.concat(nums2).sort((a, b) => a - b);
-    return (merged.length % 2 !== 0) ? merged[Math.round(merged.length/2)-1] : (merged[(merged.length/2)-1] + merged[(merged.length/2)])/2
+    const halfLen = merged.length/2;
+    return (merged.length % 2 !== 0) ? merged[Math.round(halfLen)-1] : (merged[halfLen-1] + merged[halfLen])/2;
 }
 ```
