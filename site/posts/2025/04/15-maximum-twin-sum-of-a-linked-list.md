@@ -1,6 +1,6 @@
 ---
 title: "Maximum Twin Sum of a Linked List"
-date: 2025-04-14 13:55:00 +8
+date: 2025-04-15 11:13:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---
@@ -21,15 +21,22 @@ tags: [LeetCode]
  * @return {number}
  */
 let pairSum = head => {
-    let stack = [];
     let max = 0;
-    while(head !== null) {
-        stack.push(head.val);
-        head = head.next;
+    let node = null;
+    let slow = head;
+    let fast = head;
+    while(fast !== null && fast.next !== null) {
+        fast = fast.next.next;
+        const temp = slow.next;
+        slow.next = node;
+        node = slow;
+        slow = temp
     }
-    for(let i=0; i<stack.length/2; i++) {
-        max = Math.max(max, stack[i] + stack[stack.length-1-i])
+    while(slow !== null) {
+        max = Math.max(max, slow.val + node.val);
+        slow = slow.next;
+        node = node.next;
     }
     return max;
-};
+}
 ```
