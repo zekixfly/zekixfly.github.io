@@ -1,6 +1,6 @@
 ---
 title: "Roman to Integer"
-date: 2025-04-23 11:53:00 +8
+date: 2025-04-23 13:15:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---
@@ -27,7 +27,7 @@ let romanToInt = s => {
     for(const idx in s) {
         if(roman[s[idx]] <= roman[s[idx-1]] || idx == 0) {
             res += roman[s[idx]];
-        } else if (roman[s[idx]] > roman[s[idx-1]]) {
+        } else {
             res += roman[s[idx]] - roman[s[idx-1]]*2
         }
     }
