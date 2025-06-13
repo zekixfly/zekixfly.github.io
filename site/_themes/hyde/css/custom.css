@@ -34,7 +34,7 @@
   visibility: hidden;
   content: "";
   position: relative;
-  right: -13.2rem;
+  right: -10.9rem;
   pointer-events: none;
   border-right: solid 5px #005862;
   transition: top 0.5s ease;
@@ -49,7 +49,7 @@
   ul
   > li.sidebar-nav-item:nth-child(1):hover
   ~ li:last-child::after {
-  top: -5.25rem;
+  top: -7rem;
   visibility: visible;
 }
 .theme-base-bluebird
@@ -62,7 +62,7 @@
   ul
   > li.sidebar-nav-item:nth-child(2):hover
   ~ li:last-child::after {
-  top: -3.5rem;
+  top: -5.25rem;
   visibility: visible;
 }
 .theme-base-bluebird
@@ -75,15 +75,28 @@
   ul
   > li.sidebar-nav-item:nth-child(3):hover
   ~ li:last-child::after {
+  top: -3.5rem;
+  visibility: visible;
+}
+.theme-base-bluebird
+  .sidebar-nav
+  ul
+  > li.active:nth-child(4)
+  ~ li:last-child::after,
+.theme-base-bluebird
+  .sidebar-nav
+  ul
+  > li.sidebar-nav-item:nth-child(4):hover
+  ~ li:last-child::after {
   top: -1.75rem;
   visibility: visible;
 }
 
-.theme-base-bluebird .sidebar-nav ul > li.active:nth-child(4):last-child::after,
+.theme-base-bluebird .sidebar-nav ul > li.active:nth-child(5):last-child::after,
 .theme-base-bluebird
   .sidebar-nav
   ul
-  > li.sidebar-nav-item:nth-child(4):last-child:hover::after {
+  > li.sidebar-nav-item:nth-child(5):last-child:hover::after {
   top: 0rem;
   visibility: visible;
 }
@@ -157,7 +170,7 @@
 }
 @media screen and (min-width: 48em) {
   .theme-base-bluebird .content {
-    max-width: max-content;
+    max-width: -webkit-fill-available;
   }
 }
 /* End of Navbar */
@@ -170,7 +183,8 @@
 }
 .theme-base-bluebird .post:has(.archive),
 .theme-base-bluebird .post:has(.tags),
-.theme-base-bluebird .post:has(.about) {
+.theme-base-bluebird .post:has(.about),
+.theme-base-bluebird .post:has(.guestbook) {
   border-bottom: unset;
 }
 .theme-base-bluebird .post .post-excerptContent,
