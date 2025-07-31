@@ -24,7 +24,7 @@ meta:
     <div class="post-tags">
       Tags: {% for tag in post.data.tags %}
       <a
-        href="./tags/{{ tag | lowercase }}"
+        href="/tags/{{ tag | lowercase }}"
         rel="tooltip"
         title='View posts tagged with "{{ tag }}"'
       >
