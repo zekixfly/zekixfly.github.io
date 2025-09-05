@@ -1,6 +1,6 @@
 ---
 title: "Distribute Candies"
-date: 2025-09-05 11:52:00 +8
+date: 2025-09-05 14:19:00 +8
 tags: [LeetCode]
 #spell-checker: disable
 ---
@@ -14,9 +14,8 @@ tags: [LeetCode]
  * @return {number}
  */
 let distributeCandies = candyType => {
-    let types = new Set(candyType);
+    const types = new Set(candyType);
     const halfCandy = candyType.length / 2;
-    if(types.size >= halfCandy) return halfCandy;
-    else return types.size;
+    return types.size >= halfCandy ? halfCandy : types.size;
 };
 ```
