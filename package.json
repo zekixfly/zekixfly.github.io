@@ -20,11 +20,11 @@
   },
   "scripts": {
     "start": "cross-env NODE_ENV=development concurrently -c auto npm:dev:* --kill-others",
-    "prestart": "rm -rf ./public",
+    "prestart": "rimraf ./public",
     "dev:11ty": "eleventy --serve --incremental --quiet",
     "dev:css": "cross-var postcss site/_themes/$npm_package_config_theme/css/custom.css -o public/css/custom.min.css -w",
     "build": "npm run build:css && npm run build:11ty",
-    "prebuild": "rm -rf ./build",
+    "prebuild": "rimraf ./build",
     "build:11ty": "cross-var cross-env NODE_ENV=production eleventy --output build --quiet --pathprefix $PATHPREFIX",
     "build:css": "cross-var cross-env NODE_ENV=production postcss site/_themes/$npm_package_config_theme/css/custom.css -o site/_themes/$npm_package_config_theme/css/custom.min.css -m",
     "prod-peview": "npx http-server build -o --gzip --brotli"
@@ -51,7 +51,8 @@
     "postcss-cli": "^10.1.0",
     "postcss-csso": "^6.0.1",
     "postcss-import": "^15.1.0",
-    "postcss-url": "^10.1.3"
+    "postcss-url": "^10.1.3",
+    "rimraf": "^6.0.1"
   },
   "dependencies": {
     "@fontsource/abril-fatface": "^4.5.9",
